@@ -24,24 +24,39 @@ import UIKit
 
 protocol UITableSceneHeaderProtocol {
     var delegate: ActionCenterDelegate? { get set }
-    var contentView: UIView! { get }
-    
     func prepare(viewModel: ViewModel)
 }
 
 open class UITableSceneHeader<T: ViewModel> : UIView, UITableSceneHeaderProtocol {
     var delegate: ActionCenterDelegate?
     
-    @IBOutlet public weak var contentView: UIView!
+    public required init() {
+        super.init(frame: .zero)
+        loadFromNib()
+    }
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        commonInit()
+        loadFromNib()
     }
     
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
-        commonInit()
+        loadFromNib()
+    }
+    
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        guard let contentView = subviews.first else {
+            return
+        }
+        
+        for view in contentView.subviews {
+            if let label = view as? UILabel, label.numberOfLines > 0 {
+                label.preferredMaxLayoutWidth = label.bounds.width
+            }
+        }
     }
     
     public func post(action name: String) {
@@ -58,10 +73,5 @@ open class UITableSceneHeader<T: ViewModel> : UIView, UITableSceneHeaderProtocol
         }
         
         prepare(viewModel: headerViewModel)
-    }
-    
-    private func commonInit() {
-        Bundle.main.loadNibNamed("\(type(of: self))", owner: self, options: nil)
-        addSubview(contentView)
     }
 }

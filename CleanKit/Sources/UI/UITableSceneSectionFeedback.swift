@@ -22,14 +22,5 @@
 
 import UIKit
 
-extension UITableView {
-    func layoutHeaderView() {
-        let headerView = tableHeaderView!
-        
-        headerView.setNeedsLayout()
-        headerView.layoutIfNeeded()
-        
-        headerView.frame.size.height = headerView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
-        tableHeaderView = headerView
-    }
+open class UITableSceneSectionFeedback : UITableViewCell {
 }

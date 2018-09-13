@@ -47,6 +47,11 @@ open class UISectionedTableScene<TPresenter: Presenter<TInteractorProtocol>, TIn
         }
     }
     
+    open override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.layoutHeaderView()
+    }
+    
     open override func setup(viewModelCenter: ViewModelCenter, actionCenter: ActionCenter) {
         viewModelCenter.observe(background: true) { [weak self] (collection: TaggedViewModelCollection) in
             guard let strongSelf = self, let dataSource = strongSelf.dataSource else {
@@ -74,11 +79,10 @@ open class UISectionedTableScene<TPresenter: Presenter<TInteractorProtocol>, TIn
     }
     
     public func set<T: UITableSceneHeader<TViewModel>, TViewModel: ViewModel>(header: T.Type) {
-        sceneHeader = T()
+        let headerView = T()
         
-        tableView.tableHeaderView = sceneHeader!.contentView
-        
-        //tableView.setAndLayout(headerView: sceneHeader!.contentView)
+        tableView.tableHeaderView = headerView
+        sceneHeader = headerView
         
         presenter.viewModelCenter.observe { [weak self] (viewModel: TViewModel) in
             guard let sceneHeader = self?.sceneHeader else {
@@ -89,15 +93,17 @@ open class UISectionedTableScene<TPresenter: Presenter<TInteractorProtocol>, TIn
         }
     }
     
-    public func set<T: SectionHeaderViewModel>(sectionHeader header: UITableSceneSectionHeader<T>.Type, footer: UITableSceneSectionFooter.Type) {
+    public func set<T: SectionHeaderViewModel>(sectionHeader header: UITableSceneSectionHeader<T>.Type, footer: UITableSceneSectionFooter.Type, feedback: UITableSceneSectionFeedback.Type) {
         guard let tableView = tableView, let dataSource = dataSource else {
             fatalError("Table has not yet been initialized")
         }
         
+        dataSource.set(sectionHeader: header, footer: footer, feedback: feedback)
+        
         tableView.register(UINib(nibName: "\(footer)", bundle: nil), forHeaderFooterViewReuseIdentifier: "\(footer)")
         tableView.register(UINib(nibName: "\(header)", bundle: nil), forHeaderFooterViewReuseIdentifier: "\(header)")
         
-        dataSource.set(sectionHeader: header, footer: footer)
+        tableView.register(UINib(nibName: "\(feedback)", bundle: nil), forCellReuseIdentifier: "\(feedback)")
         
         presenter.viewModelCenter.observe(background: true) { [weak self] (viewModel: T) in
             guard let strongSelf = self, let dataSource = strongSelf.dataSource else {

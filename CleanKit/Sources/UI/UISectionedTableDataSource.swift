@@ -30,7 +30,6 @@ class UISectionedTableDataSource : NSObject, UITableViewDataSource, UITableViewD
     
     struct SectionItem {
         var viewModel: SectionHeaderViewModel
-        var hasLoading: Bool
         var items: [ViewModelItem]
     }
     
@@ -38,7 +37,7 @@ class UISectionedTableDataSource : NSObject, UITableViewDataSource, UITableViewD
     private lazy var sectionsIndexes: [Int : Int] = [:]
     private lazy var identifiers: [String : String] = [:]
     
-    private var sectionIdentifiers: (header: String, footer: String)?
+    private var sectionIdentifiers: (header: String, footer: String, feedback: String)?
     private var actionDelegate: ActionCenterDelegate
     
     init(actionDelegate: ActionCenterDelegate) {
@@ -72,9 +71,9 @@ class UISectionedTableDataSource : NSObject, UITableViewDataSource, UITableViewD
         identifiers["\(viewModel)"] = "\(cell)"
     }
     
-    func set<T: SectionHeaderViewModel>(sectionHeader header: UITableSceneSectionHeader<T>.Type, footer: UITableSceneSectionFooter.Type) {
+    func set<T: SectionHeaderViewModel>(sectionHeader header: UITableSceneSectionHeader<T>.Type, footer: UITableSceneSectionFooter.Type, feedback: UITableSceneSectionFeedback.Type) {
         precondition(sectionIdentifiers == nil, "You can not change the existing section footer and header")
-        sectionIdentifiers = (header: "\(header)", footer: "\(footer)")
+        sectionIdentifiers = (header: "\(header)", footer: "\(footer)", feedback: "\(feedback)")
     }
     
     func updateOrCreate(sectionViewModel viewModel: SectionHeaderViewModel) {
@@ -86,7 +85,7 @@ class UISectionedTableDataSource : NSObject, UITableViewDataSource, UITableViewD
         else {
             let index = sections.count
             
-            sections[index] = SectionItem(viewModel: viewModel, hasLoading: true, items: [])
+            sections[index] = SectionItem(viewModel: viewModel,  items: [])
             sectionsIndexes[hashValue] = index
         }
     }
@@ -101,7 +100,7 @@ class UISectionedTableDataSource : NSObject, UITableViewDataSource, UITableViewD
         }
         
         let count = section.items.count
-        return count == 0 && section.hasLoading ? 1 : count
+        return count == 0 && section.viewModel.hasFeedback ? 1 : count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -110,11 +109,10 @@ class UISectionedTableDataSource : NSObject, UITableViewDataSource, UITableViewD
         }
         
         guard let item = section.items[safe: indexPath.row] else {
-            if indexPath.row == 0 && section.hasLoading {
-                let cell = UITableViewCell(frame: CGRect(x: 0, y: 0, width: 300, height: 430))
-                cell.backgroundColor = .red
-                
-                return cell
+            if indexPath.row == 0 && section.viewModel.hasFeedback {
+                if let feedback = sectionIdentifiers?.feedback, let feedbackCell = tableView.dequeueReusableCell(withIdentifier: feedback) {
+                    return feedbackCell
+                }
             }
             
             return UITableViewCell(frame: .zero)
@@ -152,7 +150,7 @@ class UISectionedTableDataSource : NSObject, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let sectionIdentifiers = sectionIdentifiers, let section = sections[section], (section.items.count > 0 || section.hasLoading) else {
+        guard let sectionIdentifiers = sectionIdentifiers, let section = sections[section], (section.items.count > 0 || section.viewModel.hasFeedback) else {
             return nil
         }
         

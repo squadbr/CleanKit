@@ -22,14 +22,17 @@
 
 import UIKit
 
-extension UITableView {
-    func layoutHeaderView() {
-        let headerView = tableHeaderView!
+extension UIView {
+    func loadFromNib() {
+        let contentView = UINib(nibName: "\(type(of: self))", bundle: Bundle(for: type(of: self))).instantiate(withOwner: self, options: nil)[0] as! UIView
         
-        headerView.setNeedsLayout()
-        headerView.layoutIfNeeded()
+        insertSubview(contentView, at: 0)
         
-        headerView.frame.size.height = headerView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
-        tableHeaderView = headerView
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        
+        contentView.topAnchor.constraint(equalTo: self.topAnchor, constant: CGFloat(0)).isActive = true
+        contentView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: CGFloat(0)).isActive = true
+        contentView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: CGFloat(0)).isActive = true
+        contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: CGFloat(0)).isActive = true
     }
 }
