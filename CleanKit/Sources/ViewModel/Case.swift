@@ -22,29 +22,4 @@
 
 import Foundation
 
-open class Presenter<TInteractor> {
-    private let presenterInteractor: TInteractor
-    let viewModelCenter = ViewModelCenter()
-    
-    public var interactor: TInteractor {
-        get {
-            precondition(!Thread.isMainThread, "You can not access the interactor from the main thread")
-            return presenterInteractor
-        }
-    }
-    
-    public required init(interactor: TInteractor) {
-        self.presenterInteractor = interactor
-    }
-    
-    public func post<T: ViewModel>(viewModel: T) {
-        viewModelCenter.post(viewModel: viewModel)
-    }
-    
-    public func post<T: Case>(case: T) {
-        viewModelCenter.post(case: `case`)
-    }
-    
-    open func didLoad() {
-    }
-}
+public protocol Case { }
