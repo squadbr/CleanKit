@@ -43,7 +43,7 @@ open class UISectionedTableScene<TPresenter: Presenter<TInteractorProtocol>, TIn
             tableView.sectionHeaderHeight = UITableViewAutomaticDimension
             tableView.rowHeight = UITableViewAutomaticDimension
             
-            setup()
+            setupTable()
         }
     }
     
@@ -52,7 +52,7 @@ open class UISectionedTableScene<TPresenter: Presenter<TInteractorProtocol>, TIn
         tableView.layoutHeaderView()
     }
     
-    open override func setup(viewModelCenter: ViewModelCenter, actionCenter: ActionCenter) {
+    open override func setup(viewModelCenter: ViewModelCenter) {
         viewModelCenter.observe(background: true) { [weak self] (collection: TaggedViewModelCollection) in
             guard let strongSelf = self, let dataSource = strongSelf.dataSource else {
                 return
@@ -69,13 +69,13 @@ open class UISectionedTableScene<TPresenter: Presenter<TInteractorProtocol>, TIn
         }
     }
     
-    public func register<TCell: UITableSceneCell<TViewModel>, TViewModel: TaggedViewModel>(cell: TCell.Type, viewModel: TViewModel.Type) {
+    public func bind<TCell: UITableSceneCell<TViewModel>, TViewModel: TaggedViewModel>(cell: TCell.Type, to viewModel: TViewModel.Type) {
         guard let tableView = tableView, let dataSource = dataSource else {
             fatalError("Table has not yet been initialized")
         }
         
         tableView.register(UINib(nibName: "\(cell)", bundle: nil), forCellReuseIdentifier: "\(cell)")
-        dataSource.register(cell: cell, viewModel: viewModel)
+        dataSource.bind(cell: cell, to: viewModel)
     }
     
     public func set<T: UITableSceneHeader<TViewModel>, TViewModel: ViewModel>(header: T.Type) {
@@ -93,7 +93,7 @@ open class UISectionedTableScene<TPresenter: Presenter<TInteractorProtocol>, TIn
         }
     }
     
-    public func set<T: SectionHeaderViewModel>(sectionHeader header: UITableSceneSectionHeader<T>.Type, footer: UITableSceneSectionFooter.Type, feedback: UITableSceneSectionFeedback.Type) {
+    public func set<T: SectionViewModel>(sectionHeader header: UITableSceneSectionHeader<T>.Type, footer: UITableSceneSectionFooter.Type, feedback: UITableSceneSectionFeedback.Type) {
         guard let tableView = tableView, let dataSource = dataSource else {
             fatalError("Table has not yet been initialized")
         }
@@ -122,8 +122,8 @@ open class UISectionedTableScene<TPresenter: Presenter<TInteractorProtocol>, TIn
         super.actionCenter.observe(action: name, execute: execute)
     }
     
-    open func setup() {
-        assertionFailure("You need to implement the method \"setup()\" to prepare this table")
+    open func setupTable() {
+        assertionFailure("You need to implement the method \"setupTable()\" to prepare this table")
     }
     
     func actionCenter(postAction name: String, tag: Int) {

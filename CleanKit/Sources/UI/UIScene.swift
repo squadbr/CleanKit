@@ -41,7 +41,10 @@ open class UIScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor: Inte
         DispatchQueue.global(qos: .background).async { self.presenter.didLoad() }
     }
     
-    open func setup(viewModelCenter: ViewModelCenter, actionCenter: ActionCenter) {
+    open func setup(actionCenter: ActionCenter) {
+    }
+    
+    open func setup(viewModelCenter: ViewModelCenter) {
     }
     
     func commonInit(interactor: InteractorProtocol, parameter: Any?) {
@@ -59,6 +62,7 @@ open class UIScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor: Inte
             parameterizedPresenter.set(parameter: parameter)
         }
         
-        setup(viewModelCenter: presenter.viewModelCenter, actionCenter: actionCenter)
+        setup(actionCenter: actionCenter)
+        setup(viewModelCenter: presenter.viewModelCenter)
     }
 }

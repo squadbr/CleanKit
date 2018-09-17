@@ -29,7 +29,7 @@ protocol UITableSceneSectionHeaderProtocol {
     func prepare(viewModel: TaggedViewModel) -> UITableViewHeaderFooterView
 }
 
-open class UITableSceneSectionHeader<T: SectionHeaderViewModel> : UITableViewHeaderFooterView, UITableSceneSectionHeaderProtocol {
+open class UITableSceneSectionHeader<T: SectionViewModel> : UITableViewHeaderFooterView, UITableSceneSectionHeaderProtocol {
     var delegate: ActionCenterDelegate?
     
     public func post(action name: String) {

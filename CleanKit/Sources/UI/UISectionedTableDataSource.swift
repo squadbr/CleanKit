@@ -29,7 +29,7 @@ class UISectionedTableDataSource : NSObject, UITableViewDataSource, UITableViewD
     }
     
     struct SectionItem {
-        var viewModel: SectionHeaderViewModel
+        var viewModel: SectionViewModel
         var items: [ViewModelItem]
     }
     
@@ -57,26 +57,26 @@ class UISectionedTableDataSource : NSObject, UITableViewDataSource, UITableViewD
                 section.items.append(ViewModelItem(identifier: identifier, item: item))
             }
             else {
-                assertionFailure("The \(viewModel) view model is not registered")
+                assertionFailure("The \(viewModel) view model is not binded")
             }
         }
         
         sections[index] = section
     }
     
-    func register<TCell: UITableSceneCell<TViewModel>, TViewModel: TaggedViewModel>(cell: TCell.Type, viewModel: TViewModel.Type) {
+    func bind<TCell: UITableSceneCell<TViewModel>, TViewModel: TaggedViewModel>(cell: TCell.Type, to viewModel: TViewModel.Type) {
         let current = identifiers["\(viewModel)"]
         
-        precondition(current == nil, "The \(viewModel) is registered for \(current!)")
+        precondition(current == nil, "The \(viewModel) is binded for \(current!)")
         identifiers["\(viewModel)"] = "\(cell)"
     }
     
-    func set<T: SectionHeaderViewModel>(sectionHeader header: UITableSceneSectionHeader<T>.Type, footer: UITableSceneSectionFooter.Type, feedback: UITableSceneSectionFeedback.Type) {
+    func set<T: SectionViewModel>(sectionHeader header: UITableSceneSectionHeader<T>.Type, footer: UITableSceneSectionFooter.Type, feedback: UITableSceneSectionFeedback.Type) {
         precondition(sectionIdentifiers == nil, "You can not change the existing section footer and header")
         sectionIdentifiers = (header: "\(header)", footer: "\(footer)", feedback: "\(feedback)")
     }
     
-    func updateOrCreate(sectionViewModel viewModel: SectionHeaderViewModel) {
+    func updateOrCreate(sectionViewModel viewModel: SectionViewModel) {
         let hashValue = viewModel.tag
         
         if let index = sectionsIndexes[hashValue] {

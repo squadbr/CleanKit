@@ -22,9 +22,9 @@
 
 import Foundation
 
-public typealias SectionHeaderViewModel = TaggedViewModel & SectionHeaderModel
+public typealias SectionViewModel = TaggedViewModel & SectionModel
 
-public protocol SectionHeaderModel {
+public protocol SectionModel {
     var hasFeedback: Bool { get }
     var hasFooter: Bool { get }
 }
