@@ -43,6 +43,7 @@
 		13E08B7F214B187C00F866E7 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E08B7E214B187C00F866E7 /* UITableView.swift */; };
 		13E08B81214B1A2E00F866E7 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E08B80214B1A2E00F866E7 /* UIView.swift */; };
 		13E08B84214C153900F866E7 /* SectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E08B83214C153900F866E7 /* SectionViewModel.swift */; };
+		F70010D3214C10C500DA749E /* Case.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70010D2214C10C500DA749E /* Case.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		13E08B7E214B187C00F866E7 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		13E08B80214B1A2E00F866E7 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		13E08B83214C153900F866E7 /* SectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionViewModel.swift; sourceTree = "<group>"; };
+		F70010D2214C10C500DA749E /* Case.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Case.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				13E08B83214C153900F866E7 /* SectionViewModel.swift */,
 				139D5FEA213D738B009901EA /* TaggedViewModel.swift */,
 				139D5FE9213D738B009901EA /* TaggedViewModelCollection.swift */,
+				F70010D2214C10C500DA749E /* Case.swift */,
 				139D5FEB213D738B009901EA /* ViewModel.swift */,
 				139D5FEC213D738B009901EA /* ViewModelCenter.swift */,
 			);
@@ -276,6 +279,7 @@
 				139D5FE7213D737F009901EA /* UITableSceneCell.swift in Sources */,
 				139D5FE6213D737F009901EA /* UIScene.swift in Sources */,
 				13E08B79214ACC6E00F866E7 /* UITableSceneSectionFeedback.swift in Sources */,
+				F70010D3214C10C500DA749E /* Case.swift in Sources */,
 				139D5FEF213D738B009901EA /* ViewModel.swift in Sources */,
 				139D5FF7213D73A9009901EA /* ActionCenter.swift in Sources */,
 				139D5FF6213D73A9009901EA /* Interactor.swift in Sources */,
