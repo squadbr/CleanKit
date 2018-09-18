@@ -23,4 +23,11 @@
 import UIKit
 
 open class UITableSceneSectionFeedback : UITableViewCell {
+    open func prepare(message: String) {
+        assertionFailure("You need to implement the method \"prepare(message:)\" to prepare this section feedback")
+    }
+    
+    open func prepareLoading() {
+        assertionFailure("You need to implement the method \"prepareLoading()\" to prepare this section feedback")
+    }
 }

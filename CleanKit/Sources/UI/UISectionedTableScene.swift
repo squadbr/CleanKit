@@ -58,13 +58,29 @@ open class UISectionedTableScene<TPresenter: Presenter<TInteractorProtocol>, TIn
                 return
             }
             
+            // temporarty only
             strongSelf.semaphore.wait()
             defer { strongSelf.semaphore.signal() }
             
             dataSource.append(collection: collection)
             
             DispatchQueue.main.async {
+                // temporarty only
                 strongSelf.tableView.reloadData()
+            }
+        }
+    }
+    
+    open override func setup(resultCenter: ResultCenter) {
+        resultCenter.observeAnySectionMessage { [weak self] tag, message in
+            guard let strongSelf = self, let dataSource = strongSelf.dataSource else {
+                return
+            }
+            
+            dataSource.updateOrCreate(sectionMessage: message, forSectionTag: tag)
+            
+            if let section = dataSource.index(forSectionTag: tag), let cell = strongSelf.tableView.cellForRow(at: IndexPath(item: 0, section: section)) as? UITableSceneSectionFeedback {
+                cell.prepare(message: message)
             }
         }
     }
@@ -113,13 +129,10 @@ open class UISectionedTableScene<TPresenter: Presenter<TInteractorProtocol>, TIn
             dataSource.updateOrCreate(sectionViewModel: viewModel)
             
             DispatchQueue.main.async {
+                // temporarty only
                 strongSelf.tableView.reloadData()
             }
         }
-    }
-    
-    public func observe(action name: String, execute: @escaping((_ tag: Int) -> Void)) {
-        super.actionCenter.observe(action: name, execute: execute)
     }
     
     open func setupTable() {
@@ -127,6 +140,6 @@ open class UISectionedTableScene<TPresenter: Presenter<TInteractorProtocol>, TIn
     }
     
     func actionCenter(postAction name: String, tag: Int) {
-        super.actionCenter.post(action: name, tag: tag)
+        actionCenter.post(action: name, tag: tag)
     }
 }

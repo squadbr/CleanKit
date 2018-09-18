@@ -30,13 +30,6 @@ public final class ViewModelCenter {
     
     private var items = [ObjectIdentifier : Any]()
     
-    public func observe<C: Case>(case: C, execute: @escaping(() -> Void)) {
-        let identifier = ObjectIdentifier(C.self)
-        
-        assert(items[identifier] == nil, "You can not observe the \(type(of: C.self)) more than once")
-        items[identifier] = execute
-    }
-    
     public func observe<T: ViewModel>(execute: @escaping((T) -> Void)) {
         observe(background: false, execute: execute)
     }
@@ -46,16 +39,6 @@ public final class ViewModelCenter {
         
         assert(items[identifier] == nil, "You can not observe the \(type(of: T.self)) more than once")
         items[identifier] = Item(background: background, execute: execute)
-    }
-    
-    func post<C: Case>(case: C) {
-        if let observer = items[ObjectIdentifier(C.self)] as? () -> Void {
-            precondition(!Thread.isMainThread, "You can not access the observer from the main thread")
-            
-            DispatchQueue.main.async { observer() }
-        } else {
-            assertionFailure("The \(type(of: C.self)) was not observed")
-        }
     }
     
     func post<T: ViewModel>(viewModel: T) {
@@ -73,5 +56,4 @@ public final class ViewModelCenter {
             assertionFailure("The \(type(of: T.self)) was not observed")
         }
     }
-    
 }

@@ -44,6 +44,9 @@ open class UIScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor: Inte
     open func setup(actionCenter: ActionCenter) {
     }
     
+    open func setup(resultCenter: ResultCenter) {
+    }
+    
     open func setup(viewModelCenter: ViewModelCenter) {
     }
     
@@ -63,6 +66,7 @@ open class UIScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor: Inte
         }
         
         setup(actionCenter: actionCenter)
+        setup(resultCenter: presenter.resultCenter)
         setup(viewModelCenter: presenter.viewModelCenter)
     }
 }

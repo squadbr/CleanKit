@@ -30,6 +30,7 @@ class UISectionedTableDataSource : NSObject, UITableViewDataSource, UITableViewD
     
     struct SectionItem {
         var viewModel: SectionViewModel
+        var message: String?
         var items: [ViewModelItem]
     }
     
@@ -61,6 +62,7 @@ class UISectionedTableDataSource : NSObject, UITableViewDataSource, UITableViewD
             }
         }
         
+        section.message = nil
         sections[index] = section
     }
     
@@ -77,17 +79,31 @@ class UISectionedTableDataSource : NSObject, UITableViewDataSource, UITableViewD
     }
     
     func updateOrCreate(sectionViewModel viewModel: SectionViewModel) {
-        let hashValue = viewModel.tag
+        let tag = viewModel.tag
         
-        if let index = sectionsIndexes[hashValue] {
+        if let index = sectionsIndexes[tag] {
             sections[index]!.viewModel = viewModel
         }
         else {
             let index = sections.count
             
-            sections[index] = SectionItem(viewModel: viewModel,  items: [])
-            sectionsIndexes[hashValue] = index
+            sections[index] = SectionItem(viewModel: viewModel, message: nil, items: [])
+            sectionsIndexes[tag] = index
         }
+    }
+    
+    func updateOrCreate(sectionMessage message: String?, forSectionTag tag: Int) {
+        if let index = sectionsIndexes[tag] {
+            assert(sections[index]?.items.count == 0, "You can not display a message in a section with items")
+            sections[index]!.message = message
+        }
+        else {
+            assertionFailure("The section \(tag) tag was not exists")
+        }
+    }
+    
+    func index(forSectionTag tag: Int) -> Int? {
+        return sectionsIndexes[tag]
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -110,8 +126,15 @@ class UISectionedTableDataSource : NSObject, UITableViewDataSource, UITableViewD
         
         guard let item = section.items[safe: indexPath.row] else {
             if indexPath.row == 0 && section.viewModel.hasFeedback {
-                if let feedback = sectionIdentifiers?.feedback, let feedbackCell = tableView.dequeueReusableCell(withIdentifier: feedback) {
-                    return feedbackCell
+                if let feedback = sectionIdentifiers?.feedback, let cell = tableView.dequeueReusableCell(withIdentifier: feedback) as? UITableSceneSectionFeedback {
+                    if let message = section.message {
+                        cell.prepare(message: message)
+                    }
+                    else {
+                        cell.prepareLoading()
+                    }
+                    
+                    return cell
                 }
             }
             
