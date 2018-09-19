@@ -22,7 +22,7 @@
 
 import UIKit
 
-open class UISectionedTableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor: Interactor, TInteractorProtocol> : UIScene<TPresenter, TInteractor, TInteractorProtocol>, ActionCenterDelegate {
+open class UISectionedTableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor: Interactor, TInteractorProtocol> : UIScene<TPresenter, TInteractor, TInteractorProtocol> {
     private var dataSource: UISectionedTableDataSource?
     private var sceneHeader: UITableSceneHeaderProtocol?
     
@@ -137,9 +137,5 @@ open class UISectionedTableScene<TPresenter: Presenter<TInteractorProtocol>, TIn
     
     open func setupTable() {
         assertionFailure("You need to implement the method \"setupTable()\" to prepare this table")
-    }
-    
-    func actionCenter(postAction name: String, tag: Int) {
-        actionCenter.post(action: name, tag: tag)
     }
 }

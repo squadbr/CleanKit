@@ -29,8 +29,23 @@ protocol UITableSceneCellProtocol {
     func prepare(viewModel: ViewModel) -> UITableViewCell
 }
 
-open class UITableSceneCell<T: ViewModel> : UITableViewCell, UITableSceneCellProtocol {
+@IBDesignable
+open class UITableSceneCell<T: ViewModel> : UITableViewCell, UITableSceneCellProtocol, ActionDelegate {
     var delegate: ActionCenterDelegate?
+    
+    @IBInspectable public var touchActionName: String?
+    
+    open override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        selectionStyle = .none
+        focusStyle = .custom
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
+        
+        tapRecognizer.numberOfTapsRequired = 1
+        addGestureRecognizer(tapRecognizer)
+    }
     
     public func post(action name: String) {
         delegate?.actionCenter(postAction: name, tag: tag)
@@ -47,5 +62,13 @@ open class UITableSceneCell<T: ViewModel> : UITableViewCell, UITableSceneCellPro
         
         prepare(viewModel: cellViewModel)
         return self
+    }
+    
+    @objc fileprivate func didTap() {
+        guard let touchActionName = touchActionName else {
+            return
+        }
+        
+        delegate?.actionCenter(postAction: touchActionName, tag: tag)
     }
 }

@@ -20,12 +20,8 @@
 //  THE SOFTWARE.
 //
 
-import UIKit
+import Foundation
 
-open class UITableSceneSectionFooter : UITableViewHeaderFooterView, ActionDelegate {
-    var delegate: ActionCenterDelegate?
-    
-    public func post(action name: String) {
-        delegate?.actionCenter(postAction: name, tag: tag)
-    }
+public protocol ActionDelegate {
+    func post(action name: String)
 }

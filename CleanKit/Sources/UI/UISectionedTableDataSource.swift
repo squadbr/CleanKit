@@ -142,11 +142,9 @@ class UISectionedTableDataSource : NSObject, UITableViewDataSource, UITableViewD
         }
         
         if var cell = tableView.dequeueReusableCell(withIdentifier: item.identifier) as? UITableSceneCellProtocol {
-            if cell.delegate == nil {
-                cell.delegate = actionDelegate
-            }
-            
+            cell.delegate = actionDelegate
             cell.tag = item.item.tag
+            
             return cell.prepare(viewModel: item.item)
         }
         else {
@@ -160,11 +158,9 @@ class UISectionedTableDataSource : NSObject, UITableViewDataSource, UITableViewD
         }
         
         if let footer = tableView.dequeueReusableHeaderFooterView(withIdentifier: sectionIdentifiers.footer) as? UITableSceneSectionFooter {
-            if footer.delegate == nil {
-                footer.delegate = actionDelegate
-            }
-            
+            footer.delegate = actionDelegate
             footer.tag = section.viewModel.tag
+            
             return footer
         }
         
@@ -178,11 +174,9 @@ class UISectionedTableDataSource : NSObject, UITableViewDataSource, UITableViewD
         }
         
         if var header = tableView.dequeueReusableHeaderFooterView(withIdentifier: sectionIdentifiers.header) as? UITableSceneSectionHeaderProtocol {
-            if header.delegate == nil {
-                header.delegate = actionDelegate
-            }
-            
+            header.delegate = actionDelegate
             header.tag = section.viewModel.tag
+            
             return header.prepare(viewModel: section.viewModel)
         }
         

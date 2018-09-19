@@ -22,7 +22,7 @@
 
 import UIKit
 
-open class UIScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor: InteractorProtocol, TInteractorProtocol> : UIViewController {
+open class UIScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor: InteractorProtocol, TInteractorProtocol> : UIViewController, ActionCenterDelegate {
     let actionCenter = ActionCenter()
     public private(set) var presenter: TPresenter!
     
@@ -68,5 +68,9 @@ open class UIScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor: Inte
         setup(actionCenter: actionCenter)
         setup(resultCenter: presenter.resultCenter)
         setup(viewModelCenter: presenter.viewModelCenter)
+    }
+    
+    func actionCenter(postAction name: String, tag: Int) {
+        actionCenter.post(action: name, tag: tag)
     }
 }
