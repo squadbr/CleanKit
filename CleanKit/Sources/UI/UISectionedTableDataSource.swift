@@ -94,7 +94,7 @@ class UISectionedTableDataSource : NSObject, UITableViewDataSource, UITableViewD
     
     func updateOrCreate(sectionMessage message: String?, forTag tag: Int) {
         if let index = sectionsIndexes[tag] {
-            assert(sections[index]?.items.count == 0, "You can not display a message in a section with items")
+            sections[index]!.items = []
             sections[index]!.message = message
         }
         else {

@@ -63,6 +63,11 @@ open class UISectionedTableScene<TPresenter: Presenter<TInteractorProtocol>, TIn
             if let section = dataSource.sectionIndex(forTag: tag), let cell = strongSelf.tableView.cellForRow(at: IndexPath(item: 0, section: section)) as? UITableSceneSectionFeedback {
                 cell.prepareLoading()
             }
+            
+            DispatchQueue.safeSync {
+                // temporarty only
+                strongSelf.tableView.reloadData()
+            }
         }
         
         actionCenter.observeAnySectionMessage { [weak self] tag, message in
@@ -74,6 +79,11 @@ open class UISectionedTableScene<TPresenter: Presenter<TInteractorProtocol>, TIn
             
             if let section = dataSource.sectionIndex(forTag: tag), let cell = strongSelf.tableView.cellForRow(at: IndexPath(item: 0, section: section)) as? UITableSceneSectionFeedback {
                 cell.prepare(message: message)
+            }
+            
+            DispatchQueue.safeSync {
+                // temporarty only
+                strongSelf.tableView.reloadData()
             }
         }
     }
