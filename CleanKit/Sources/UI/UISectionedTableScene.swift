@@ -52,6 +52,32 @@ open class UISectionedTableScene<TPresenter: Presenter<TInteractorProtocol>, TIn
         tableView.layoutHeaderView()
     }
     
+    open override func setup(actionCenter: ActionCenter) {
+        actionCenter.observeAnySectionLoading { [weak self] tag in
+            guard let strongSelf = self, let dataSource = strongSelf.dataSource else {
+                return
+            }
+            
+            dataSource.updateOrCreate(sectionMessage: nil, forTag: tag)
+            
+            if let section = dataSource.sectionIndex(forTag: tag), let cell = strongSelf.tableView.cellForRow(at: IndexPath(item: 0, section: section)) as? UITableSceneSectionFeedback {
+                cell.prepareLoading()
+            }
+        }
+        
+        actionCenter.observeAnySectionMessage { [weak self] tag, message in
+            guard let strongSelf = self, let dataSource = strongSelf.dataSource else {
+                return
+            }
+            
+            dataSource.updateOrCreate(sectionMessage: message, forTag: tag)
+            
+            if let section = dataSource.sectionIndex(forTag: tag), let cell = strongSelf.tableView.cellForRow(at: IndexPath(item: 0, section: section)) as? UITableSceneSectionFeedback {
+                cell.prepare(message: message)
+            }
+        }
+    }
+    
     open override func setup(viewModelCenter: ViewModelCenter) {
         viewModelCenter.observe(background: true) { [weak self] (collection: TaggedViewModelCollection) in
             guard let strongSelf = self, let dataSource = strongSelf.dataSource else {
@@ -64,23 +90,9 @@ open class UISectionedTableScene<TPresenter: Presenter<TInteractorProtocol>, TIn
             
             dataSource.append(collection: collection)
             
-            DispatchQueue.main.async {
+            DispatchQueue.safeSync {
                 // temporarty only
                 strongSelf.tableView.reloadData()
-            }
-        }
-    }
-    
-    open override func setup(resultCenter: ResultCenter) {
-        resultCenter.observeAnySectionMessage { [weak self] tag, message in
-            guard let strongSelf = self, let dataSource = strongSelf.dataSource else {
-                return
-            }
-            
-            dataSource.updateOrCreate(sectionMessage: message, forSectionTag: tag)
-            
-            if let section = dataSource.index(forSectionTag: tag), let cell = strongSelf.tableView.cellForRow(at: IndexPath(item: 0, section: section)) as? UITableSceneSectionFeedback {
-                cell.prepare(message: message)
             }
         }
     }
@@ -128,7 +140,7 @@ open class UISectionedTableScene<TPresenter: Presenter<TInteractorProtocol>, TIn
             
             dataSource.updateOrCreate(sectionViewModel: viewModel)
             
-            DispatchQueue.main.async {
+            DispatchQueue.safeSync {
                 // temporarty only
                 strongSelf.tableView.reloadData()
             }

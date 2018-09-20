@@ -22,12 +22,18 @@
 
 import UIKit
 
-open class UITableSceneSectionFeedback : UITableViewCell {
+open class UITableSceneSectionFeedback : UITableViewCell, ActionDelegate {
+    var delegate: ActionCenterDelegate?
+    
     open func prepare(message: String) {
         assertionFailure("You need to implement the method \"prepare(message:)\" to prepare this section feedback")
     }
     
     open func prepareLoading() {
         assertionFailure("You need to implement the method \"prepareLoading()\" to prepare this section feedback")
+    }
+    
+    public func post(action name: String) {
+        delegate?.actionCenter(postAction: name, tag: tag)
     }
 }

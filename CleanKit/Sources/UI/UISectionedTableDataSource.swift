@@ -92,7 +92,7 @@ class UISectionedTableDataSource : NSObject, UITableViewDataSource, UITableViewD
         }
     }
     
-    func updateOrCreate(sectionMessage message: String?, forSectionTag tag: Int) {
+    func updateOrCreate(sectionMessage message: String?, forTag tag: Int) {
         if let index = sectionsIndexes[tag] {
             assert(sections[index]?.items.count == 0, "You can not display a message in a section with items")
             sections[index]!.message = message
@@ -102,7 +102,7 @@ class UISectionedTableDataSource : NSObject, UITableViewDataSource, UITableViewD
         }
     }
     
-    func index(forSectionTag tag: Int) -> Int? {
+    func sectionIndex(forTag tag: Int) -> Int? {
         return sectionsIndexes[tag]
     }
     
@@ -125,17 +125,22 @@ class UISectionedTableDataSource : NSObject, UITableViewDataSource, UITableViewD
         }
         
         guard let item = section.items[safe: indexPath.row] else {
-            if indexPath.row == 0 && section.viewModel.hasFeedback {
-                if let feedback = sectionIdentifiers?.feedback, let cell = tableView.dequeueReusableCell(withIdentifier: feedback) as? UITableSceneSectionFeedback {
-                    if let message = section.message {
-                        cell.prepare(message: message)
-                    }
-                    else {
-                        cell.prepareLoading()
-                    }
-                    
-                    return cell
+            if indexPath.row > 0 && !section.viewModel.hasFeedback {
+                return UITableViewCell(frame: .zero)
+            }
+            
+            if let feedback = sectionIdentifiers?.feedback, let cell = tableView.dequeueReusableCell(withIdentifier: feedback) as? UITableSceneSectionFeedback {
+                cell.delegate = actionDelegate
+                cell.tag = section.viewModel.tag
+                
+                if let message = section.message {
+                    cell.prepare(message: message)
                 }
+                else {
+                    cell.prepareLoading()
+                }
+                
+                return cell
             }
             
             return UITableViewCell(frame: .zero)

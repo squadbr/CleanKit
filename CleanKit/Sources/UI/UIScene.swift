@@ -23,7 +23,6 @@
 import UIKit
 
 open class UIScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor: InteractorProtocol, TInteractorProtocol> : UIViewController, ActionCenterDelegate {
-    let actionCenter = ActionCenter()
     public private(set) var presenter: TPresenter!
     
     public init(nibName: String? = nil, interactor: InteractorProtocol = TInteractor(), parameter: Any? = nil) {
@@ -38,13 +37,10 @@ open class UIScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor: Inte
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        DispatchQueue.global(qos: .background).async { self.presenter.didLoad() }
+        DispatchQueue.async { self.presenter.didLoad() }
     }
     
     open func setup(actionCenter: ActionCenter) {
-    }
-    
-    open func setup(resultCenter: ResultCenter) {
     }
     
     open func setup(viewModelCenter: ViewModelCenter) {
@@ -65,12 +61,11 @@ open class UIScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor: Inte
             parameterizedPresenter.set(parameter: parameter)
         }
         
-        setup(actionCenter: actionCenter)
-        setup(resultCenter: presenter.resultCenter)
+        setup(actionCenter: presenter.actionCenter)
         setup(viewModelCenter: presenter.viewModelCenter)
     }
     
     func actionCenter(postAction name: String, tag: Int) {
-        actionCenter.post(action: name, tag: tag)
+        presenter.actionCenter.post(action: name, tag: tag)
     }
 }

@@ -25,7 +25,7 @@ import Foundation
 open class Presenter<TInteractor> {
     private let presenterInteractor: TInteractor
     
-    let resultCenter = ResultCenter()
+    let actionCenter = ActionCenter()
     let viewModelCenter = ViewModelCenter()
     
     public var interactor: TInteractor {
@@ -43,25 +43,20 @@ open class Presenter<TInteractor> {
         viewModelCenter.post(viewModel: viewModel)
     }
     
-    public func post<T: TaggedViewModelCollection>(collection: T, emptyMessage message: String? = nil) {
-        if collection.count > 0 {
-            viewModelCenter.post(viewModel: collection)
-        }
-        else if let message = message {
-            resultCenter.post(message: message, forSectionTag: collection.tag)
-        }
-    }
-    
     public func post<T: RawRepresentable>(case: T) where T.RawValue == Int {
-        resultCenter.post(case: `case`)
+        actionCenter.post(case: `case`)
     }
     
     public func post(message: String) {
-        resultCenter.post(message: message)
+        actionCenter.post(message: message)
     }
     
-    public func post(message: String, forSectionTag tag: Int) {
-        resultCenter.post(message: message, forSectionTag: tag)
+    public func post(sectionMessage message: String, forTag tag: Int) {
+        actionCenter.post(sectionMessage: message, forTag: tag)
+    }
+    
+    public func post(sectionLoadingForTag tag: Int) {
+        actionCenter.post(sectionLoadingForTag: tag)
     }
     
     open func didLoad() {

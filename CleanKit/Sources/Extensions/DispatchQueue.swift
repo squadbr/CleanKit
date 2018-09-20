@@ -22,31 +22,22 @@
 
 import Foundation
 
-public final class ViewModelCenter {
-    private struct Item<T: ViewModel> {
-        var background: Bool
-        var execute: (T) -> Void
-    }
-    
-    private var items = [ObjectIdentifier : Any]()
-    
-    public func observe<T: ViewModel>(execute: @escaping((T) -> Void)) {
-        observe(background: false, execute: execute)
-    }
-    
-    func observe<T: ViewModel>(background: Bool, execute: @escaping((T) -> Void)) {
-        let identifier = ObjectIdentifier(T.self)
-        
-        assert(items[identifier] == nil, "You can not observe the \(type(of: T.self)) more than once")
-        items[identifier] = Item(background: background, execute: execute)
-    }
-    
-    func post<T: ViewModel>(viewModel: T) {
-        if let observer = items[ObjectIdentifier(T.self)] as? Item<T> {
-            DispatchQueue.safeSync { observer.execute(viewModel) }
+extension DispatchQueue {
+    static func safeSync(execute: () -> Void) {
+        if Thread.isMainThread {
+            execute()
         }
         else {
-            assertionFailure("The \(type(of: T.self)) was not observed")
+            DispatchQueue.main.sync(execute: execute)
+        }
+    }
+    
+    static func async(execute: @escaping () -> Void) {
+        if Thread.isMainThread {
+            DispatchQueue.global(qos: .userInitiated).async(execute: execute)
+        }
+        else {
+            execute()
         }
     }
 }

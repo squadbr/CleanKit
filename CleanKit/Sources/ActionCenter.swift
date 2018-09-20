@@ -24,18 +24,77 @@ import Foundation
 
 public final class ActionCenter {
     private lazy var items = [String : (tag: Int) -> Void]()
+    private lazy var caseItems = [ObjectIdentifier : Any]()
+    
+    private var messageExecute: Any?
+    private var sectionLoadingExecute: Any?
+    private var sectionMessageExecute: Any?
     
     public func observe(action name: String, execute: @escaping((_ tag: Int) -> Void)) {
         assert(items[name] == nil, "The \(name) action already exists")
         items[name] = execute
     }
     
+    public func observe<T: RawRepresentable>(case: T, execute: @escaping(() -> Void)) where T.RawValue == Int {
+        let identifier = ObjectIdentifier(T.self)
+        
+        assert(caseItems[identifier] == nil, "You can not observe the \(type(of: T.self)) more than once")
+        caseItems[identifier] = execute
+    }
+    
+    public func observeAnyMessage(execute: @escaping((String) -> Void)) {
+        assert(messageExecute == nil, "You can not observe the any message more than once")
+        messageExecute = execute
+    }
+    
+    public func observeAnySectionLoading(execute: @escaping((Int) -> Void)) {
+        assert(sectionLoadingExecute == nil, "You can not observe the any section loading more than once")
+        sectionLoadingExecute = execute
+    }
+    
+    public func observeAnySectionMessage(execute: @escaping((Int, String) -> Void)) {
+        assert(sectionMessageExecute == nil, "You can not observe the any section message more than once")
+        sectionMessageExecute = execute
+    }
+    
     func post(action name: String, tag: Int) {
         if let execute = items[name] {
-            execute(tag)
+            DispatchQueue.safeSync { execute(tag) }
         }
         else {
             assertionFailure("The \(name) action does not exist")
+        }
+    }
+    
+    func post<T: RawRepresentable>(case: T) where T.RawValue == Int {
+        if let execute = caseItems[ObjectIdentifier(T.self)] as? () -> Void {
+            DispatchQueue.safeSync { execute() }
+        } else {
+            assertionFailure("The \(type(of: T.self)) was not observed")
+        }
+    }
+    
+    func post(message: String) {
+        if let execute = messageExecute as? (String) -> Void {
+            DispatchQueue.safeSync { execute(message) }
+        } else {
+            assertionFailure("The message was not observed")
+        }
+    }
+    
+    func post(sectionLoadingForTag tag: Int) {
+        if let execute = sectionLoadingExecute as? (Int) -> Void {
+            DispatchQueue.safeSync { execute(tag) }
+        } else {
+            assertionFailure("The section loading was not observed")
+        }
+    }
+    
+    func post(sectionMessage message: String, forTag tag: Int) {
+        if let execute = sectionMessageExecute as? (Int, String) -> Void {
+            DispatchQueue.safeSync { execute(tag, message) }
+        } else {
+            assertionFailure("The section message was not observed")
         }
     }
 }
