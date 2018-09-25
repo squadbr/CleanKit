@@ -60,8 +60,7 @@ public final class ActionCenter {
     func post(action name: String, tag: Int) {
         if let execute = items[name] {
             DispatchQueue.safeSync { execute(tag) }
-        }
-        else {
+        } else {
             assertionFailure("The \(name) action does not exist")
         }
     }

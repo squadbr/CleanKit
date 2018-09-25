@@ -28,7 +28,7 @@ protocol UITableSceneHeaderProtocol {
 }
 
 open class UITableSceneHeader<T: ViewModel> : UIView, UITableSceneHeaderProtocol {
-    var delegate: ActionCenterDelegate?
+    weak var delegate: ActionCenterDelegate?
     
     public required init() {
         super.init(frame: .zero)

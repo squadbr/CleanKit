@@ -44,8 +44,7 @@ public final class ViewModelCenter {
     func post<T: ViewModel>(viewModel: T) {
         if let observer = items[ObjectIdentifier(T.self)] as? Item<T> {
             DispatchQueue.safeSync { observer.execute(viewModel) }
-        }
-        else {
+        } else {
             assertionFailure("The \(type(of: T.self)) was not observed")
         }
     }

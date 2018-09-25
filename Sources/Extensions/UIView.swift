@@ -24,7 +24,7 @@ import UIKit
 
 extension UIView {
     func loadFromNib() {
-        let contentView = UINib(nibName: "\(type(of: self))", bundle: Bundle(for: type(of: self))).instantiate(withOwner: self, options: nil)[0] as! UIView
+        guard let contentView = UINib(nibName: "\(type(of: self))", bundle: Bundle(for: type(of: self))).instantiate(withOwner: self, options: nil)[0] as? UIView else { return }
         
         insertSubview(contentView, at: 0)
         

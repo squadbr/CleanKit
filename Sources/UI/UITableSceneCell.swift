@@ -31,7 +31,7 @@ protocol UITableSceneCellProtocol {
 
 @IBDesignable
 open class UITableSceneCell<T: ViewModel> : UITableViewCell, UITableSceneCellProtocol, ActionDelegate {
-    var delegate: ActionCenterDelegate?
+    weak var delegate: ActionCenterDelegate?
     
     @IBInspectable public var touchActionName: String?
     

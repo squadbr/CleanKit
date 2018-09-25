@@ -22,6 +22,6 @@
 
 import Foundation
 
-public protocol ActionDelegate {
+public protocol ActionDelegate: class {
     func post(action name: String)
 }

@@ -26,8 +26,7 @@ extension DispatchQueue {
     static func safeSync(execute: () -> Void) {
         if Thread.isMainThread {
             execute()
-        }
-        else {
+        } else {
             DispatchQueue.main.sync(execute: execute)
         }
     }
@@ -35,8 +34,7 @@ extension DispatchQueue {
     static func async(execute: @escaping () -> Void) {
         if Thread.isMainThread {
             DispatchQueue.global(qos: .userInitiated).async(execute: execute)
-        }
-        else {
+        } else {
             execute()
         }
     }

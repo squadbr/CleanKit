@@ -29,10 +29,8 @@ open class Presenter<TInteractor> {
     let viewModelCenter = ViewModelCenter()
     
     public var interactor: TInteractor {
-        get {
-            precondition(!Thread.isMainThread, "You can not access the interactor from the main thread")
-            return presenterInteractor
-        }
+        precondition(!Thread.isMainThread, "You can not access the interactor from the main thread")
+        return presenterInteractor
     }
     
     public required init(interactor: TInteractor) {
@@ -61,4 +59,5 @@ open class Presenter<TInteractor> {
     
     open func didLoad() {
     }
+    
 }

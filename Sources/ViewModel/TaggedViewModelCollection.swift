@@ -26,7 +26,7 @@ public final class TaggedViewModelCollection : TaggedViewModel {
     public private(set) var tag: Int
     
     public var count: Int {
-        get { return items.count }
+        return items.count
     }
     
     public init() {
@@ -38,7 +38,7 @@ public final class TaggedViewModelCollection : TaggedViewModel {
     }
     
     public subscript(index: Int) -> TaggedViewModel {
-        get { return items[index] }
+        return items[index] 
     }
     
     public func append(item: TaggedViewModel) {

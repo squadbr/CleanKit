@@ -23,7 +23,7 @@
 import UIKit
 
 open class UITableSceneSectionFeedback : UITableViewCell, ActionDelegate {
-    var delegate: ActionCenterDelegate?
+    weak var delegate: ActionCenterDelegate?
     
     open func prepare(message: String) {
         assertionFailure("You need to implement the method \"prepare(message:)\" to prepare this section feedback")

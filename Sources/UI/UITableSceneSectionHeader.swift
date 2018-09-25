@@ -30,7 +30,7 @@ protocol UITableSceneSectionHeaderProtocol {
 }
 
 open class UITableSceneSectionHeader<T: SectionViewModel> : UITableViewHeaderFooterView, UITableSceneSectionHeaderProtocol {
-    var delegate: ActionCenterDelegate?
+    weak var delegate: ActionCenterDelegate?
     
     public func post(action name: String) {
         delegate?.actionCenter(postAction: name, tag: tag)

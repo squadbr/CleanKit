@@ -56,8 +56,7 @@ class UISectionedTableDataSource : NSObject, UITableViewDataSource, UITableViewD
             
             if let identifier = identifiers[viewModel] {
                 section.items.append(ViewModelItem(identifier: identifier, item: item))
-            }
-            else {
+            } else {
                 assertionFailure("The \(viewModel) view model is not binded")
             }
         }
@@ -83,8 +82,7 @@ class UISectionedTableDataSource : NSObject, UITableViewDataSource, UITableViewD
         
         if let index = sectionsIndexes[tag] {
             sections[index]!.viewModel = viewModel
-        }
-        else {
+        } else {
             let index = sections.count
             
             sections[index] = SectionItem(viewModel: viewModel, message: nil, items: [])
@@ -96,8 +94,7 @@ class UISectionedTableDataSource : NSObject, UITableViewDataSource, UITableViewD
         if let index = sectionsIndexes[tag] {
             sections[index]!.items = []
             sections[index]!.message = message
-        }
-        else {
+        } else {
             assertionFailure("The section \(tag) tag was not exists")
         }
     }
@@ -115,8 +112,7 @@ class UISectionedTableDataSource : NSObject, UITableViewDataSource, UITableViewD
             return 0
         }
         
-        let count = section.items.count
-        return count == 0 && section.viewModel.hasFeedback ? 1 : count
+        return section.items.isEmpty && section.viewModel.hasFeedback ? 1 : section.items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -135,8 +131,7 @@ class UISectionedTableDataSource : NSObject, UITableViewDataSource, UITableViewD
                 
                 if let message = section.message {
                     cell.prepare(message: message)
-                }
-                else {
+                } else {
                     cell.prepareLoading()
                 }
                 
@@ -151,14 +146,13 @@ class UISectionedTableDataSource : NSObject, UITableViewDataSource, UITableViewD
             cell.tag = item.item.tag
             
             return cell.prepare(viewModel: item.item)
-        }
-        else {
+        } else {
             fatalError("The \(item.identifier) cell is not based on UITableSceneCell")
         }
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        guard let sectionIdentifiers = sectionIdentifiers, let section = sections[section], section.viewModel.hasFooter, section.items.count > 0 else {
+        guard let sectionIdentifiers = sectionIdentifiers, let section = sections[section], section.viewModel.hasFooter, !section.items.isEmpty else {
             return UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0.01))
         }
         
@@ -174,7 +168,7 @@ class UISectionedTableDataSource : NSObject, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let sectionIdentifiers = sectionIdentifiers, let section = sections[section], (section.items.count > 0 || section.viewModel.hasFeedback) else {
+        guard let sectionIdentifiers = sectionIdentifiers, let section = sections[section], (section.items.isEmpty || section.viewModel.hasFeedback) else {
             return nil
         }
         
