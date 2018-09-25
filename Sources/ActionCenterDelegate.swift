@@ -20,7 +20,8 @@
 //  THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+import Foundation
 
-FOUNDATION_EXPORT double CleanKitVersionNumber;
-FOUNDATION_EXPORT const unsigned char CleanKitVersionString[];
+protocol ActionCenterDelegate: class {
+    func actionCenter(postAction name: String, tag: Int)
+}
