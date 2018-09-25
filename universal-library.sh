@@ -52,12 +52,12 @@ echo "Building for Generic iOS Devices..."
 xcodebuild $FLAGS \
     -destination generic/platform=iOS \
     -sdk $SDK_OS \
-    OTHER_CFLAGS="-fembed-bitcode"
+    BITCODE_GENERATION_MODE=bitcode build
 
 # build for simulator
 echo "Building for simulator..."
 xcodebuild $FLAGS \
-    -sdk $SDK_SIMULATOR
+    -sdk $SDK_SIMULATOR build
 
 # enter build folder
 cd $BUILD_PATH
