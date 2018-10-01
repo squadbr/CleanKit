@@ -36,8 +36,7 @@ public final class ActionCenter {
     }
     
     public func observe<T: RawRepresentable>(case: T, execute: @escaping(() -> Void)) where T.RawValue == Int {
-        let identifier = ObjectIdentifier(T.self)
-        
+        let identifier = ObjectIdentifier(NSNumber(integerLiteral: `case`.rawValue))
         assert(caseItems[identifier] == nil, "You can not observe the \(type(of: T.self)) more than once")
         caseItems[identifier] = execute
     }
@@ -66,7 +65,7 @@ public final class ActionCenter {
     }
     
     func post<T: RawRepresentable>(case: T) where T.RawValue == Int {
-        if let execute = caseItems[ObjectIdentifier(T.self)] as? () -> Void {
+        if let execute = caseItems[ObjectIdentifier(NSNumber(integerLiteral: `case`.rawValue))] as? () -> Void {
             DispatchQueue.safeSync { execute() }
         } else {
             assertionFailure("The \(type(of: T.self)) was not observed")

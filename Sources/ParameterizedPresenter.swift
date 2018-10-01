@@ -30,20 +30,20 @@ open class ParameterizedPresenter<TInteractor, TParameter> : Presenter<TInteract
     private var parameter: TParameter?
     
     open override func didLoad() {
-        guard let parameter = parameter else {
-            fatalError("Parameter has not yet been initialized")
-        }
-        
-        didLoad(parameter: parameter)
+        didLoad(parameter: self.parameter)
     }
     
-    open func didLoad(parameter: TParameter) {
+    open func didLoad(parameter: TParameter?) {
         assertionFailure("You need to implement the method \"didLoad(parameter:)\" to load this presenter")
     }
     
-    func set(parameter: Any) {
+    public func set(parameter: Any) {
         guard let newParameter = parameter as? TParameter else {
             fatalError("The \(String(describing: parameter)) parameter is not of the expected \(type(of: TParameter.self)) type")
+        }
+        
+        guard self.parameter == nil else {
+            fatalError("The parameter should be set only one time!")
         }
         
         self.parameter = newParameter
