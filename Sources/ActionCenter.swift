@@ -23,8 +23,8 @@
 import Foundation
 
 public final class ActionCenter {
-    private lazy var items = [String : (tag: Int) -> Void]()
-    private lazy var caseItems = [ObjectIdentifier : Any]()
+    private lazy var items = [String: (tag: Int) -> Void]()
+    private lazy var caseItems = [ObjectIdentifier: Any]()
     
     private var messageExecute: Any?
     private var sectionLoadingExecute: Any?

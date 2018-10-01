@@ -28,7 +28,7 @@ public final class ViewModelCenter {
         var execute: (T) -> Void
     }
     
-    private var items = [ObjectIdentifier : Any]()
+    private var items = [ObjectIdentifier: Any]()
     
     public func observe<T: ViewModel>(execute: @escaping((T) -> Void)) {
         observe(background: false, execute: execute)
