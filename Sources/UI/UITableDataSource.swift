@@ -65,4 +65,10 @@ class UITableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
         }
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentSize.height - 300 < scrollView.contentOffset.y {
+            NotificationCenter.default.post(name: NSNotification.Name("blablabla"), object: nil)
+        }
+    }
+    
 }

@@ -31,15 +31,15 @@ open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor:
     
     open override func setup(viewModelCenter: ViewModelCenter) {
         viewModelCenter.observe(background: true) { [weak self] (collection: TaggedViewModelCollection) in
-            guard let strongSelf = self, let dataSource = strongSelf.dataSource else {
+            guard let self = self, let dataSource = self.dataSource else {
                 return
             }
             
             dataSource.append(collection: collection)
+            self.tableView.reloadData()
             
-            DispatchQueue.safeSync {
-                // temporarty only
-                strongSelf.tableView.reloadData()
+            if self.tableView.contentSize.height - 300 < self.tableView.contentOffset.y {
+                NotificationCenter.default.post(name: NSNotification.Name("blablabla"), object: nil)
             }
         }
     }
