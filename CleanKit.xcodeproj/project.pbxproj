@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F7C5A8AD216CF07A0067727A /* UITableScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C5A8AC216CF07A0067727A /* UITableScene.swift */; };
+		F7E76E71216D518F002D65E0 /* UITableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E76E70216D518F002D65E0 /* UITableDataSource.swift */; };
 		F7EF20F82154480300FD3911 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EF20DF2154480300FD3911 /* ViewModel.swift */; };
 		F7EF20F92154480300FD3911 /* TaggedViewModelCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EF20E02154480300FD3911 /* TaggedViewModelCollection.swift */; };
 		F7EF20FA2154480300FD3911 /* SectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EF20E12154480300FD3911 /* SectionViewModel.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		F7C5A8AC216CF07A0067727A /* UITableScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableScene.swift; sourceTree = "<group>"; };
+		F7E76E70216D518F002D65E0 /* UITableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableDataSource.swift; sourceTree = "<group>"; };
 		F7EF20D3215447D300FD3911 /* libCleanKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCleanKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7EF20DF2154480300FD3911 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		F7EF20E02154480300FD3911 /* TaggedViewModelCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaggedViewModelCollection.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				F7EF20EC2154480300FD3911 /* UIScene.swift */,
 				F7EF20EA2154480300FD3911 /* UISectionedTableDataSource.swift */,
 				F7EF20EB2154480300FD3911 /* UISectionedTableScene.swift */,
+				F7E76E70216D518F002D65E0 /* UITableDataSource.swift */,
 				F7C5A8AC216CF07A0067727A /* UITableScene.swift */,
 				F7EF20E52154480300FD3911 /* UITableSceneSectionFooter.swift */,
 				F7EF20E62154480300FD3911 /* UITableSceneSectionFeedback.swift */,
@@ -256,6 +259,7 @@
 				F7EF20F82154480300FD3911 /* ViewModel.swift in Sources */,
 				F7EF210E2154480400FD3911 /* ActionDelegate.swift in Sources */,
 				F7EF21092154480400FD3911 /* UIView.swift in Sources */,
+				F7E76E71216D518F002D65E0 /* UITableDataSource.swift in Sources */,
 				F7EF21052154480400FD3911 /* ActionCenterDelegate.swift in Sources */,
 				F7EF210C2154480400FD3911 /* UITableView.swift in Sources */,
 			);
