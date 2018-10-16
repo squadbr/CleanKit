@@ -12,14 +12,15 @@ open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor:
     
     @IBOutlet public weak var tableView: UITableView! {
         didSet {
-            dataSource = UITableDataSource(actionDelegate: self)
+            dataSource = UITableDataSource(tableView: self.tableView, delegate: self)
             
             tableView.dataSource = dataSource
             tableView.delegate = dataSource
+            tableView.prefetchDataSource = dataSource
             
             tableView.estimatedSectionFooterHeight = 1
             tableView.estimatedSectionHeaderHeight = 1
-            tableView.estimatedRowHeight = 1
+            tableView.estimatedRowHeight = UITableView.automaticDimension
             
             tableView.sectionFooterHeight = UITableView.automaticDimension
             tableView.sectionHeaderHeight = UITableView.automaticDimension
@@ -31,16 +32,8 @@ open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor:
     
     open override func setup(viewModelCenter: ViewModelCenter) {
         viewModelCenter.observe(background: true) { [weak self] (collection: TaggedViewModelCollection) in
-            guard let self = self, let dataSource = self.dataSource else {
-                return
-            }
-            
+            guard let self = self, let dataSource = self.dataSource else { return }
             dataSource.append(collection: collection)
-            self.tableView.reloadData()
-            
-            if self.tableView.contentSize.height - 300 < self.tableView.contentOffset.y {
-                NotificationCenter.default.post(name: NSNotification.Name("blablabla"), object: nil)
-            }
         }
     }
     

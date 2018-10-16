@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F71AB1D521764EF800DA2F07 /* UITimelineScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71AB1D221764EF800DA2F07 /* UITimelineScene.swift */; };
+		F71AB1D621764EF800DA2F07 /* UITimelineInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71AB1D321764EF800DA2F07 /* UITimelineInteractorProtocol.swift */; };
+		F71AB1D721764EF800DA2F07 /* UITimelinePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71AB1D421764EF800DA2F07 /* UITimelinePresenter.swift */; };
 		F7C5A8AD216CF07A0067727A /* UITableScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C5A8AC216CF07A0067727A /* UITableScene.swift */; };
 		F7E76E71216D518F002D65E0 /* UITableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E76E70216D518F002D65E0 /* UITableDataSource.swift */; };
 		F7EF20F82154480300FD3911 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EF20DF2154480300FD3911 /* ViewModel.swift */; };
@@ -47,6 +50,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F71AB1D221764EF800DA2F07 /* UITimelineScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITimelineScene.swift; sourceTree = "<group>"; };
+		F71AB1D321764EF800DA2F07 /* UITimelineInteractorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITimelineInteractorProtocol.swift; sourceTree = "<group>"; };
+		F71AB1D421764EF800DA2F07 /* UITimelinePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITimelinePresenter.swift; sourceTree = "<group>"; };
 		F7C5A8AC216CF07A0067727A /* UITableScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableScene.swift; sourceTree = "<group>"; };
 		F7E76E70216D518F002D65E0 /* UITableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableDataSource.swift; sourceTree = "<group>"; };
 		F7EF20D3215447D300FD3911 /* libCleanKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCleanKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +92,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F71AB1D821764F0000DA2F07 /* UITimelineScene */ = {
+			isa = PBXGroup;
+			children = (
+				F71AB1D321764EF800DA2F07 /* UITimelineInteractorProtocol.swift */,
+				F71AB1D421764EF800DA2F07 /* UITimelinePresenter.swift */,
+				F71AB1D221764EF800DA2F07 /* UITimelineScene.swift */,
+			);
+			path = UITimelineScene;
+			sourceTree = "<group>";
+		};
 		F7EF20CA215447D300FD3911 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +149,7 @@
 		F7EF20E42154480300FD3911 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				F71AB1D821764F0000DA2F07 /* UITimelineScene */,
 				F7EF20EC2154480300FD3911 /* UIScene.swift */,
 				F7EF20EA2154480300FD3911 /* UISectionedTableDataSource.swift */,
 				F7EF20EB2154480300FD3911 /* UISectionedTableScene.swift */,
@@ -237,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F71AB1D621764EF800DA2F07 /* UITimelineInteractorProtocol.swift in Sources */,
 				F7EF21032154480400FD3911 /* UISectionedTableScene.swift in Sources */,
 				F7EF20FF2154480400FD3911 /* UITableSceneHeader.swift in Sources */,
 				F7EF20FB2154480300FD3911 /* TaggedViewModel.swift in Sources */,
@@ -249,7 +267,9 @@
 				F7EF210A2154480400FD3911 /* Collection.swift in Sources */,
 				F7EF21062154480400FD3911 /* ActionCenter.swift in Sources */,
 				F7EF20FA2154480300FD3911 /* SectionViewModel.swift in Sources */,
+				F71AB1D721764EF800DA2F07 /* UITimelinePresenter.swift in Sources */,
 				F7EF21012154480400FD3911 /* UITableSceneCell.swift in Sources */,
+				F71AB1D521764EF800DA2F07 /* UITimelineScene.swift in Sources */,
 				F7EF210D2154480400FD3911 /* Presenter.swift in Sources */,
 				F7EF21022154480400FD3911 /* UISectionedTableDataSource.swift in Sources */,
 				F7EF21002154480400FD3911 /* UITableSceneSectionHeader.swift in Sources */,

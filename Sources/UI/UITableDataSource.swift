@@ -7,34 +7,55 @@
 
 import UIKit
 
-class UITableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
+class UITableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, UITableViewDataSourcePrefetching {
     struct ViewModelItem {
         let identifier: String
         var item: TaggedViewModel
     }
     
-    struct SectionItem {
-        var viewModel: SectionViewModel
-        var message: String?
-        var items: [ViewModelItem]
-    }
+    private weak var tableView: UITableView?
+    private weak var delegate: ActionCenterDelegate?
     
-    private var actionDelegate: ActionCenterDelegate
-    private lazy var items: [ViewModelItem] = []
-    private lazy var identifiers: [String: String] = [:]
+    private var items: [ViewModelItem] = []
+    private var identifiers: [String: String] = [:]
     
-    init(actionDelegate: ActionCenterDelegate) {
-        self.actionDelegate = actionDelegate
+    init(tableView: UITableView, delegate: ActionCenterDelegate) {
+        self.tableView = tableView
+        self.delegate = delegate
     }
     
     func append(collection: TaggedViewModelCollection) {
-        for item in collection.items {
-            let viewModel = "\(type(of: item))"
+        DispatchQueue.async {
+            var indexesPath: [IndexPath] = []
             
-            if let identifier = identifiers[viewModel] {
-                self.items.append(ViewModelItem(identifier: identifier, item: item))
-            } else {
-                assertionFailure("The \(viewModel) view model is not binded")
+            let semaphore = DispatchSemaphore(value: 0)
+            var numberOfRows: Int!
+            DispatchQueue.safeSync {
+                numberOfRows = self.tableView!.numberOfRows(inSection: 0)
+                semaphore.signal()
+            }
+            _ = semaphore.wait(timeout: .distantFuture)
+            
+            for item in numberOfRows..<collection.items.count+numberOfRows {
+                indexesPath.append(IndexPath(row: item, section: 0))
+            }
+            
+            // process collection
+            for item in collection.items {
+                let viewModel = "\(type(of: item))"
+                
+                if let identifier = self.identifiers[viewModel] {
+                    self.items.append(ViewModelItem(identifier: identifier, item: item))
+                    
+                } else {
+                    assertionFailure("The \(viewModel) view model is not binded")
+                }
+            }
+            
+            DispatchQueue.safeSync {
+                UIView.performWithoutAnimation {
+                    self.tableView?.insertRows(at: indexesPath, with: .none)
+                }
             }
         }
     }
@@ -56,7 +77,7 @@ class UITableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
         }
         
         if var cell = tableView.dequeueReusableCell(withIdentifier: item.identifier) as? UITableSceneCellProtocol {
-            cell.delegate = actionDelegate
+            cell.delegate = delegate
             cell.tag = item.item.tag
             
             return cell.prepare(viewModel: item.item)
@@ -65,9 +86,9 @@ class UITableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentSize.height - 300 < scrollView.contentOffset.y {
-            NotificationCenter.default.post(name: NSNotification.Name("blablabla"), object: nil)
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        if indexPaths.contains(where: { $0.row > items.count - 25 }) {
+            delegate?.actionCenter(postAction: "teste", tag: 0)
         }
     }
     
