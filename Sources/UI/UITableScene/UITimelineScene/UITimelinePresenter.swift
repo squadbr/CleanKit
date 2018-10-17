@@ -43,7 +43,10 @@ open class UITimelinePresenter<TInteractor: UITimelineInteractorProtocol>: Param
         DispatchQueue.async {
             guard !self.loading && self.hasNext, let pk: Int = self.pk else { return }
             self.loading = true
-            self.post(case: Case.startLoading)
+            
+            if !self.reset {
+                self.post(case: Case.startLoading)
+            }
             
             do {
                 let collection = TaggedViewModelCollection(tag: 1)

@@ -102,6 +102,39 @@
 			path = UITimelineScene;
 			sourceTree = "<group>";
 		};
+		F772E4412177AB5D009587CB /* UITableScene */ = {
+			isa = PBXGroup;
+			children = (
+				F772E4432177ABA8009587CB /* Shared */,
+				F71AB1D821764F0000DA2F07 /* UITimelineScene */,
+				F772E4422177AB76009587CB /* UISectionedTableScene */,
+				F7C5A8AC216CF07A0067727A /* UITableScene.swift */,
+				F7E76E70216D518F002D65E0 /* UITableDataSource.swift */,
+			);
+			path = UITableScene;
+			sourceTree = "<group>";
+		};
+		F772E4422177AB76009587CB /* UISectionedTableScene */ = {
+			isa = PBXGroup;
+			children = (
+				F7EF20E52154480300FD3911 /* UITableSceneSectionFooter.swift */,
+				F7EF20E62154480300FD3911 /* UITableSceneSectionFeedback.swift */,
+				F7EF20E72154480300FD3911 /* UITableSceneHeader.swift */,
+				F7EF20EA2154480300FD3911 /* UISectionedTableDataSource.swift */,
+				F7EF20EB2154480300FD3911 /* UISectionedTableScene.swift */,
+				F7EF20E82154480300FD3911 /* UITableSceneSectionHeader.swift */,
+			);
+			path = UISectionedTableScene;
+			sourceTree = "<group>";
+		};
+		F772E4432177ABA8009587CB /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				F7EF20E92154480300FD3911 /* UITableSceneCell.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		F7EF20CA215447D300FD3911 = {
 			isa = PBXGroup;
 			children = (
@@ -149,17 +182,8 @@
 		F7EF20E42154480300FD3911 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				F71AB1D821764F0000DA2F07 /* UITimelineScene */,
+				F772E4412177AB5D009587CB /* UITableScene */,
 				F7EF20EC2154480300FD3911 /* UIScene.swift */,
-				F7EF20EA2154480300FD3911 /* UISectionedTableDataSource.swift */,
-				F7EF20EB2154480300FD3911 /* UISectionedTableScene.swift */,
-				F7E76E70216D518F002D65E0 /* UITableDataSource.swift */,
-				F7C5A8AC216CF07A0067727A /* UITableScene.swift */,
-				F7EF20E52154480300FD3911 /* UITableSceneSectionFooter.swift */,
-				F7EF20E62154480300FD3911 /* UITableSceneSectionFeedback.swift */,
-				F7EF20E72154480300FD3911 /* UITableSceneHeader.swift */,
-				F7EF20E82154480300FD3911 /* UITableSceneSectionHeader.swift */,
-				F7EF20E92154480300FD3911 /* UITableSceneCell.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
