@@ -8,7 +8,7 @@
 import UIKit
 
 open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor: Interactor, TInteractorProtocol> : UIScene<TPresenter, TInteractor, TInteractorProtocol> {
-    private var dataSource: UITableDataSource?
+    var dataSource: UITableDataSource?
     
     @IBOutlet public weak var tableView: UITableView! {
         didSet {

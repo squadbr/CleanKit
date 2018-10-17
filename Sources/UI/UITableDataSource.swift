@@ -15,9 +15,12 @@ class UITableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, U
     
     private weak var tableView: UITableView?
     private weak var delegate: ActionCenterDelegate?
+    private var isLoading: Bool = false
     
     private var items: [ViewModelItem] = []
     private var identifiers: [String: String] = [:]
+    internal var itemsToPrefetch: Int = 50
+    private let spinner = UIActivityIndicatorView(style: .gray)
     
     init(tableView: UITableView, delegate: ActionCenterDelegate) {
         self.tableView = tableView
@@ -26,22 +29,22 @@ class UITableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, U
     
     func append(collection: TaggedViewModelCollection) {
         DispatchQueue.async {
+            guard let tableView = self.tableView else { return }
+            
+            // indexes of items to be inserted
             var indexesPath: [IndexPath] = []
             
+            // get number of rows (must be on main thread)
             let semaphore = DispatchSemaphore(value: 0)
             var numberOfRows: Int!
             DispatchQueue.safeSync {
-                numberOfRows = self.tableView!.numberOfRows(inSection: 0)
+                numberOfRows = tableView.numberOfRows(inSection: 0)
                 semaphore.signal()
             }
             _ = semaphore.wait(timeout: .distantFuture)
             
-            for item in numberOfRows..<collection.items.count+numberOfRows {
-                indexesPath.append(IndexPath(row: item, section: 0))
-            }
-            
-            // process collection
-            for item in collection.items {
+            // process each item
+            for (index, item) in collection.items.enumerated() {
                 let viewModel = "\(type(of: item))"
                 
                 if let identifier = self.identifiers[viewModel] {
@@ -50,12 +53,16 @@ class UITableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, U
                 } else {
                     assertionFailure("The \(viewModel) view model is not binded")
                 }
+                
+                indexesPath.append(IndexPath(row: index + numberOfRows, section: 0))
             }
             
+            // insert items
             DispatchQueue.safeSync {
                 UIView.performWithoutAnimation {
                     self.tableView?.insertRows(at: indexesPath, with: .none)
                 }
+                self.tableView?.tableFooterView = nil
             }
         }
     }
@@ -68,7 +75,7 @@ class UITableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, U
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.items.isEmpty ? 0 : self.items.count
+        return self.items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -87,9 +94,20 @@ class UITableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, U
     }
     
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-        if indexPaths.contains(where: { $0.row > items.count - 25 }) {
-            delegate?.actionCenter(postAction: "teste", tag: 0)
+        if indexPaths.contains(where: { $0.row > self.items.count - self.itemsToPrefetch }) {
+            delegate?.actionCenter(postAction: "prefetch", tag: 0)
         }
+    }
+    
+    func showLoading() {
+        guard let tableView = self.tableView else { return }
+        self.spinner.frame.size = CGSize(width: tableView.frame.width, height: 80)
+        tableView.tableFooterView = self.spinner
+        self.spinner.startAnimating()
+    }
+    
+    func stopLoading() {
+        self.tableView?.tableFooterView = nil
     }
     
 }

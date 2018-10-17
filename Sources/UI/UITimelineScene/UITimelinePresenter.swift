@@ -14,16 +14,14 @@ open class UITimelinePresenter<TInteractor: UITimelineInteractorProtocol>: Prese
     private var loading: Bool = false
     private var pageSize: Int = 25
     
-    private let lock: NSLock = NSLock()
-    
     struct ViewModelItem {
         let identifier: String
         var item: TaggedViewModel
     }
     
     enum Case: Int {
-        case load
-        case stop
+        case startLoading
+        case stopLoading
     }
     
     open override func didLoad() {
@@ -34,6 +32,7 @@ open class UITimelinePresenter<TInteractor: UITimelineInteractorProtocol>: Prese
         DispatchQueue.async {
             guard !self.loading && self.hasNext else { return }
             self.loading = true
+            self.post(case: Case.startLoading)
             
             do {
                 let collection = TaggedViewModelCollection(tag: 1)
@@ -48,6 +47,7 @@ open class UITimelinePresenter<TInteractor: UITimelineInteractorProtocol>: Prese
                 self.post(viewModel: collection)
             } catch { }
             
+            self.post(case: Case.stopLoading)
             self.loading = false
         }
     }
