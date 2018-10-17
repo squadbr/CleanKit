@@ -16,7 +16,7 @@ class UITableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, U
     private weak var tableView: UITableView?
     private weak var delegate: ActionCenterDelegate?
     private var isLoading: Bool = false
-    
+    private var reload: Bool = false
     private var items: [ViewModelItem] = []
     private var identifiers: [String: String] = [:]
     internal var itemsToPrefetch: Int = 50
@@ -27,9 +27,19 @@ class UITableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, U
         self.delegate = delegate
     }
     
+    func clear() {
+        self.reload = true
+    }
+    
     func append(collection: TaggedViewModelCollection) {
         DispatchQueue.async {
             guard let tableView = self.tableView else { return }
+            
+            if self.reload {
+                self.reload = false
+                self.items = []
+            }
+            let reload: Bool = self.items.isEmpty
             
             // indexes of items to be inserted
             var indexesPath: [IndexPath] = []
@@ -59,8 +69,13 @@ class UITableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, U
             
             // insert items
             DispatchQueue.safeSync {
-                UIView.performWithoutAnimation {
-                    self.tableView?.insertRows(at: indexesPath, with: .none)
+                if reload {
+                    self.tableView?.reloadData()
+                    self.tableView?.refreshControl?.endRefreshing()
+                } else {
+                    UIView.performWithoutAnimation {
+                        self.tableView?.insertRows(at: indexesPath, with: .none)
+                    }
                 }
                 self.tableView?.tableFooterView = nil
             }

@@ -9,6 +9,7 @@
 import Foundation
 
 open class UITimelinePresenter<TInteractor: UITimelineInteractorProtocol>: Presenter<TInteractor> {
+    private var reset: Bool = false
     private var currentPage: Int = 0
     private var hasNext: Bool = true
     private var loading: Bool = false
@@ -28,6 +29,13 @@ open class UITimelinePresenter<TInteractor: UITimelineInteractorProtocol>: Prese
         self.fetch()
     }
     
+    func clear() {
+        self.currentPage = 0
+        self.hasNext = true
+        self.loading = false
+        self.reset = true
+    }
+    
     func fetch() {
         DispatchQueue.async {
             guard !self.loading && self.hasNext else { return }
@@ -36,7 +44,9 @@ open class UITimelinePresenter<TInteractor: UITimelineInteractorProtocol>: Prese
             
             do {
                 let collection = TaggedViewModelCollection(tag: 1)
+                
                 self.currentPage += 1
+                let currentPage = self.currentPage
                 
                 let objects = try self.interactor.fetch(page: self.currentPage)
                 for object in objects {
@@ -44,7 +54,11 @@ open class UITimelinePresenter<TInteractor: UITimelineInteractorProtocol>: Prese
                 }
                 
                 self.hasNext = !(objects.count < self.pageSize)
-                self.post(viewModel: collection)
+                
+                if !self.reset || currentPage == 1 {
+                    self.post(viewModel: collection)
+                }
+                self.reset = false
             } catch { }
             
             self.post(case: Case.stopLoading)

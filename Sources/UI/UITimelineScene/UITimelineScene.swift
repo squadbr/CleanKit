@@ -18,14 +18,16 @@ open class UITimelineScene<TPresenter: UITimelinePresenter<UITimelineInteractorP
     }
     
     private func setupInterface() {
-        self.tableView.addSubview(self.activity)
         self.tableView.showsVerticalScrollIndicator = false
+        self.tableView.refreshControl = self.activity
         self.activity.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
     
     @objc
     private func refresh() {
-        self.activity.endRefreshing()
+        self.dataSource?.clear()
+        self.presenter.clear()
+        self.presenter.fetch()
     }
     
     open override func setup(actionCenter: ActionCenter) {
