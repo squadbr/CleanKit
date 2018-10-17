@@ -43,6 +43,7 @@ identifier_name:
     error: 3
   excluded:
     - id
+    - pk
     - URL
     - GlobalAPIKey
 

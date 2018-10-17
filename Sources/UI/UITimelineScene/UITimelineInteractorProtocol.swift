@@ -10,5 +10,5 @@ import Foundation
 
 public protocol UITimelineInteractorProtocol: InteractorProtocol {
     associatedtype T: Codable
-    func fetch(page: Int) throws -> [T]
+    func fetch(pk: Int, page: Int) throws -> [T]
 }

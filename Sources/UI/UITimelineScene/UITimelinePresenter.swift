@@ -8,7 +8,9 @@
 
 import Foundation
 
-open class UITimelinePresenter<TInteractor: UITimelineInteractorProtocol>: Presenter<TInteractor> {
+open class UITimelinePresenter<TInteractor: UITimelineInteractorProtocol>: ParameterizedPresenter<TInteractor, Int> {
+    private var pk: Int?
+    
     private var reset: Bool = false
     private var currentPage: Int = 0
     private var hasNext: Bool = true
@@ -25,7 +27,8 @@ open class UITimelinePresenter<TInteractor: UITimelineInteractorProtocol>: Prese
         case stopLoading
     }
     
-    open override func didLoad() {
+    open override func didLoad(parameter: Int?) {
+        self.pk = parameter
         self.fetch()
     }
     
@@ -38,7 +41,7 @@ open class UITimelinePresenter<TInteractor: UITimelineInteractorProtocol>: Prese
     
     func fetch() {
         DispatchQueue.async {
-            guard !self.loading && self.hasNext else { return }
+            guard !self.loading && self.hasNext, let pk: Int = self.pk else { return }
             self.loading = true
             self.post(case: Case.startLoading)
             
@@ -48,7 +51,7 @@ open class UITimelinePresenter<TInteractor: UITimelineInteractorProtocol>: Prese
                 self.currentPage += 1
                 let currentPage = self.currentPage
                 
-                let objects = try self.interactor.fetch(page: self.currentPage)
+                let objects = try self.interactor.fetch(pk: pk, page: self.currentPage)
                 for object in objects {
                     collection.append(item: self.prepare(object: object))
                 }
