@@ -12,19 +12,13 @@ open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor:
     
     @IBOutlet public weak var tableView: UITableView! {
         didSet {
-            dataSource = UITableDataSource(tableView: self.tableView, delegate: self)
+            dataSource = self.loadDataSource()
+            
+            tableView.rowHeight = UITableView.automaticDimension
             
             tableView.dataSource = dataSource
             tableView.delegate = dataSource
             tableView.prefetchDataSource = dataSource
-            
-            tableView.estimatedSectionFooterHeight = 1
-            tableView.estimatedSectionHeaderHeight = 1
-            tableView.estimatedRowHeight = UITableView.automaticDimension
-            
-            tableView.sectionFooterHeight = UITableView.automaticDimension
-            tableView.sectionHeaderHeight = UITableView.automaticDimension
-            tableView.rowHeight = UITableView.automaticDimension
             
             setupTable()
         }
@@ -48,6 +42,10 @@ open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor:
     
     open func setupTable() {
         assertionFailure("You need to implement the method \"setupTable()\" to prepare this table")
+    }
+    
+    func loadDataSource() -> UITableDataSource {
+        return UITableDataSource(tableView: self.tableView, delegate: self)
     }
     
 }

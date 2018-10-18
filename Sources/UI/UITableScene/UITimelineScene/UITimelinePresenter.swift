@@ -22,11 +22,6 @@ open class UITimelinePresenter<TInteractor: UITimelineInteractorProtocol>: Param
         var item: TaggedViewModel
     }
     
-    enum Case: Int {
-        case startLoading
-        case stopLoading
-    }
-    
     open override func didLoad(parameter: Int?) {
         self.pk = parameter
         self.fetch()
@@ -43,10 +38,6 @@ open class UITimelinePresenter<TInteractor: UITimelineInteractorProtocol>: Param
         DispatchQueue.async {
             guard !self.loading && self.hasNext, let pk: Int = self.pk else { return }
             self.loading = true
-            
-            if !self.reset {
-                self.post(case: Case.startLoading)
-            }
             
             do {
                 let collection = TaggedViewModelCollection(tag: 1)
@@ -67,7 +58,6 @@ open class UITimelinePresenter<TInteractor: UITimelineInteractorProtocol>: Param
                 self.reset = false
             } catch { }
             
-            self.post(case: Case.stopLoading)
             self.loading = false
         }
     }

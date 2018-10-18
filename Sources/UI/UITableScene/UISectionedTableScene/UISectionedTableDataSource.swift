@@ -23,10 +23,6 @@
 import UIKit
 
 class UISectionedTableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
-    struct ViewModelItem {
-        let identifier: String
-        var item: TaggedViewModel
-    }
     
     struct SectionItem {
         var viewModel: SectionViewModel

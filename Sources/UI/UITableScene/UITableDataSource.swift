@@ -7,20 +7,18 @@
 
 import UIKit
 
-class UITableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, UITableViewDataSourcePrefetching {
-    struct ViewModelItem {
-        let identifier: String
-        var item: TaggedViewModel
-    }
+class UITableDataSource: NSObject {
     
-    private weak var tableView: UITableView?
-    private weak var delegate: ActionCenterDelegate?
-    private var isLoading: Bool = false
+    private(set) weak var tableView: UITableView?
+    private(set) weak var delegate: ActionCenterDelegate?
+    
     private var reload: Bool = false
-    private var items: [ViewModelItem] = []
+    
+    internal var items: [ViewModelItem] = []
     private var identifiers: [String: String] = [:]
+    private var heights: [IndexPath: CGFloat] = [:]
+    
     internal var itemsToPrefetch: Int = 50
-    private let spinner = UIActivityIndicatorView(style: .gray)
     
     init(tableView: UITableView, delegate: ActionCenterDelegate) {
         self.tableView = tableView
@@ -44,9 +42,10 @@ class UITableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, U
             // indexes of items to be inserted
             var indexesPath: [IndexPath] = []
             
-            // get number of rows (must be on main thread)
+            // get number of rows and size of table view (must be on main thread)
             let semaphore = DispatchSemaphore(value: 0)
             var numberOfRows: Int!
+            
             DispatchQueue.safeSync {
                 numberOfRows = tableView.numberOfRows(inSection: 0)
                 semaphore.signal()
@@ -59,7 +58,6 @@ class UITableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, U
                 
                 if let identifier = self.identifiers[viewModel] {
                     self.items.append(ViewModelItem(identifier: identifier, item: item))
-                    
                 } else {
                     assertionFailure("The \(viewModel) view model is not binded")
                 }
@@ -89,6 +87,10 @@ class UITableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, U
         identifiers["\(viewModel)"] = "\(cell)"
     }
     
+}
+
+extension UITableDataSource: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.items.count
     }
@@ -108,21 +110,21 @@ class UITableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, U
         }
     }
     
+    // functions to calculate height
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        self.heights[indexPath] = cell.bounds.height
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return self.heights[indexPath] ?? UITableView.automaticDimension
+    }
+    
+}
+
+extension UITableDataSource: UITableViewDataSourcePrefetching {
+    
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-        if indexPaths.contains(where: { $0.row > self.items.count - self.itemsToPrefetch }) {
-            delegate?.actionCenter(postAction: "prefetch", tag: 0)
-        }
-    }
-    
-    func showLoading() {
-        guard let tableView = self.tableView else { return }
-        self.spinner.frame.size = CGSize(width: tableView.frame.width, height: 80)
-        tableView.tableFooterView = self.spinner
-        self.spinner.startAnimating()
-    }
-    
-    func stopLoading() {
-        self.tableView?.tableFooterView = nil
     }
     
 }

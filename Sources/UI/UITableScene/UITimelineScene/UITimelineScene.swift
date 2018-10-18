@@ -32,15 +32,18 @@ open class UITimelineScene<TPresenter: UITimelinePresenter<UITimelineInteractorP
     
     open override func setup(actionCenter: ActionCenter) {
         super.setup(actionCenter: actionCenter)
-        actionCenter.observe(case: UITimelinePresenter<UITimelineInteractorProtocol>.Case.startLoading) {
-            self.dataSource?.showLoading()
-        }
-        actionCenter.observe(case: UITimelinePresenter<UITimelineInteractorProtocol>.Case.stopLoading) {
-            self.dataSource?.stopLoading()
-        }
         actionCenter.observe(action: "prefetch") { (_) in
             self.presenter.fetch()
         }
+    }
+    
+    public var itemsToPrefetch: Int {
+        get { return self.dataSource?.itemsToPrefetch ?? 0 }
+        set { self.dataSource?.itemsToPrefetch = newValue }
+    }
+    
+    override func loadDataSource() -> UITableDataSource {
+        return UITimelineDataSource(tableView: self.tableView, delegate: self)
     }
     
 }
