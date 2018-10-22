@@ -8,8 +8,7 @@
 
 import Foundation
 
-open class UITimelinePresenter<TInteractor: UITimelineInteractorProtocol>: ParameterizedPresenter<TInteractor, Int> {
-    private var pk: Int?
+open class UITimelinePresenter<TInteractor: InteractorProtocol, TEntity>: ParameterizedPresenter<TInteractor, Int> {
     
     private var reset: Bool = false
     private var currentPage: Int = 0
@@ -17,14 +16,8 @@ open class UITimelinePresenter<TInteractor: UITimelineInteractorProtocol>: Param
     private var loading: Bool = false
     private var pageSize: Int = 25
     
-    struct ViewModelItem {
-        let identifier: String
-        var item: TaggedViewModel
-    }
-    
-    open override func didLoad(parameter: Int?) {
-        self.pk = parameter
-        self.fetch()
+    public enum UITimelineError: Error {
+        case unknown
     }
     
     func clear() {
@@ -36,7 +29,7 @@ open class UITimelinePresenter<TInteractor: UITimelineInteractorProtocol>: Param
     
     func fetch() {
         DispatchQueue.async {
-            guard !self.loading && self.hasNext, let pk: Int = self.pk else { return }
+            guard !self.loading && self.hasNext else { return }
             self.loading = true
             
             do {
@@ -45,12 +38,12 @@ open class UITimelinePresenter<TInteractor: UITimelineInteractorProtocol>: Param
                 self.currentPage += 1
                 let currentPage = self.currentPage
                 
-                let objects = try self.interactor.fetch(pk: pk, page: self.currentPage)
+                let objects = try self.fetch(page: self.currentPage)
                 for object in objects {
                     collection.append(item: self.prepare(object: object))
                 }
                 
-                self.hasNext = !(objects.count < self.pageSize)
+                self.hasNext = !(objects.count < self.pageSize) || !objects.isEmpty
                 
                 if !self.reset || currentPage == 1 {
                     self.post(viewModel: collection)
@@ -62,7 +55,11 @@ open class UITimelinePresenter<TInteractor: UITimelineInteractorProtocol>: Param
         }
     }
     
-    open func prepare(object: Any) -> TaggedViewModel {
+    open func fetch(page: Int) throws -> [TEntity] {
+        preconditionFailure("Should be overwritten.")
+    }
+    
+    open func prepare(object: TEntity) -> TaggedViewModel {
         preconditionFailure("Should be overwritten.")
     }
     

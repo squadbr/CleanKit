@@ -8,13 +8,14 @@
 
 import UIKit
 
-open class UITimelineScene<TPresenter: UITimelinePresenter<UITimelineInteractorProtocol>, TInteractor: Interactor, UITimelineInteractorProtocol>: UITableScene<TPresenter, TInteractor, UITimelineInteractorProtocol> {
+open class UITimelineScene<TPresenter: UITimelinePresenter<UITimelineInteractorProtocol, TEntity>, TInteractor: Interactor, UITimelineInteractorProtocol, TEntity>: UITableScene<TPresenter, TInteractor, UITimelineInteractorProtocol> {
     
     private let activity: UIRefreshControl = UIRefreshControl()
     
     open override func viewDidLoad() {
         super.viewDidLoad()
         self.setupInterface()
+        self.presenter.fetch()
     }
     
     private func setupInterface() {
