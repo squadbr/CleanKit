@@ -20,7 +20,7 @@
 //  THE SOFTWARE.
 //
 
-public protocol InteractorProtocol: AnyObject {
+public protocol InteractorProtocol: class {
     init()
 }
 

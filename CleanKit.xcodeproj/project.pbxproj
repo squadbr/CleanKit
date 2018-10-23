@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F71AB1D521764EF800DA2F07 /* UITimelineScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71AB1D221764EF800DA2F07 /* UITimelineScene.swift */; };
+		F71AB1D721764EF800DA2F07 /* UITimelinePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71AB1D421764EF800DA2F07 /* UITimelinePresenter.swift */; };
+		F755152A2178F52D0099D99A /* ViewModelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75515292178F52D0099D99A /* ViewModelItem.swift */; };
+		F755152C2178FBEA0099D99A /* UITimelineDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F755152B2178FBEA0099D99A /* UITimelineDataSource.swift */; };
+		F7C5A8AD216CF07A0067727A /* UITableScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C5A8AC216CF07A0067727A /* UITableScene.swift */; };
+		F7E76E71216D518F002D65E0 /* UITableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E76E70216D518F002D65E0 /* UITableDataSource.swift */; };
 		F7EF20F82154480300FD3911 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EF20DF2154480300FD3911 /* ViewModel.swift */; };
 		F7EF20F92154480300FD3911 /* TaggedViewModelCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EF20E02154480300FD3911 /* TaggedViewModelCollection.swift */; };
 		F7EF20FA2154480300FD3911 /* SectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EF20E12154480300FD3911 /* SectionViewModel.swift */; };
@@ -45,6 +51,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F71AB1D221764EF800DA2F07 /* UITimelineScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITimelineScene.swift; sourceTree = "<group>"; };
+		F71AB1D421764EF800DA2F07 /* UITimelinePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITimelinePresenter.swift; sourceTree = "<group>"; };
+		F75515292178F52D0099D99A /* ViewModelItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelItem.swift; sourceTree = "<group>"; };
+		F755152B2178FBEA0099D99A /* UITimelineDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITimelineDataSource.swift; sourceTree = "<group>"; };
+		F7C5A8AC216CF07A0067727A /* UITableScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableScene.swift; sourceTree = "<group>"; };
+		F7E76E70216D518F002D65E0 /* UITableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableDataSource.swift; sourceTree = "<group>"; };
 		F7EF20D3215447D300FD3911 /* libCleanKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCleanKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7EF20DF2154480300FD3911 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		F7EF20E02154480300FD3911 /* TaggedViewModelCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaggedViewModelCollection.swift; sourceTree = "<group>"; };
@@ -82,6 +94,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F71AB1D821764F0000DA2F07 /* UITimelineScene */ = {
+			isa = PBXGroup;
+			children = (
+				F71AB1D421764EF800DA2F07 /* UITimelinePresenter.swift */,
+				F71AB1D221764EF800DA2F07 /* UITimelineScene.swift */,
+				F755152B2178FBEA0099D99A /* UITimelineDataSource.swift */,
+			);
+			path = UITimelineScene;
+			sourceTree = "<group>";
+		};
+		F772E4412177AB5D009587CB /* UITableScene */ = {
+			isa = PBXGroup;
+			children = (
+				F772E4432177ABA8009587CB /* Shared */,
+				F71AB1D821764F0000DA2F07 /* UITimelineScene */,
+				F772E4422177AB76009587CB /* UISectionedTableScene */,
+				F7C5A8AC216CF07A0067727A /* UITableScene.swift */,
+				F7E76E70216D518F002D65E0 /* UITableDataSource.swift */,
+			);
+			path = UITableScene;
+			sourceTree = "<group>";
+		};
+		F772E4422177AB76009587CB /* UISectionedTableScene */ = {
+			isa = PBXGroup;
+			children = (
+				F7EF20E52154480300FD3911 /* UITableSceneSectionFooter.swift */,
+				F7EF20E62154480300FD3911 /* UITableSceneSectionFeedback.swift */,
+				F7EF20E72154480300FD3911 /* UITableSceneHeader.swift */,
+				F7EF20EA2154480300FD3911 /* UISectionedTableDataSource.swift */,
+				F7EF20EB2154480300FD3911 /* UISectionedTableScene.swift */,
+				F7EF20E82154480300FD3911 /* UITableSceneSectionHeader.swift */,
+			);
+			path = UISectionedTableScene;
+			sourceTree = "<group>";
+		};
+		F772E4432177ABA8009587CB /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				F7EF20E92154480300FD3911 /* UITableSceneCell.swift */,
+				F75515292178F52D0099D99A /* ViewModelItem.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		F7EF20CA215447D300FD3911 = {
 			isa = PBXGroup;
 			children = (
@@ -129,13 +185,7 @@
 		F7EF20E42154480300FD3911 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				F7EF20E52154480300FD3911 /* UITableSceneSectionFooter.swift */,
-				F7EF20E62154480300FD3911 /* UITableSceneSectionFeedback.swift */,
-				F7EF20E72154480300FD3911 /* UITableSceneHeader.swift */,
-				F7EF20E82154480300FD3911 /* UITableSceneSectionHeader.swift */,
-				F7EF20E92154480300FD3911 /* UITableSceneCell.swift */,
-				F7EF20EA2154480300FD3911 /* UISectionedTableDataSource.swift */,
-				F7EF20EB2154480300FD3911 /* UISectionedTableScene.swift */,
+				F772E4412177AB5D009587CB /* UITableScene */,
 				F7EF20EC2154480300FD3911 /* UIScene.swift */,
 			);
 			path = UI;
@@ -234,24 +284,30 @@
 				F7EF21032154480400FD3911 /* UISectionedTableScene.swift in Sources */,
 				F7EF20FF2154480400FD3911 /* UITableSceneHeader.swift in Sources */,
 				F7EF20FB2154480300FD3911 /* TaggedViewModel.swift in Sources */,
+				F7C5A8AD216CF07A0067727A /* UITableScene.swift in Sources */,
 				F7EF210B2154480400FD3911 /* DispatchQueue.swift in Sources */,
 				F7EF20F92154480300FD3911 /* TaggedViewModelCollection.swift in Sources */,
+				F755152A2178F52D0099D99A /* ViewModelItem.swift in Sources */,
 				F7EF20FD2154480300FD3911 /* UITableSceneSectionFooter.swift in Sources */,
 				F7EF21042154480400FD3911 /* UIScene.swift in Sources */,
 				F7EF21072154480400FD3911 /* Interactor.swift in Sources */,
 				F7EF210A2154480400FD3911 /* Collection.swift in Sources */,
 				F7EF21062154480400FD3911 /* ActionCenter.swift in Sources */,
 				F7EF20FA2154480300FD3911 /* SectionViewModel.swift in Sources */,
+				F71AB1D721764EF800DA2F07 /* UITimelinePresenter.swift in Sources */,
 				F7EF21012154480400FD3911 /* UITableSceneCell.swift in Sources */,
+				F71AB1D521764EF800DA2F07 /* UITimelineScene.swift in Sources */,
 				F7EF210D2154480400FD3911 /* Presenter.swift in Sources */,
 				F7EF21022154480400FD3911 /* UISectionedTableDataSource.swift in Sources */,
 				F7EF21002154480400FD3911 /* UITableSceneSectionHeader.swift in Sources */,
 				F7EF20FE2154480400FD3911 /* UITableSceneSectionFeedback.swift in Sources */,
+				F755152C2178FBEA0099D99A /* UITimelineDataSource.swift in Sources */,
 				F7EF21082154480400FD3911 /* ParameterizedPresenter.swift in Sources */,
 				F7EF20FC2154480300FD3911 /* ViewModelCenter.swift in Sources */,
 				F7EF20F82154480300FD3911 /* ViewModel.swift in Sources */,
 				F7EF210E2154480400FD3911 /* ActionDelegate.swift in Sources */,
 				F7EF21092154480400FD3911 /* UIView.swift in Sources */,
+				F7E76E71216D518F002D65E0 /* UITableDataSource.swift in Sources */,
 				F7EF21052154480400FD3911 /* ActionCenterDelegate.swift in Sources */,
 				F7EF210C2154480400FD3911 /* UITableView.swift in Sources */,
 			);

@@ -23,10 +23,6 @@
 import UIKit
 
 class UISectionedTableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
-    struct ViewModelItem {
-        let identifier: String
-        var item: TaggedViewModel
-    }
     
     struct SectionItem {
         var viewModel: SectionViewModel
@@ -39,7 +35,7 @@ class UISectionedTableDataSource: NSObject, UITableViewDataSource, UITableViewDe
     private lazy var identifiers: [String: String] = [:]
     
     private var sectionIdentifiers: (header: String, footer: String, feedback: String)?
-    private var actionDelegate: ActionCenterDelegate
+    private weak var actionDelegate: ActionCenterDelegate?
     
     init(actionDelegate: ActionCenterDelegate) {
         self.actionDelegate = actionDelegate
