@@ -8,7 +8,12 @@
 
 import Foundation
 
-open class UITimelinePresenter<TInteractor: InteractorProtocol, TEntity>: ParameterizedPresenter<TInteractor, Int> {
+protocol TimelinePresenterProtocol {
+    func clear()
+    func fetch()
+}
+
+open class UITimelinePresenter<TInteractor, TParameter, TEntity>: ParameterizedPresenter<TInteractor, TParameter>, TimelinePresenterProtocol {
     
     private var reset: Bool = false
     private var currentPage: Int = 0

@@ -7,7 +7,7 @@
 
 import UIKit
 
-open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor: Interactor, TInteractorProtocol> : UIScene<TPresenter, TInteractor, TInteractorProtocol> {
+open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor: InteractorProtocol, TInteractorProtocol>: UIScene<TPresenter, TInteractor, TInteractorProtocol> {
     var dataSource: UITableDataSource?
     
     @IBOutlet public weak var tableView: UITableView! {
