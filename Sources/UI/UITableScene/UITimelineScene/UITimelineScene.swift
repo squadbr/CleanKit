@@ -16,10 +16,7 @@ open class UITimelineScene<TPresenter: Presenter<TInteractorProtocol>, TInteract
         super.viewDidLoad()
         self.setupInterface()
         
-        guard let presenter = presenter as? TimelinePresenterProtocol else {
-            fatalError("")
-        }
-        presenter.fetch()
+        (presenter as? TimelinePresenterProtocol)?.fetch()
     }
     
     private func setupInterface() {
@@ -32,20 +29,14 @@ open class UITimelineScene<TPresenter: Presenter<TInteractorProtocol>, TInteract
     private func refresh() {
         self.dataSource?.clear()
         
-        guard let presenter = presenter as? TimelinePresenterProtocol else {
-            fatalError("")
-        }
-        presenter.clear()
-        presenter.fetch()
+        (presenter as? TimelinePresenterProtocol)?.clear()
+        (presenter as? TimelinePresenterProtocol)?.fetch()
     }
     
     open override func setup(actionCenter: ActionCenter) {
         super.setup(actionCenter: actionCenter)
         actionCenter.observe(action: "prefetch") { [weak self] (_) in
-            guard let presenter = self?.presenter as? TimelinePresenterProtocol else {
-                fatalError("")
-            }
-            presenter.fetch()
+            (self?.presenter as? TimelinePresenterProtocol)?.fetch()
         }
     }
     
