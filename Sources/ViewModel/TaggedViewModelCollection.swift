@@ -20,7 +20,7 @@
 //  THE SOFTWARE.
 //
 
-public final class TaggedViewModelCollection : TaggedViewModel {
+public final class TaggedViewModelCollection: TaggedViewModel {
     lazy var items: [TaggedViewModel] = []
     
     public private(set) var tag: Int

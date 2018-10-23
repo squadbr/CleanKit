@@ -20,11 +20,11 @@
 //  THE SOFTWARE.
 //
 
-public protocol InteractorProtocol : AnyObject {
+public protocol InteractorProtocol: AnyObject {
     init()
 }
 
-open class Interactor : InteractorProtocol {
+open class Interactor: InteractorProtocol {
     public required init() {
     }
 }

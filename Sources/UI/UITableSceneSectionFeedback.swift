@@ -22,7 +22,7 @@
 
 import UIKit
 
-open class UITableSceneSectionFeedback : UITableViewCell, ActionDelegate {
+open class UITableSceneSectionFeedback: UITableViewCell, ActionDelegate {
     weak var delegate: ActionCenterDelegate?
     
     open func prepare(message: String) {
