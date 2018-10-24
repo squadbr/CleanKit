@@ -38,6 +38,12 @@ open class UITimelineScene<TPresenter: Presenter<TInteractorProtocol>, TInteract
         actionCenter.observe(action: "prefetch") { [weak self] (_) in
             (self?.presenter as? TimelinePresenterProtocol)?.fetch()
         }
+        actionCenter.observe(action: "load") { [weak self] (_) in
+            (self?.dataSource as? UITimelineDataSource)?.start()
+        }
+        actionCenter.observe(action: "stop") { [weak self] (_) in
+            (self?.dataSource as? UITimelineDataSource)?.stop()
+        }
     }
     
     public var itemsToPrefetch: Int {

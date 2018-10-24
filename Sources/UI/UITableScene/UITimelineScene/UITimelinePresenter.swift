@@ -36,14 +36,13 @@ open class UITimelinePresenter<TInteractor, TParameter, TEntity>: ParameterizedP
         DispatchQueue.async {
             guard !self.loading && self.hasNext else { return }
             self.loading = true
+            self.actionCenter.post(action: "load", tag: 0)
             
             do {
                 let collection = TaggedViewModelCollection(tag: 1)
                 
-                self.currentPage += 1
-                let currentPage = self.currentPage
-                
-                let objects = try self.fetch(page: self.currentPage)
+                let currentPage = self.currentPage + 1
+                let objects = try self.fetch(page: currentPage)
                 for object in objects {
                     collection.append(item: self.prepare(object: object))
                 }
@@ -52,10 +51,12 @@ open class UITimelinePresenter<TInteractor, TParameter, TEntity>: ParameterizedP
                 
                 if !self.reset || currentPage == 1 {
                     self.post(viewModel: collection)
+                    self.currentPage += 1
                 }
                 self.reset = false
             } catch { }
             
+            self.actionCenter.post(action: "stop", tag: 0)
             self.loading = false
         }
     }

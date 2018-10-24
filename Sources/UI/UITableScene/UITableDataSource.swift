@@ -29,55 +29,32 @@ class UITableDataSource: NSObject {
         self.reload = true
     }
     
-    func append(collection: TaggedViewModelCollection) {
-        DispatchQueue.async {
-            guard let tableView = self.tableView else { return }
-            
-            if self.reload {
-                self.reload = false
-                self.items = []
-            }
-            let reload: Bool = self.items.isEmpty
-            
-            // indexes of items to be inserted
-            var indexesPath: [IndexPath] = []
-            
-            // get number of rows and size of table view (must be on main thread)
-            let semaphore = DispatchSemaphore(value: 0)
-            var numberOfRows: Int!
-            
-            DispatchQueue.safeSync {
-                numberOfRows = tableView.numberOfRows(inSection: 0)
-                semaphore.signal()
-            }
-            _ = semaphore.wait(timeout: .distantFuture)
-            
-            // process each item
-            for (index, item) in collection.items.enumerated() {
-                let viewModel = "\(type(of: item))"
-                
-                if let identifier = self.identifiers[viewModel] {
-                    self.items.append(ViewModelItem(identifier: identifier, item: item))
-                } else {
-                    assertionFailure("The \(viewModel) view model is not binded")
-                }
-                
-                indexesPath.append(IndexPath(row: index + numberOfRows, section: 0))
-            }
-            
-            // insert items
-            DispatchQueue.safeSync {
-                if reload {
-                    self.tableView?.reloadData()
-                    self.tableView?.refreshControl?.endRefreshing()
-                } else {
-                    UIView.performWithoutAnimation {
-                        self.tableView?.insertRows(at: indexesPath, with: .none)
-                    }
-                }
-                self.tableView?.tableFooterView = nil
-            }
+    func append(collection: TaggedViewModelCollection) -> [IndexPath] {
+        if self.reload {
+            self.reload = false
+            self.items = []
         }
+        
+        // indexes of items to be inserted
+        var indexesPath: [IndexPath] = []
+        
+        // get number of rows and size of table view (must be on main thread)
+        let numberOfRows: Int = self.items.count
+        
+        // process each item
+        for (index, item) in collection.items.enumerated() {
+            let viewModel = "\(type(of: item))"
+            
+            if let identifier = self.identifiers[viewModel] {
+                self.items.append(ViewModelItem(identifier: identifier, item: item))
+            } else {
+                assertionFailure("The \(viewModel) view model is not binded")
+            }
+            
+            indexesPath.append(IndexPath(row: index + numberOfRows, section: 0))
+        }
+        
+        return indexesPath
     }
     
     func bind<TCell: UITableSceneCell<TViewModel>, TViewModel: TaggedViewModel>(cell: TCell.Type, to viewModel: TViewModel.Type) {
