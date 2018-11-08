@@ -46,12 +46,33 @@ open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor:
             } else {
                 indexesPath = dataSource.insert(collection: collection, at: collection.index)
             }
+            guard let firstIndexPath: IndexPath = indexesPath.first else { return }
             
             DispatchQueue.safeSync {
-                if indexesPath.first == IndexPath(row: 0, section: 0), collection.index == -1 {
+                if firstIndexPath.row == 0 && collection.index == -1 {
+                    // just reload data
                     self.tableView.reloadData()
                     self.tableView.refreshControl?.endRefreshing()
+                    
+                } else if collection.animated {
+                    // insert animated
+                    var time: Double = 0
+                    
+                    if let indexPathsForVisibleRows = self.tableView.indexPathsForVisibleRows,
+                        !indexPathsForVisibleRows.isEmpty {
+                        
+                        // scroll to position if exists
+                        self.tableView.scrollToRow(at: firstIndexPath, at: .none, animated: true)
+                        time = 0.75
+                    }
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + time, execute: {
+                        self.tableView?.insertRows(at: indexesPath, with: .automatic)
+                        self.tableView.scrollToRow(at: firstIndexPath, at: .none, animated: true)
+                    })
+                    
                 } else {
+                    // insert
                     UIView.performWithoutAnimation {
                         self.tableView?.insertRows(at: indexesPath, with: .none)
                     }

@@ -25,6 +25,7 @@ public final class TaggedViewModelCollection: TaggedViewModel {
     
     public private(set) var tag: Int
     public var index: Int
+    public var animated: Bool
     
     public var count: Int {
         return items.count
@@ -33,11 +34,13 @@ public final class TaggedViewModelCollection: TaggedViewModel {
     public init() {
         self.tag = 0
         self.index = -1
+        self.animated = false
     }
     
-    public init(tag: Int, index: Int = -1) {
+    public init(tag: Int, index: Int = -1, animated: Bool = false) {
         self.tag = tag
         self.index = index
+        self.animated = animated
     }
     
     public subscript(index: Int) -> TaggedViewModel {
