@@ -23,9 +23,9 @@
 public final class TaggedViewModelCollection: TaggedViewModel {
     lazy var items: [TaggedViewModel] = []
     
-    public private(set) var tag: Int
-    public var index: Int
-    public var animated: Bool
+    public let tag: Int
+    public let index: Int
+    public let animated: Bool
     
     public var count: Int {
         return items.count
