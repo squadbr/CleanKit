@@ -57,6 +57,31 @@ class UITableDataSource: NSObject {
         return indexesPath
     }
     
+    func insert(collection: TaggedViewModelCollection, at index: Int) -> [IndexPath] {
+        if self.reload {
+            self.reload = false
+            self.items = []
+        }
+        
+        // indexes of items to be inserted
+        var indexesPath: [IndexPath] = []
+        
+        // process each item
+        for (itemIndex, item) in collection.items.enumerated() {
+            let viewModel = "\(type(of: item))"
+            
+            if let identifier = self.identifiers[viewModel] {
+                self.items.insert(ViewModelItem(identifier: identifier, item: item), at: itemIndex + index)
+            } else {
+                assertionFailure("The \(viewModel) view model is not binded")
+            }
+            
+            indexesPath.append(IndexPath(row: itemIndex + index, section: 0))
+        }
+        
+        return indexesPath
+    }
+    
     func bind<TCell: UITableSceneCell<TViewModel>, TViewModel: TaggedViewModel>(cell: TCell.Type, to viewModel: TViewModel.Type) {
         let current = identifiers["\(viewModel)"]
         

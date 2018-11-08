@@ -24,6 +24,7 @@ public final class TaggedViewModelCollection: TaggedViewModel {
     lazy var items: [TaggedViewModel] = []
     
     public private(set) var tag: Int
+    public var index: Int
     
     public var count: Int {
         return items.count
@@ -31,10 +32,12 @@ public final class TaggedViewModelCollection: TaggedViewModel {
     
     public init() {
         self.tag = 0
+        self.index = -1
     }
     
-    public init(tag: Int) {
+    public init(tag: Int, index: Int = -1) {
         self.tag = tag
+        self.index = index
     }
     
     public subscript(index: Int) -> TaggedViewModel {
