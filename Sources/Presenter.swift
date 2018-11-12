@@ -61,6 +61,10 @@ open class Presenter<TInteractor> {
         actionCenter.post(action: action, tag: tag)
     }
     
+    public func post(action: String, tag: Int, any: Any) {
+        actionCenter.post(action: action, tag: tag, any: any)
+    }
+    
     open func didLoad() {
     }
     

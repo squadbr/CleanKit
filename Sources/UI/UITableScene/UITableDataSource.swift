@@ -82,6 +82,21 @@ class UITableDataSource: NSObject {
         return indexesPath
     }
     
+    func update(tag: Int, item: TaggedViewModel) {
+        guard let index = (self.items.firstIndex { $0.item.tag == tag }) else { return }
+        let viewModel = "\(type(of: item))"
+        
+        if let identifier = self.identifiers[viewModel] {
+            self.items[index] = ViewModelItem(identifier: identifier, item: item)
+        } else {
+            assertionFailure("The \(viewModel) view model is not binded")
+        }
+        
+        self.tableView?.performBatchUpdates({
+            self.tableView?.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        })
+    }
+    
     func remove(tag: Int) {
         guard let index = (self.items.firstIndex { $0.item.tag == tag }) else { return }
         

@@ -41,6 +41,10 @@ open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor:
             guard let self = self, let dataSource = self.dataSource else { return }
             dataSource.remove(tag: tag)
         }
+        actionCenter.observe(action: "update") { [weak self] (tag, any) in
+            guard let self = self, let dataSource = self.dataSource else { return }
+            dataSource.update(tag: tag, item: any as! TaggedViewModel)
+        }
     }
     
     open override func setup(viewModelCenter: ViewModelCenter) {
