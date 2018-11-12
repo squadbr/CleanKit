@@ -42,8 +42,8 @@ open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor:
             dataSource.remove(tag: tag)
         }
         actionCenter.observe(action: "update") { [weak self] (tag, any) in
-            guard let self = self, let dataSource = self.dataSource else { return }
-            dataSource.update(tag: tag, item: any as! TaggedViewModel)
+            guard let self = self, let dataSource = self.dataSource, let item = any as? TaggedViewModel else { return }
+            dataSource.update(tag: tag, item: item)
         }
     }
     
@@ -66,6 +66,7 @@ open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor:
                     // just reload data
                     self.tableView.reloadData()
                     self.tableView.refreshControl?.endRefreshing()
+                    self.view.layoutIfNeeded()
                     
                 } else if case let .insert(index, animated) = collection.case, animated {
                     // insert animated

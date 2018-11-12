@@ -30,37 +30,15 @@ class UITableDataSource: NSObject {
     }
     
     func append(collection: TaggedViewModelCollection) -> [IndexPath] {
-        if self.reload {
-            self.reload = false
-            self.items = []
-        }
-        
-        // indexes of items to be inserted
-        var indexesPath: [IndexPath] = []
-        
-        // get number of rows and size of table view (must be on main thread)
-        let numberOfRows: Int = self.items.count
-        
-        // process each item
-        for (index, item) in collection.items.enumerated() {
-            let viewModel = "\(type(of: item))"
-            
-            if let identifier = self.identifiers[viewModel] {
-                self.items.append(ViewModelItem(identifier: identifier, item: item))
-            } else {
-                assertionFailure("The \(viewModel) view model is not binded")
-            }
-            
-            indexesPath.append(IndexPath(row: index + numberOfRows, section: 0))
-        }
-        
-        return indexesPath
+        return self.insert(collection: collection, at: self.items.count)
     }
     
     func insert(collection: TaggedViewModelCollection, at index: Int) -> [IndexPath] {
+        var index: Int = index
         if self.reload {
             self.reload = false
             self.items = []
+            index = 0
         }
         
         // indexes of items to be inserted
