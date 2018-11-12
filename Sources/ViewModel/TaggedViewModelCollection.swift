@@ -21,11 +21,16 @@
 //
 
 public final class TaggedViewModelCollection: TaggedViewModel {
+    
+    public enum Case {
+        case append
+        case insert(index: Int, animated: Bool)
+    }
+    
     lazy var items: [TaggedViewModel] = []
     
+    public let `case`: Case
     public let tag: Int
-    public let index: Int
-    public let animated: Bool
     
     public var count: Int {
         return items.count
@@ -33,14 +38,12 @@ public final class TaggedViewModelCollection: TaggedViewModel {
     
     public init() {
         self.tag = 0
-        self.index = -1
-        self.animated = false
+        self.case = .append
     }
     
-    public init(tag: Int, index: Int = -1, animated: Bool = false) {
+    public init(tag: Int, case: Case = .append) {
+        self.case = `case`
         self.tag = tag
-        self.index = index
-        self.animated = animated
     }
     
     public subscript(index: Int) -> TaggedViewModel {

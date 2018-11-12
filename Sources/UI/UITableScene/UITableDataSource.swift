@@ -82,6 +82,15 @@ class UITableDataSource: NSObject {
         return indexesPath
     }
     
+    func remove(tag: Int) {
+        guard let index = (self.items.firstIndex { $0.item.tag == tag }) else { return }
+        
+        self.items.remove(at: index)
+        self.tableView?.performBatchUpdates({
+            self.tableView?.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        })
+    }
+    
     func bind<TCell: UITableSceneCell<TViewModel>, TViewModel: TaggedViewModel>(cell: TCell.Type, to viewModel: TViewModel.Type) {
         let current = identifiers["\(viewModel)"]
         

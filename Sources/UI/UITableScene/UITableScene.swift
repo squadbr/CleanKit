@@ -36,25 +36,34 @@ open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor:
         }
     }
     
+    open override func setup(actionCenter: ActionCenter) {
+        actionCenter.observe(action: "delete") { [weak self] (tag) in
+            guard let self = self, let dataSource = self.dataSource else { return }
+            dataSource.remove(tag: tag)
+        }
+    }
+    
     open override func setup(viewModelCenter: ViewModelCenter) {
         viewModelCenter.observe(background: true) { [weak self] (collection: TaggedViewModelCollection) in
             guard let self = self, let dataSource = self.dataSource else { return }
             
             let indexesPath: [IndexPath]
-            if collection.index == -1 {
+            switch collection.case {
+            case .append:
                 indexesPath = dataSource.append(collection: collection)
-            } else {
-                indexesPath = dataSource.insert(collection: collection, at: collection.index)
+            case let .insert(index, _):
+                indexesPath = dataSource.insert(collection: collection, at: index)
             }
+            
             guard let firstIndexPath: IndexPath = indexesPath.first else { return }
             
             DispatchQueue.safeSync {
-                if firstIndexPath.row == 0 && collection.index == -1 {
+                if firstIndexPath.row == 0, case .append = collection.case {
                     // just reload data
                     self.tableView.reloadData()
                     self.tableView.refreshControl?.endRefreshing()
                     
-                } else if collection.animated {
+                } else if case let .insert(index, animated) = collection.case, animated {
                     // insert animated
                     var time: Double = 0
                     
@@ -104,6 +113,10 @@ open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor:
     
     func loadDataSource() -> UITableDataSource {
         return UITableDataSource(tableView: self.tableView, delegate: self)
+    }
+    
+    func remove(tag: Int) {
+        self.dataSource?.remove(tag: tag)
     }
     
 }
