@@ -68,4 +68,9 @@ open class UIScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor: Inte
     func actionCenter(postAction name: String, tag: Int) {
         presenter.actionCenter.post(action: name, tag: tag)
     }
+    
+    func actionCenter(postAction name: String, tag: Int, any: Any) {
+        presenter.actionCenter.post(action: name, tag: tag, any: any)
+    }
+    
 }

@@ -62,15 +62,23 @@ open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor:
                         !indexPathsForVisibleRows.isEmpty {
                         
                         // scroll to position if exists
-                        self.tableView.scrollToRow(at: firstIndexPath, at: .none, animated: true)
-                        time = 0.75
+                        UIView.animate(withDuration: 0.75, animations: {
+                            self.tableView.scrollToRow(at: firstIndexPath, at: .none, animated: true)
+                            time = 0.75
+                        }, completion: { (_) in
+                            insertAndScroll()
+                        })
+                        
+                    } else {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + time, execute: {
+                            insertAndScroll()
+                        })
                     }
                     
-                    DispatchQueue.main.asyncAfter(deadline: .now() + time, execute: {
+                    func insertAndScroll() {
                         self.tableView?.insertRows(at: indexesPath, with: .automatic)
                         self.tableView.scrollToRow(at: firstIndexPath, at: .none, animated: true)
-                    })
-                    
+                    }
                 } else {
                     // insert
                     UIView.performWithoutAnimation {

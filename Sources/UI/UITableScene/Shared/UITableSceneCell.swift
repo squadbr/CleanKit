@@ -51,6 +51,10 @@ open class UITableSceneCell<T: ViewModel> : UITableViewCell, UITableSceneCellPro
         delegate?.actionCenter(postAction: name, tag: tag)
     }
     
+    public func post(action name: String, any: Any) {
+        delegate?.actionCenter(postAction: name, tag: tag, any: any)
+    }
+    
     open func prepare(viewModel: T) {
         assertionFailure("You need to implement the method \"prepare(viewModel:)\" to prepare this cell")
     }
