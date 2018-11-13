@@ -9,6 +9,7 @@ import UIKit
 
 class UITableDataSource: NSObject {
     
+    private weak var focusedCell: UITableSceneCellProtocol?
     private(set) weak var tableView: UITableView?
     private(set) weak var delegate: ActionCenterDelegate?
     
@@ -122,6 +123,41 @@ extension UITableDataSource: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return self.heights[indexPath] ?? UITableView.automaticDimension
+    }
+    
+}
+
+extension UITableDataSource {
+    
+    private func focusCell() {
+        // unfocus
+        self.focusedCell?.focus(bool: false)
+        
+        // get center
+        guard let tableView = self.tableView else { return }
+        let rect = CGRect(origin: tableView.contentOffset, size: tableView.bounds.size)
+        let center = CGPoint(x: rect.midX, y: rect.midY)
+        
+        // get visible cell that is at the center
+        guard let indexPath = tableView.indexPathForRow(at: center) else { return }
+        for visibleCell in tableView.visibleCells where tableView.indexPath(for: visibleCell) == indexPath {
+            self.focusedCell = visibleCell as? UITableSceneCellProtocol
+            self.focusedCell?.focus(bool: true)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        (cell as? UITableSceneCellProtocol)?.focus(bool: false)
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            self.focusCell()
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        self.focusCell()
     }
     
 }

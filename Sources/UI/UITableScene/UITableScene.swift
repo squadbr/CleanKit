@@ -59,14 +59,12 @@ open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor:
                 indexesPath = dataSource.insert(collection: collection, at: index)
             }
             
-            guard let firstIndexPath: IndexPath = indexesPath.first else { return }
-            
             DispatchQueue.safeSync {
-                if firstIndexPath.row == 0, case .append = collection.case {
+                let firstIndexPath: IndexPath? = indexesPath.first
+                if firstIndexPath == nil || firstIndexPath?.row == 0, case .append = collection.case {
                     // just reload data
                     self.tableView.reloadData()
                     self.tableView.refreshControl?.endRefreshing()
-                    self.view.layoutIfNeeded()
                     
                 } else if case let .insert(index, animated) = collection.case, animated {
                     // insert animated
@@ -77,7 +75,7 @@ open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor:
                         
                         // scroll to position if exists
                         UIView.animate(withDuration: 0.75, animations: {
-                            self.tableView.scrollToRow(at: firstIndexPath, at: .none, animated: true)
+                            self.tableView.scrollToRow(at: firstIndexPath!, at: .none, animated: true)
                             time = 0.75
                         }, completion: { (_) in
                             insertAndScroll()
@@ -91,7 +89,7 @@ open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor:
                     
                     func insertAndScroll() {
                         self.tableView?.insertRows(at: indexesPath, with: .automatic)
-                        self.tableView.scrollToRow(at: firstIndexPath, at: .none, animated: true)
+                        self.tableView.scrollToRow(at: firstIndexPath!, at: .none, animated: true)
                     }
                 } else {
                     // insert

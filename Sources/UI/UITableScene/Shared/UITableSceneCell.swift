@@ -22,15 +22,16 @@
 
 import UIKit
 
-protocol UITableSceneCellProtocol {
+protocol UITableSceneCellProtocol: class {
     var delegate: ActionCenterDelegate? { get set }
     var tag: Int { get set }
     
     func prepare(viewModel: ViewModel) -> UITableViewCell
+    func focus(bool: Bool)
 }
 
 @IBDesignable
-open class UITableSceneCell<T: ViewModel> : UITableViewCell, UITableSceneCellProtocol, ActionDelegate {
+open class UITableSceneCell<T: ViewModel>: UITableViewCell, UITableSceneCellProtocol, ActionDelegate {
     weak var delegate: ActionCenterDelegate?
     
     @IBInspectable public var touchActionName: String?
@@ -75,4 +76,9 @@ open class UITableSceneCell<T: ViewModel> : UITableViewCell, UITableSceneCellPro
         
         delegate?.actionCenter(postAction: touchActionName, tag: tag)
     }
+    
+    func focus(bool: Bool) {
+//        self.backgroundColor = bool ? UIColor.black : UIColor.white
+    }
+    
 }
