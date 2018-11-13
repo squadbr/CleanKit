@@ -39,7 +39,7 @@ open class UITableSceneCell<T: ViewModel>: UITableViewCell, UITableSceneCellProt
     open override func awakeFromNib() {
         super.awakeFromNib()
         
-        selectionStyle = .none
+        selectionStyle = .nonebool
         focusStyle = .custom
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
@@ -78,7 +78,6 @@ open class UITableSceneCell<T: ViewModel>: UITableViewCell, UITableSceneCellProt
     }
     
     func focus(bool: Bool) {
-//        self.backgroundColor = bool ? UIColor.black : UIColor.white
     }
     
 }
