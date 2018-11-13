@@ -24,4 +24,5 @@ import Foundation
 
 protocol ActionCenterDelegate: class {
     func actionCenter(postAction name: String, tag: Int)
+    func actionCenter(postAction name: String, tag: Int, any: Any)
 }

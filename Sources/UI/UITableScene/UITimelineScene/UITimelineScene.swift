@@ -11,12 +11,17 @@ import UIKit
 open class UITimelineScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor: InteractorProtocol, TInteractorProtocol>: UITableScene<TPresenter, TInteractor, TInteractorProtocol> {
     
     private let activity: UIRefreshControl = UIRefreshControl()
+    private var _presenter: TimelinePresenterProtocol!
     
     open override func viewDidLoad() {
         super.viewDidLoad()
         self.setupInterface()
         
-        (presenter as? TimelinePresenterProtocol)?.fetch()
+        guard let presenter = self.presenter as? TimelinePresenterProtocol else {
+            preconditionFailure("presenter should implement timeline presenter")
+        }
+        self._presenter = presenter
+        presenter.fetch()
     }
     
     private func setupInterface() {
@@ -26,17 +31,17 @@ open class UITimelineScene<TPresenter: Presenter<TInteractorProtocol>, TInteract
     }
     
     @objc
-    private func refresh() {
+    open func refresh() {
         self.dataSource?.clear()
         
-        (presenter as? TimelinePresenterProtocol)?.clear()
-        (presenter as? TimelinePresenterProtocol)?.fetch()
+        _presenter.clear()
+        _presenter.fetch()
     }
     
     open override func setup(actionCenter: ActionCenter) {
         super.setup(actionCenter: actionCenter)
         actionCenter.observe(action: "prefetch") { [weak self] (_) in
-            (self?.presenter as? TimelinePresenterProtocol)?.fetch()
+            (self?._presenter)?.fetch()
         }
         actionCenter.observe(action: "load") { [weak self] (_) in
             (self?.dataSource as? UITimelineDataSource)?.start()

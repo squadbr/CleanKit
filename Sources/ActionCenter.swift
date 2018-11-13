@@ -24,6 +24,7 @@ import Foundation
 
 public final class ActionCenter {
     private lazy var items = [String: (tag: Int) -> Void]()
+    private lazy var itemsWithParam = [String: (tag: Int, any: Any) -> Void]()
     private lazy var caseItems = [ObjectIdentifier: Any]()
     
     private var messageExecute: Any?
@@ -32,7 +33,14 @@ public final class ActionCenter {
     
     public func observe(action name: String, execute: @escaping((_ tag: Int) -> Void)) {
         assert(items[name] == nil, "The \(name) action already exists")
+        assert(itemsWithParam[name] == nil, "The \(name) action already exists")
         items[name] = execute
+    }
+    
+    public func observe(action name: String, execute: @escaping((_ tag: Int, _ any: Any) -> Void)) {
+        assert(items[name] == nil, "The \(name) action already exists")
+        assert(itemsWithParam[name] == nil, "The \(name) action already exists")
+        itemsWithParam[name] = execute
     }
     
     public func observe<T: RawRepresentable>(case: T, execute: @escaping(() -> Void)) where T.RawValue == Int {
@@ -59,6 +67,14 @@ public final class ActionCenter {
     func post(action name: String, tag: Int) {
         if let execute = items[name] {
             DispatchQueue.safeSync { execute(tag) }
+        } else {
+            assertionFailure("The \(name) action does not exist")
+        }
+    }
+    
+    func post(action name: String, tag: Int, any: Any) {
+        if let execute = itemsWithParam[name] {
+            DispatchQueue.safeSync { execute(tag, any) }
         } else {
             assertionFailure("The \(name) action does not exist")
         }
