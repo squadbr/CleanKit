@@ -77,7 +77,7 @@ open class UITableSceneCell<T: ViewModel>: UITableViewCell, UITableSceneCellProt
         delegate?.actionCenter(postAction: touchActionName, tag: tag)
     }
     
-    func focus(bool: Bool) {
+    open func focus(bool: Bool) {
     }
     
 }

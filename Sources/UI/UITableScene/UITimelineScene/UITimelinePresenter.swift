@@ -11,6 +11,7 @@ import Foundation
 protocol TimelinePresenterProtocol {
     func clear()
     func fetch()
+    func update(tag: Int)
 }
 
 open class UITimelinePresenter<TInteractor, TParameter, TEntity>: ParameterizedPresenter<TInteractor, TParameter>, TimelinePresenterProtocol {
@@ -21,6 +22,8 @@ open class UITimelinePresenter<TInteractor, TParameter, TEntity>: ParameterizedP
     private var loading: Bool = false
     private var pageSize: Int = 25
     
+    private var objects: [TEntity] = []
+    
     public enum UITimelineError: Error {
         case unknown
     }
@@ -30,6 +33,13 @@ open class UITimelinePresenter<TInteractor, TParameter, TEntity>: ParameterizedP
         self.hasNext = true
         self.loading = false
         self.reset = true
+    }
+    
+    func update(tag: Int) {
+        DispatchQueue.async {
+            guard let object = self.find(tag) else { return }
+            self.post(action: "update", tag: tag, any: self.prepare(object: object))
+        }
     }
     
     func fetch() {
@@ -50,8 +60,11 @@ open class UITimelinePresenter<TInteractor, TParameter, TEntity>: ParameterizedP
                 self.hasNext = !(objects.count < self.pageSize) || !objects.isEmpty
                 
                 if !self.reset || currentPage == 1 {
+                    self.objects.append(contentsOf: objects)
                     self.post(viewModel: collection)
                     self.currentPage += 1
+                } else {
+                    self.objects = []
                 }
                 self.reset = false
             } catch { }
@@ -59,6 +72,14 @@ open class UITimelinePresenter<TInteractor, TParameter, TEntity>: ParameterizedP
             self.actionCenter.post(action: "stop", tag: 0)
             self.loading = false
         }
+    }
+    
+    public func find(_ tag: Int) -> TEntity? {
+        return self.objects.first(where: { return self.find(tag: tag, object: $0) })
+    }
+    
+    open func find(tag: Int, object: TEntity) -> Bool {
+        preconditionFailure("Should be overwritten.")
     }
     
     open func fetch(page: Int) throws -> [TEntity] {

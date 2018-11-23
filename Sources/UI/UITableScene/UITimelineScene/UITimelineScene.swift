@@ -27,7 +27,7 @@ open class UITimelineScene<TPresenter: Presenter<TInteractorProtocol>, TInteract
     private func setupInterface() {
         self.tableView.showsVerticalScrollIndicator = false
         self.tableView.refreshControl = self.activity
-        self.activity.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        self.activity.addTarget(self, action: #selector(refresh as () -> Void), for: .valueChanged)
     }
     
     @objc
@@ -36,6 +36,10 @@ open class UITimelineScene<TPresenter: Presenter<TInteractorProtocol>, TInteract
         
         _presenter.clear()
         _presenter.fetch()
+    }
+    
+    public func refresh(tag: Int) {
+        self._presenter.update(tag: tag)
     }
     
     open override func setup(actionCenter: ActionCenter) {
