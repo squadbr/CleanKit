@@ -45,6 +45,10 @@ open class Presenter<TInteractor> {
         actionCenter.post(case: `case`)
     }
     
+    public func post<T: RawRepresentable>(case: T, any: Any) where T.RawValue == Int {
+        actionCenter.post(case: `case`, any: any)
+    }
+    
     public func post(message: String) {
         actionCenter.post(message: message)
     }
