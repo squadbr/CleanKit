@@ -14,7 +14,17 @@ protocol UICollectionSceneCellProtocol: UISceneCellProtocol {
 @IBDesignable
 open class UICollectionSceneCell<T: ViewModel>: UICollectionViewCell, UICollectionSceneCellProtocol, ActionDelegate {
     
+    @IBInspectable public var touchActionName: String?
+    
     weak var delegate: ActionCenterDelegate?
+    
+    open override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
+        tapRecognizer.numberOfTapsRequired = 1
+        addGestureRecognizer(tapRecognizer)
+    }
     
     public func post(action name: String) {
         delegate?.actionCenter(postAction: name, tag: tag)
@@ -37,7 +47,15 @@ open class UICollectionSceneCell<T: ViewModel>: UICollectionViewCell, UICollecti
         return self
     }
     
-    func focus(bool: Bool) {
+    @objc private func didTap() {
+        guard let touchActionName = touchActionName else {
+            return
+        }
+        
+        delegate?.actionCenter(postAction: touchActionName, tag: tag)
+    }
+    
+    open func focus(bool: Bool) {
     }
     
 }

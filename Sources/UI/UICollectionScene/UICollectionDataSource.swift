@@ -9,19 +9,14 @@ import UIKit
 
 public class UICollectionDataSource: NSObject {
     
-    private weak var focusedCell: UITableSceneCellProtocol?
+    private weak var focusedCell: UISceneCellProtocol?
     private(set) weak var collectionView: UICollectionView?
     private(set) weak var delegate: ActionCenterDelegate?
-    
-    private weak var cell: UITableViewCell?
     
     private var reload: Bool = false
     
     internal var items: [ViewModelItem] = []
     private var identifiers: [String: String] = [:]
-    private var heights: [IndexPath: CGFloat] = [:]
-    
-    internal var itemsToPrefetch: Int = 50
     
     public init(collectionView: UICollectionView, owner: UIView) {
         self.collectionView = collectionView
@@ -32,6 +27,7 @@ public class UICollectionDataSource: NSObject {
         self.reload = true
     }
     
+    @discardableResult
     public func append(collection: TaggedViewModelCollection) -> [IndexPath] {
         return self.insert(collection: collection, at: self.items.count)
     }
@@ -88,6 +84,7 @@ public class UICollectionDataSource: NSObject {
     }
     
     public func bind<TCell: UICollectionSceneCell<TViewModel>, TViewModel: TaggedViewModel>(cell: TCell.Type, to viewModel: TViewModel.Type) {
+        self.collectionView?.register(UINib(nibName: "\(cell)", bundle: nil), forCellWithReuseIdentifier: "\(cell)")
         let current = identifiers["\(viewModel)"]
         
         precondition(current == nil, "The \(viewModel) is binded for \(current!)")
@@ -134,22 +131,22 @@ extension UICollectionDataSource {
         
         guard let indexPath = collectionView.indexPathForItem(at: center) else { return }
         for visibleCell in collectionView.visibleCells where collectionView.indexPath(for: visibleCell) == indexPath {
-            self.focusedCell = visibleCell as? UITableSceneCellProtocol
+            self.focusedCell = visibleCell as? UISceneCellProtocol
             self.focusedCell?.focus(bool: true)
         }
     }
     
     public func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        (cell as? UITableSceneCellProtocol)?.focus(bool: false)
+        (cell as? UISceneCellProtocol)?.focus(bool: false)
     }
     
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
             self.focusCell()
         }
     }
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         self.focusCell()
     }
     

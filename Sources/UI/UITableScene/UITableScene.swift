@@ -102,11 +102,10 @@ open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor:
     }
     
     public func bind<TCell: UITableSceneCell<TViewModel>, TViewModel: TaggedViewModel>(cell: TCell.Type, to viewModel: TViewModel.Type) {
-        guard let tableView = tableView, let dataSource = dataSource else {
-            fatalError("Table has not yet been initialized")
+        guard let dataSource = dataSource else {
+            preconditionFailure("DataSource has not yet been initialized")
         }
         
-        tableView.register(UINib(nibName: "\(cell)", bundle: nil), forCellReuseIdentifier: "\(cell)")
         dataSource.bind(cell: cell, to: viewModel)
     }
     

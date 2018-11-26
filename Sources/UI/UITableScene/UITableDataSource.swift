@@ -86,8 +86,9 @@ class UITableDataSource: NSObject {
     }
     
     func bind<TCell: UITableSceneCell<TViewModel>, TViewModel: TaggedViewModel>(cell: TCell.Type, to viewModel: TViewModel.Type) {
-        let current = identifiers["\(viewModel)"]
+        self.tableView?.register(UINib(nibName: "\(cell)", bundle: nil), forCellReuseIdentifier: "\(cell)")
         
+        let current = identifiers["\(viewModel)"]
         precondition(current == nil, "The \(viewModel) is binded for \(current!)")
         identifiers["\(viewModel)"] = "\(cell)"
     }
