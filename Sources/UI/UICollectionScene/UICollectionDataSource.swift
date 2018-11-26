@@ -1,17 +1,19 @@
 //
-//  UITableDataSource.swift
+//  UICollectionDataSource.swift
 //  CleanKit
 //
-//  Created by Marcos Kobuchi on 09/10/18.
+//  Created by Marcos Kobuchi on 26/11/18.
 //
 
 import UIKit
 
-class UITableDataSource: NSObject {
+public class UICollectionDataSource: NSObject {
     
     private weak var focusedCell: UITableSceneCellProtocol?
-    private(set) weak var tableView: UITableView?
+    private(set) weak var collectionView: UICollectionView?
     private(set) weak var delegate: ActionCenterDelegate?
+    
+    private weak var cell: UITableViewCell?
     
     private var reload: Bool = false
     
@@ -21,20 +23,20 @@ class UITableDataSource: NSObject {
     
     internal var itemsToPrefetch: Int = 50
     
-    init(tableView: UITableView, delegate: ActionCenterDelegate) {
-        self.tableView = tableView
-        self.delegate = delegate
+    public init(collectionView: UICollectionView, owner: UIView) {
+        self.collectionView = collectionView
+        self.delegate = (owner as? UISceneCellProtocol)?.delegate
     }
     
-    func clear() {
+    public func clear() {
         self.reload = true
     }
     
-    func append(collection: TaggedViewModelCollection) -> [IndexPath] {
+    public func append(collection: TaggedViewModelCollection) -> [IndexPath] {
         return self.insert(collection: collection, at: self.items.count)
     }
     
-    func insert(collection: TaggedViewModelCollection, at index: Int) -> [IndexPath] {
+    public func insert(collection: TaggedViewModelCollection, at index: Int) -> [IndexPath] {
         var index: Int = index
         if self.reload {
             self.reload = false
@@ -61,7 +63,7 @@ class UITableDataSource: NSObject {
         return indexesPath
     }
     
-    func update(tag: Int, item: TaggedViewModel) {
+    public func update(tag: Int, item: TaggedViewModel) {
         guard let index = (self.items.firstIndex { $0.item.tag == tag }) else { return }
         let viewModel = "\(type(of: item))"
         
@@ -71,21 +73,21 @@ class UITableDataSource: NSObject {
             assertionFailure("The \(viewModel) view model is not binded")
         }
         
-        self.tableView?.performBatchUpdates({
-            self.tableView?.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        self.collectionView?.performBatchUpdates({
+            self.collectionView?.reloadItems(at: [IndexPath(row: index, section: 0)])
         })
     }
     
-    func remove(tag: Int) {
+    public func remove(tag: Int) {
         guard let index = (self.items.firstIndex { $0.item.tag == tag }) else { return }
         
         self.items.remove(at: index)
-        self.tableView?.performBatchUpdates({
-            self.tableView?.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        self.collectionView?.performBatchUpdates({
+            self.collectionView?.deleteItems(at: [IndexPath(row: index, section: 0)])
         })
     }
     
-    func bind<TCell: UITableSceneCell<TViewModel>, TViewModel: TaggedViewModel>(cell: TCell.Type, to viewModel: TViewModel.Type) {
+    public func bind<TCell: UICollectionSceneCell<TViewModel>, TViewModel: TaggedViewModel>(cell: TCell.Type, to viewModel: TViewModel.Type) {
         let current = identifiers["\(viewModel)"]
         
         precondition(current == nil, "The \(viewModel) is binded for \(current!)")
@@ -94,59 +96,50 @@ class UITableDataSource: NSObject {
     
 }
 
-extension UITableDataSource: UITableViewDataSource, UITableViewDelegate {
+extension UICollectionDataSource: UICollectionViewDataSource, UICollectionViewDelegate {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.items.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let item = self.items[safe: indexPath.row] else {
-            return UITableViewCell(frame: .zero)
+            return UICollectionViewCell(frame: .zero)
         }
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: item.identifier, for: indexPath) as? UITableSceneCellProtocol {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: item.identifier, for: indexPath) as? UICollectionSceneCellProtocol {
             cell.delegate = delegate
             cell.tag = item.item.tag
             
             return cell.prepare(viewModel: item.item)
         } else {
-            fatalError("The \(item.identifier) cell is not based on UITableSceneCell")
+            fatalError("The \(item.identifier) cell is not based on UICollectionSceneCell")
         }
-    }
-    
-    // functions to calculate height
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        self.heights[indexPath] = cell.bounds.height
-    }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return self.heights[indexPath] ?? UITableView.automaticDimension
     }
     
 }
 
-extension UITableDataSource {
+extension UICollectionDataSource {
     
     private func focusCell() {
         // unfocus
         self.focusedCell?.focus(bool: false)
         
         // get center
-        guard let tableView = self.tableView else { return }
-        let rect = CGRect(origin: tableView.contentOffset, size: tableView.bounds.size)
+        guard let collectionView = self.collectionView else { return }
+        let rect = CGRect(origin: collectionView.contentOffset, size: collectionView.bounds.size)
         let center = CGPoint(x: rect.midX, y: rect.midY)
         
         // get visible cell that is at the center
-        guard let indexPath = tableView.indexPathForRow(at: center) else { return }
-        for visibleCell in tableView.visibleCells where tableView.indexPath(for: visibleCell) == indexPath {
+        
+        guard let indexPath = collectionView.indexPathForItem(at: center) else { return }
+        for visibleCell in collectionView.visibleCells where collectionView.indexPath(for: visibleCell) == indexPath {
             self.focusedCell = visibleCell as? UITableSceneCellProtocol
             self.focusedCell?.focus(bool: true)
         }
     }
     
-    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         (cell as? UITableSceneCellProtocol)?.focus(bool: false)
     }
     
@@ -162,9 +155,9 @@ extension UITableDataSource {
     
 }
 
-extension UITableDataSource: UITableViewDataSourcePrefetching {
+extension UICollectionDataSource: UICollectionViewDataSourcePrefetching {
     
-    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+    public func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
     }
     
 }

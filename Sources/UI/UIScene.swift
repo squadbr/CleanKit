@@ -22,7 +22,7 @@
 
 import UIKit
 
-open class UIScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor: InteractorProtocol, TInteractorProtocol> : UIViewController, ActionCenterDelegate {
+open class UIScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor: InteractorProtocol, TInteractorProtocol>: UIViewController, ActionCenterDelegate {
     public private(set) var presenter: TPresenter!
     
     public init(nibName: String? = nil, interactor: InteractorProtocol = TInteractor(), parameter: Any? = nil) {

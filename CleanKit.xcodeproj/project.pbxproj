@@ -11,8 +11,11 @@
 		F71AB1D721764EF800DA2F07 /* UITimelinePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71AB1D421764EF800DA2F07 /* UITimelinePresenter.swift */; };
 		F755152A2178F52D0099D99A /* ViewModelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75515292178F52D0099D99A /* ViewModelItem.swift */; };
 		F755152C2178FBEA0099D99A /* UITimelineDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F755152B2178FBEA0099D99A /* UITimelineDataSource.swift */; };
+		F79FDFBD21AC498500190AAF /* UICollectionSceneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79FDFBC21AC498500190AAF /* UICollectionSceneCell.swift */; };
+		F79FDFC121AC502E00190AAF /* UICollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79FDFC021AC502E00190AAF /* UICollectionDataSource.swift */; };
 		F7C5A8AD216CF07A0067727A /* UITableScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C5A8AC216CF07A0067727A /* UITableScene.swift */; };
 		F7E76E71216D518F002D65E0 /* UITableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E76E70216D518F002D65E0 /* UITableDataSource.swift */; };
+		F7EDC3D121AC69B500EF8AFC /* UISceneCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EDC3D021AC69B500EF8AFC /* UISceneCellProtocol.swift */; };
 		F7EF20F82154480300FD3911 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EF20DF2154480300FD3911 /* ViewModel.swift */; };
 		F7EF20F92154480300FD3911 /* TaggedViewModelCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EF20E02154480300FD3911 /* TaggedViewModelCollection.swift */; };
 		F7EF20FA2154480300FD3911 /* SectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EF20E12154480300FD3911 /* SectionViewModel.swift */; };
@@ -55,8 +58,11 @@
 		F71AB1D421764EF800DA2F07 /* UITimelinePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITimelinePresenter.swift; sourceTree = "<group>"; };
 		F75515292178F52D0099D99A /* ViewModelItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelItem.swift; sourceTree = "<group>"; };
 		F755152B2178FBEA0099D99A /* UITimelineDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITimelineDataSource.swift; sourceTree = "<group>"; };
+		F79FDFBC21AC498500190AAF /* UICollectionSceneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionSceneCell.swift; sourceTree = "<group>"; };
+		F79FDFC021AC502E00190AAF /* UICollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionDataSource.swift; sourceTree = "<group>"; };
 		F7C5A8AC216CF07A0067727A /* UITableScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableScene.swift; sourceTree = "<group>"; };
 		F7E76E70216D518F002D65E0 /* UITableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableDataSource.swift; sourceTree = "<group>"; };
+		F7EDC3D021AC69B500EF8AFC /* UISceneCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISceneCellProtocol.swift; sourceTree = "<group>"; };
 		F7EF20D3215447D300FD3911 /* libCleanKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCleanKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7EF20DF2154480300FD3911 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		F7EF20E02154480300FD3911 /* TaggedViewModelCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaggedViewModelCollection.swift; sourceTree = "<group>"; };
@@ -138,6 +144,23 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
+		F79FDFBA21AC494600190AAF /* UICollectionScene */ = {
+			isa = PBXGroup;
+			children = (
+				F79FDFBB21AC496000190AAF /* Shared */,
+				F79FDFC021AC502E00190AAF /* UICollectionDataSource.swift */,
+			);
+			path = UICollectionScene;
+			sourceTree = "<group>";
+		};
+		F79FDFBB21AC496000190AAF /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				F79FDFBC21AC498500190AAF /* UICollectionSceneCell.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		F7EF20CA215447D300FD3911 = {
 			isa = PBXGroup;
 			children = (
@@ -185,8 +208,10 @@
 		F7EF20E42154480300FD3911 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				F79FDFBA21AC494600190AAF /* UICollectionScene */,
 				F772E4412177AB5D009587CB /* UITableScene */,
 				F7EF20EC2154480300FD3911 /* UIScene.swift */,
+				F7EDC3D021AC69B500EF8AFC /* UISceneCellProtocol.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -288,6 +313,7 @@
 				F7EF210B2154480400FD3911 /* DispatchQueue.swift in Sources */,
 				F7EF20F92154480300FD3911 /* TaggedViewModelCollection.swift in Sources */,
 				F755152A2178F52D0099D99A /* ViewModelItem.swift in Sources */,
+				F79FDFC121AC502E00190AAF /* UICollectionDataSource.swift in Sources */,
 				F7EF20FD2154480300FD3911 /* UITableSceneSectionFooter.swift in Sources */,
 				F7EF21042154480400FD3911 /* UIScene.swift in Sources */,
 				F7EF21072154480400FD3911 /* Interactor.swift in Sources */,
@@ -298,6 +324,7 @@
 				F7EF21012154480400FD3911 /* UITableSceneCell.swift in Sources */,
 				F71AB1D521764EF800DA2F07 /* UITimelineScene.swift in Sources */,
 				F7EF210D2154480400FD3911 /* Presenter.swift in Sources */,
+				F7EDC3D121AC69B500EF8AFC /* UISceneCellProtocol.swift in Sources */,
 				F7EF21022154480400FD3911 /* UISectionedTableDataSource.swift in Sources */,
 				F7EF21002154480400FD3911 /* UITableSceneSectionHeader.swift in Sources */,
 				F7EF20FE2154480400FD3911 /* UITableSceneSectionFeedback.swift in Sources */,
@@ -309,6 +336,7 @@
 				F7EF21092154480400FD3911 /* UIView.swift in Sources */,
 				F7E76E71216D518F002D65E0 /* UITableDataSource.swift in Sources */,
 				F7EF21052154480400FD3911 /* ActionCenterDelegate.swift in Sources */,
+				F79FDFBD21AC498500190AAF /* UICollectionSceneCell.swift in Sources */,
 				F7EF210C2154480400FD3911 /* UITableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

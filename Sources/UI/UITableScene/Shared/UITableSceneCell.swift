@@ -22,12 +22,8 @@
 
 import UIKit
 
-protocol UITableSceneCellProtocol: class {
-    var delegate: ActionCenterDelegate? { get set }
-    var tag: Int { get set }
-    
+protocol UITableSceneCellProtocol: UISceneCellProtocol {
     func prepare(viewModel: ViewModel) -> UITableViewCell
-    func focus(bool: Bool)
 }
 
 @IBDesignable
