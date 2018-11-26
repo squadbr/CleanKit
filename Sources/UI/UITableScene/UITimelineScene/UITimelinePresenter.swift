@@ -14,7 +14,7 @@ protocol TimelinePresenterProtocol {
     func update(tag: Int)
 }
 
-open class UITimelinePresenter<TInteractor, TParameter, TEntity>: ParameterizedPresenter<TInteractor, TParameter>, TimelinePresenterProtocol {
+open class UITimelinePresenter<TInteractor, TEntity>: Presenter<TInteractor>, TimelinePresenterProtocol {
     
     private var reset: Bool = false
     private var currentPage: Int = 0

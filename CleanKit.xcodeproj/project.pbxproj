@@ -11,6 +11,7 @@
 		F71AB1D721764EF800DA2F07 /* UITimelinePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71AB1D421764EF800DA2F07 /* UITimelinePresenter.swift */; };
 		F755152A2178F52D0099D99A /* ViewModelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75515292178F52D0099D99A /* ViewModelItem.swift */; };
 		F755152C2178FBEA0099D99A /* UITimelineDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F755152B2178FBEA0099D99A /* UITimelineDataSource.swift */; };
+		F77F6DF821AC8E7300CA96BD /* UITimelineParameterizedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F6DF721AC8E7300CA96BD /* UITimelineParameterizedPresenter.swift */; };
 		F79FDFBD21AC498500190AAF /* UICollectionSceneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79FDFBC21AC498500190AAF /* UICollectionSceneCell.swift */; };
 		F79FDFC121AC502E00190AAF /* UICollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79FDFC021AC502E00190AAF /* UICollectionDataSource.swift */; };
 		F7C5A8AD216CF07A0067727A /* UITableScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C5A8AC216CF07A0067727A /* UITableScene.swift */; };
@@ -58,6 +59,7 @@
 		F71AB1D421764EF800DA2F07 /* UITimelinePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITimelinePresenter.swift; sourceTree = "<group>"; };
 		F75515292178F52D0099D99A /* ViewModelItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelItem.swift; sourceTree = "<group>"; };
 		F755152B2178FBEA0099D99A /* UITimelineDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITimelineDataSource.swift; sourceTree = "<group>"; };
+		F77F6DF721AC8E7300CA96BD /* UITimelineParameterizedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITimelineParameterizedPresenter.swift; sourceTree = "<group>"; };
 		F79FDFBC21AC498500190AAF /* UICollectionSceneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionSceneCell.swift; sourceTree = "<group>"; };
 		F79FDFC021AC502E00190AAF /* UICollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionDataSource.swift; sourceTree = "<group>"; };
 		F7C5A8AC216CF07A0067727A /* UITableScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableScene.swift; sourceTree = "<group>"; };
@@ -103,9 +105,10 @@
 		F71AB1D821764F0000DA2F07 /* UITimelineScene */ = {
 			isa = PBXGroup;
 			children = (
+				F755152B2178FBEA0099D99A /* UITimelineDataSource.swift */,
+				F77F6DF721AC8E7300CA96BD /* UITimelineParameterizedPresenter.swift */,
 				F71AB1D421764EF800DA2F07 /* UITimelinePresenter.swift */,
 				F71AB1D221764EF800DA2F07 /* UITimelineScene.swift */,
-				F755152B2178FBEA0099D99A /* UITimelineDataSource.swift */,
 			);
 			path = UITimelineScene;
 			sourceTree = "<group>";
@@ -125,11 +128,11 @@
 		F772E4422177AB76009587CB /* UISectionedTableScene */ = {
 			isa = PBXGroup;
 			children = (
-				F7EF20E52154480300FD3911 /* UITableSceneSectionFooter.swift */,
-				F7EF20E62154480300FD3911 /* UITableSceneSectionFeedback.swift */,
-				F7EF20E72154480300FD3911 /* UITableSceneHeader.swift */,
 				F7EF20EA2154480300FD3911 /* UISectionedTableDataSource.swift */,
 				F7EF20EB2154480300FD3911 /* UISectionedTableScene.swift */,
+				F7EF20E72154480300FD3911 /* UITableSceneHeader.swift */,
+				F7EF20E62154480300FD3911 /* UITableSceneSectionFeedback.swift */,
+				F7EF20E52154480300FD3911 /* UITableSceneSectionFooter.swift */,
 				F7EF20E82154480300FD3911 /* UITableSceneSectionHeader.swift */,
 			);
 			path = UISectionedTableScene;
@@ -180,15 +183,15 @@
 		F7EF20DD2154480300FD3911 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				F7EF20DE2154480300FD3911 /* ViewModel */,
+				F7EF20F12154480300FD3911 /* Extensions */,
 				F7EF20E42154480300FD3911 /* UI */,
-				F7EF20ED2154480300FD3911 /* ActionCenterDelegate.swift */,
+				F7EF20DE2154480300FD3911 /* ViewModel */,
 				F7EF20EE2154480300FD3911 /* ActionCenter.swift */,
+				F7EF20ED2154480300FD3911 /* ActionCenterDelegate.swift */,
+				F7EF20F72154480300FD3911 /* ActionDelegate.swift */,
 				F7EF20EF2154480300FD3911 /* Interactor.swift */,
 				F7EF20F02154480300FD3911 /* ParameterizedPresenter.swift */,
-				F7EF20F12154480300FD3911 /* Extensions */,
 				F7EF20F62154480300FD3911 /* Presenter.swift */,
-				F7EF20F72154480300FD3911 /* ActionDelegate.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -196,10 +199,10 @@
 		F7EF20DE2154480300FD3911 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				F7EF20DF2154480300FD3911 /* ViewModel.swift */,
-				F7EF20E02154480300FD3911 /* TaggedViewModelCollection.swift */,
 				F7EF20E12154480300FD3911 /* SectionViewModel.swift */,
 				F7EF20E22154480300FD3911 /* TaggedViewModel.swift */,
+				F7EF20E02154480300FD3911 /* TaggedViewModelCollection.swift */,
+				F7EF20DF2154480300FD3911 /* ViewModel.swift */,
 				F7EF20E32154480300FD3911 /* ViewModelCenter.swift */,
 			);
 			path = ViewModel;
@@ -316,6 +319,7 @@
 				F79FDFC121AC502E00190AAF /* UICollectionDataSource.swift in Sources */,
 				F7EF20FD2154480300FD3911 /* UITableSceneSectionFooter.swift in Sources */,
 				F7EF21042154480400FD3911 /* UIScene.swift in Sources */,
+				F77F6DF821AC8E7300CA96BD /* UITimelineParameterizedPresenter.swift in Sources */,
 				F7EF21072154480400FD3911 /* Interactor.swift in Sources */,
 				F7EF210A2154480400FD3911 /* Collection.swift in Sources */,
 				F7EF21062154480400FD3911 /* ActionCenter.swift in Sources */,

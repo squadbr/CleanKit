@@ -26,7 +26,8 @@ protocol ParameterizedPresenterProtocol {
     func set(parameter: Any)
 }
 
-open class ParameterizedPresenter<TInteractor, TParameter> : Presenter<TInteractor>, ParameterizedPresenterProtocol {
+open class ParameterizedPresenter<TInteractor, TParameter>: Presenter<TInteractor>, ParameterizedPresenterProtocol {
+    
     private var parameter: TParameter?
     
     open override func didLoad() {
@@ -48,4 +49,5 @@ open class ParameterizedPresenter<TInteractor, TParameter> : Presenter<TInteract
         
         self.parameter = newParameter
     }
+    
 }
