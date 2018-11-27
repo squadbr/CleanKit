@@ -10,8 +10,8 @@ import UIKit
 public class UICollectionDataSource: NSObject {
     
     private weak var focusedCell: UISceneCellProtocol?
-    private(set) weak var collectionView: UICollectionView?
-    private(set) weak var delegate: ActionCenterDelegate?
+    private weak var collectionView: UICollectionView?
+    private weak var delegate: ActionCenterDelegate?
     
     private var reload: Bool = false
     
