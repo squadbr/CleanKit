@@ -64,4 +64,8 @@ open class UITimelineScene<TPresenter: Presenter<TInteractorProtocol>, TInteract
         return UITimelineDataSource(tableView: self.tableView, delegate: self)
     }
     
+    public func setLoadingCell(nib name: String) {
+        (self.dataSource as? UITimelineDataSource)?.setLoadingCell(nib: name)
+    }
+    
 }
