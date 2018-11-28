@@ -15,6 +15,7 @@
 		F79FDFBD21AC498500190AAF /* UICollectionSceneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79FDFBC21AC498500190AAF /* UICollectionSceneCell.swift */; };
 		F79FDFC121AC502E00190AAF /* UICollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79FDFC021AC502E00190AAF /* UICollectionDataSource.swift */; };
 		F7C5A8AD216CF07A0067727A /* UITableScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C5A8AC216CF07A0067727A /* UITableScene.swift */; };
+		F7C9DE5621AF372C00A6D263 /* CellState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C9DE5521AF372C00A6D263 /* CellState.swift */; };
 		F7E76E71216D518F002D65E0 /* UITableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E76E70216D518F002D65E0 /* UITableDataSource.swift */; };
 		F7EDC3D121AC69B500EF8AFC /* UISceneCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EDC3D021AC69B500EF8AFC /* UISceneCellProtocol.swift */; };
 		F7EF20F82154480300FD3911 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EF20DF2154480300FD3911 /* ViewModel.swift */; };
@@ -63,6 +64,7 @@
 		F79FDFBC21AC498500190AAF /* UICollectionSceneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionSceneCell.swift; sourceTree = "<group>"; };
 		F79FDFC021AC502E00190AAF /* UICollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionDataSource.swift; sourceTree = "<group>"; };
 		F7C5A8AC216CF07A0067727A /* UITableScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableScene.swift; sourceTree = "<group>"; };
+		F7C9DE5521AF372C00A6D263 /* CellState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellState.swift; sourceTree = "<group>"; };
 		F7E76E70216D518F002D65E0 /* UITableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableDataSource.swift; sourceTree = "<group>"; };
 		F7EDC3D021AC69B500EF8AFC /* UISceneCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISceneCellProtocol.swift; sourceTree = "<group>"; };
 		F7EF20D3215447D300FD3911 /* libCleanKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCleanKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +191,7 @@
 				F7EF20EE2154480300FD3911 /* ActionCenter.swift */,
 				F7EF20ED2154480300FD3911 /* ActionCenterDelegate.swift */,
 				F7EF20F72154480300FD3911 /* ActionDelegate.swift */,
+				F7C9DE5521AF372C00A6D263 /* CellState.swift */,
 				F7EF20EF2154480300FD3911 /* Interactor.swift */,
 				F7EF20F02154480300FD3911 /* ParameterizedPresenter.swift */,
 				F7EF20F62154480300FD3911 /* Presenter.swift */,
@@ -318,6 +321,7 @@
 				F755152A2178F52D0099D99A /* ViewModelItem.swift in Sources */,
 				F79FDFC121AC502E00190AAF /* UICollectionDataSource.swift in Sources */,
 				F7EF20FD2154480300FD3911 /* UITableSceneSectionFooter.swift in Sources */,
+				F7C9DE5621AF372C00A6D263 /* CellState.swift in Sources */,
 				F7EF21042154480400FD3911 /* UIScene.swift in Sources */,
 				F77F6DF821AC8E7300CA96BD /* UITimelineParameterizedPresenter.swift in Sources */,
 				F7EF21072154480400FD3911 /* Interactor.swift in Sources */,

@@ -31,6 +31,7 @@ class UITableDataSource: NSObject {
     private var reload: Bool = false
     
     internal var items: [ViewModelItem] = []
+    private var states: [IndexPath: CellState] = [:]
     private var identifiers: [String: String] = [:]
     private var heights: [IndexPath: CGFloat] = [:]
     
@@ -125,7 +126,12 @@ extension UITableDataSource: UITableViewDataSource, UITableViewDelegate {
             cell.delegate = delegate
             cell.tag = item.item.tag
             
-            return cell.prepare(viewModel: item.item)
+            let tableCell: UITableViewCell = cell.prepare(viewModel: item.item)
+            if let state = self.states[indexPath] {
+                cell.restore(state)
+            }
+            
+            return tableCell
         } else {
             fatalError("The \(item.identifier) cell is not based on UITableSceneCell")
         }
@@ -163,7 +169,9 @@ extension UITableDataSource {
     }
     
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        (cell as? UITableSceneCellProtocol)?.focus(bool: false)
+        guard let cell = cell as? UITableSceneCellProtocol else { return }
+        cell.focus(bool: false)
+        self.states[indexPath] = cell.save()
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
