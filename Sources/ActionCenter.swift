@@ -23,8 +23,7 @@
 import Foundation
 
 public final class ActionCenter {
-    private lazy var items = [String: (tag: Int) -> Void]()
-    private lazy var itemsWithParam = [String: (tag: Int, any: Any) -> Void]()
+    private lazy var items = [String: Any]()
     private lazy var caseItems = [ObjectIdentifier: Any]()
     
     private var messageExecute: Any?
@@ -33,18 +32,22 @@ public final class ActionCenter {
     
     public func observe(action name: String, execute: @escaping((_ tag: Int) -> Void)) {
         assert(items[name] == nil, "The \(name) action already exists")
-        assert(itemsWithParam[name] == nil, "The \(name) action already exists")
         items[name] = execute
     }
     
     public func observe(action name: String, execute: @escaping((_ tag: Int, _ any: Any) -> Void)) {
         assert(items[name] == nil, "The \(name) action already exists")
-        assert(itemsWithParam[name] == nil, "The \(name) action already exists")
-        itemsWithParam[name] = execute
+        items[name] = execute
     }
     
-    public func observe<T: RawRepresentable>(case: T, execute: @escaping(() -> Void)) where T.RawValue == Int {
-        let identifier = ObjectIdentifier(NSNumber(integerLiteral: `case`.rawValue))
+    public func observe<T: RawRepresentable>(case: T, execute: @escaping(() -> Void)) {
+        let identifier = ObjectIdentifier(`case`.rawValue as AnyObject)
+        assert(caseItems[identifier] == nil, "You can not observe the \(type(of: T.self)) more than once")
+        caseItems[identifier] = execute
+    }
+    
+    public func observe<T: RawRepresentable>(case: T, execute: @escaping((Any) -> Void)) {
+        let identifier = ObjectIdentifier(`case`.rawValue as AnyObject)
         assert(caseItems[identifier] == nil, "You can not observe the \(type(of: T.self)) more than once")
         caseItems[identifier] = execute
     }
@@ -65,7 +68,7 @@ public final class ActionCenter {
     }
     
     func post(action name: String, tag: Int) {
-        if let execute = items[name] {
+        if let execute = items[name] as? ((Int) -> Void) {
             DispatchQueue.safeSync { execute(tag) }
         } else {
             assertionFailure("The \(name) action does not exist")
@@ -73,16 +76,24 @@ public final class ActionCenter {
     }
     
     func post(action name: String, tag: Int, any: Any) {
-        if let execute = itemsWithParam[name] {
+        if let execute = items[name] as? (Int, Any) -> Void {
             DispatchQueue.safeSync { execute(tag, any) }
         } else {
             assertionFailure("The \(name) action does not exist")
         }
     }
     
-    func post<T: RawRepresentable>(case: T) where T.RawValue == Int {
-        if let execute = caseItems[ObjectIdentifier(NSNumber(integerLiteral: `case`.rawValue))] as? () -> Void {
+    func post<T: RawRepresentable>(case: T) {
+        if let execute = caseItems[ObjectIdentifier(`case`.rawValue as AnyObject)] as? () -> Void {
             DispatchQueue.safeSync { execute() }
+        } else {
+            assertionFailure("The \(type(of: T.self)) was not observed")
+        }
+    }
+    
+    func post<T: RawRepresentable>(case: T, any: Any) {
+        if let execute = caseItems[ObjectIdentifier(`case`.rawValue as AnyObject)] as? (Any) -> Void {
+            DispatchQueue.safeSync { execute(any) }
         } else {
             assertionFailure("The \(type(of: T.self)) was not observed")
         }

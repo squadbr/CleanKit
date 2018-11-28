@@ -1,9 +1,23 @@
 //
-//  UITimelinePresenter.swift
-//  Squad
+//  Copyright (c) 2018 Squad
 //
-//  Created by Marcos Kobuchi on 09/10/18.
-//  Copyright © 2018 Erwin GO. All rights reserved.
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
 //
 
 import Foundation
@@ -11,15 +25,18 @@ import Foundation
 protocol TimelinePresenterProtocol {
     func clear()
     func fetch()
+    func update(tag: Int)
 }
 
-open class UITimelinePresenter<TInteractor, TParameter, TEntity>: ParameterizedPresenter<TInteractor, TParameter>, TimelinePresenterProtocol {
+open class UITimelinePresenter<TInteractor, TEntity>: Presenter<TInteractor>, TimelinePresenterProtocol {
     
     private var reset: Bool = false
     private var currentPage: Int = 0
     private var hasNext: Bool = true
     private var loading: Bool = false
     private var pageSize: Int = 25
+    
+    private var objects: [TEntity] = []
     
     public enum UITimelineError: Error {
         case unknown
@@ -30,6 +47,13 @@ open class UITimelinePresenter<TInteractor, TParameter, TEntity>: ParameterizedP
         self.hasNext = true
         self.loading = false
         self.reset = true
+    }
+    
+    func update(tag: Int) {
+        DispatchQueue.async {
+            guard let object = self.find(tag) else { return }
+            self.post(action: "update", tag: tag, any: self.prepare(object: object))
+        }
     }
     
     func fetch() {
@@ -50,8 +74,11 @@ open class UITimelinePresenter<TInteractor, TParameter, TEntity>: ParameterizedP
                 self.hasNext = !(objects.count < self.pageSize) || !objects.isEmpty
                 
                 if !self.reset || currentPage == 1 {
+                    self.objects.append(contentsOf: objects)
                     self.post(viewModel: collection)
                     self.currentPage += 1
+                } else {
+                    self.objects = []
                 }
                 self.reset = false
             } catch { }
@@ -59,6 +86,14 @@ open class UITimelinePresenter<TInteractor, TParameter, TEntity>: ParameterizedP
             self.actionCenter.post(action: "stop", tag: 0)
             self.loading = false
         }
+    }
+    
+    public func find(_ tag: Int) -> TEntity? {
+        return self.objects.first(where: { return self.find(tag: tag, object: $0) })
+    }
+    
+    open func find(tag: Int, object: TEntity) -> Bool {
+        preconditionFailure("Should be overwritten.")
     }
     
     open func fetch(page: Int) throws -> [TEntity] {

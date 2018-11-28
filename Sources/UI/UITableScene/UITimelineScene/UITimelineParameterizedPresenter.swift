@@ -22,11 +22,7 @@
 
 import Foundation
 
-protocol ParameterizedPresenterProtocol {
-    func set(parameter: Any)
-}
-
-open class ParameterizedPresenter<TInteractor, TParameter>: Presenter<TInteractor>, ParameterizedPresenterProtocol {
+open class UITimelineParameterizedPresenter<TInteractor, TParameter, TEntity>: UITimelinePresenter<TInteractor, TEntity>, ParameterizedPresenterProtocol {
     
     private var parameter: TParameter?
     

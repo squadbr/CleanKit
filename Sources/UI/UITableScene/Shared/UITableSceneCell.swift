@@ -22,19 +22,16 @@
 
 import UIKit
 
-protocol UITableSceneCellProtocol: class {
-    var delegate: ActionCenterDelegate? { get set }
-    var tag: Int { get set }
-    
+protocol UITableSceneCellProtocol: UISceneCellProtocol {
     func prepare(viewModel: ViewModel) -> UITableViewCell
-    func focus(bool: Bool)
 }
 
 @IBDesignable
 open class UITableSceneCell<T: ViewModel>: UITableViewCell, UITableSceneCellProtocol, ActionDelegate {
-    weak var delegate: ActionCenterDelegate?
     
     @IBInspectable public var touchActionName: String?
+    
+    weak var delegate: ActionCenterDelegate?
     
     open override func awakeFromNib() {
         super.awakeFromNib()
@@ -43,7 +40,6 @@ open class UITableSceneCell<T: ViewModel>: UITableViewCell, UITableSceneCellProt
         focusStyle = .custom
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
-        
         tapRecognizer.numberOfTapsRequired = 1
         addGestureRecognizer(tapRecognizer)
     }
@@ -69,7 +65,7 @@ open class UITableSceneCell<T: ViewModel>: UITableViewCell, UITableSceneCellProt
         return self
     }
     
-    @objc fileprivate func didTap() {
+    @objc private func didTap() {
         guard let touchActionName = touchActionName else {
             return
         }
@@ -77,7 +73,7 @@ open class UITableSceneCell<T: ViewModel>: UITableViewCell, UITableSceneCellProt
         delegate?.actionCenter(postAction: touchActionName, tag: tag)
     }
     
-    func focus(bool: Bool) {
+    open func focus(bool: Bool) {
     }
     
 }

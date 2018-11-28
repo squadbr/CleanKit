@@ -121,7 +121,9 @@ class UISectionedTableDataSource: NSObject, UITableViewDataSource, UITableViewDe
                 return UITableViewCell(frame: .zero)
             }
             
-            if let feedback = sectionIdentifiers?.feedback, let cell = tableView.dequeueReusableCell(withIdentifier: feedback) as? UITableSceneSectionFeedback {
+            if let feedback = sectionIdentifiers?.feedback,
+                let cell = tableView.dequeueReusableCell(withIdentifier: feedback, for: indexPath) as? UITableSceneSectionFeedback {
+                
                 cell.delegate = actionDelegate
                 cell.tag = section.viewModel.tag
                 
@@ -137,7 +139,7 @@ class UISectionedTableDataSource: NSObject, UITableViewDataSource, UITableViewDe
             return UITableViewCell(frame: .zero)
         }
         
-        if var cell = tableView.dequeueReusableCell(withIdentifier: item.identifier) as? UITableSceneCellProtocol {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: item.identifier) as? UITableSceneCellProtocol {
             cell.delegate = actionDelegate
             cell.tag = item.item.tag
             

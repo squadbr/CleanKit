@@ -1,9 +1,23 @@
 //
-//  UITimelineScene.swift
-//  Squad
+//  Copyright (c) 2018 Squad
 //
-//  Created by Marcos Kobuchi on 09/10/18.
-//  Copyright © 2018 Erwin GO. All rights reserved.
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
 //
 
 import UIKit
@@ -27,7 +41,7 @@ open class UITimelineScene<TPresenter: Presenter<TInteractorProtocol>, TInteract
     private func setupInterface() {
         self.tableView.showsVerticalScrollIndicator = false
         self.tableView.refreshControl = self.activity
-        self.activity.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        self.activity.addTarget(self, action: #selector(refresh as () -> Void), for: .valueChanged)
     }
     
     @objc
@@ -36,6 +50,10 @@ open class UITimelineScene<TPresenter: Presenter<TInteractorProtocol>, TInteract
         
         _presenter.clear()
         _presenter.fetch()
+    }
+    
+    public func refresh(tag: Int) {
+        self._presenter.update(tag: tag)
     }
     
     open override func setup(actionCenter: ActionCenter) {
@@ -58,6 +76,10 @@ open class UITimelineScene<TPresenter: Presenter<TInteractorProtocol>, TInteract
     
     override func loadDataSource() -> UITableDataSource {
         return UITimelineDataSource(tableView: self.tableView, delegate: self)
+    }
+    
+    public func setLoadingCell(nib name: String) {
+        (self.dataSource as? UITimelineDataSource)?.setLoadingCell(nib: name)
     }
     
 }
