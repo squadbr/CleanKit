@@ -87,18 +87,14 @@ class UITableDataSource: NSObject {
             assertionFailure("The \(viewModel) view model is not binded")
         }
         
-        self.tableView?.performBatchUpdates({
-            self.tableView?.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
-        })
+        self.tableView?.reloadData()
     }
     
     func remove(tag: Int) {
         guard let index = (self.items.firstIndex { $0.item.tag == tag }) else { return }
         
         self.items.remove(at: index)
-        self.tableView?.performBatchUpdates({
-            self.tableView?.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
-        })
+        self.tableView?.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
     }
     
     func bind<TCell: UITableSceneCell<TViewModel>, TViewModel: TaggedViewModel>(cell: TCell.Type, to viewModel: TViewModel.Type) {
