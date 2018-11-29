@@ -58,4 +58,11 @@ open class UICollectionSceneCell<T: ViewModel>: UICollectionViewCell, UICollecti
     open func focus(bool: Bool) {
     }
     
+    open func save() -> CellState? {
+        return nil
+    }
+    
+    open func restore(_ state: CellState) {
+    }
+    
 }

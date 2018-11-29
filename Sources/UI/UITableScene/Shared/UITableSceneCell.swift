@@ -76,4 +76,11 @@ open class UITableSceneCell<T: ViewModel>: UITableViewCell, UITableSceneCellProt
     open func focus(bool: Bool) {
     }
     
+    open func save() -> CellState? {
+        return nil
+    }
+    
+    open func restore(_ state: CellState) {
+    }
+    
 }

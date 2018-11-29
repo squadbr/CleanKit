@@ -22,11 +22,5 @@
 
 import Foundation
 
-protocol UISceneCellProtocol: class {
-    var delegate: ActionCenterDelegate? { get set }
-    var tag: Int { get set }
-    
-    func focus(bool: Bool)
-    func save() -> CellState?
-    func restore(_ state: CellState)
+public protocol CellState {
 }
