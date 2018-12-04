@@ -30,8 +30,7 @@ class UITableDataSource: NSObject {
     
     private var reload: Bool = false
     
-    internal var items: [ViewModelItem] = []
-    private var states: [IndexPath: CellState] = [:]
+    internal var items: [(viewModel: ViewModelItem, cellState: CellState?)] = []
     private var identifiers: [String: String] = [:]
     private var heights: [IndexPath: CGFloat] = [:]
     
@@ -66,7 +65,7 @@ class UITableDataSource: NSObject {
             let viewModel = "\(type(of: item))"
             
             if let identifier = self.identifiers[viewModel] {
-                self.items.insert(ViewModelItem(identifier: identifier, item: item), at: itemIndex + index)
+                self.items.insert((ViewModelItem(identifier: identifier, item: item), nil), at: itemIndex + index)
             } else {
                 assertionFailure("The \(viewModel) view model is not binded")
             }
@@ -78,11 +77,11 @@ class UITableDataSource: NSObject {
     }
     
     func update(tag: Int, item: TaggedViewModel) {
-        guard let index = (self.items.firstIndex { $0.item.tag == tag }) else { return }
+        guard let index = (self.items.firstIndex { $0.viewModel.item.tag == tag }) else { return }
         let viewModel = "\(type(of: item))"
         
         if let identifier = self.identifiers[viewModel] {
-            self.items[index] = ViewModelItem(identifier: identifier, item: item)
+            self.items[index].viewModel = ViewModelItem(identifier: identifier, item: item)
         } else {
             assertionFailure("The \(viewModel) view model is not binded")
         }
@@ -91,7 +90,7 @@ class UITableDataSource: NSObject {
     }
     
     func remove(tag: Int) {
-        guard let index = (self.items.firstIndex { $0.item.tag == tag }) else { return }
+        guard let index = (self.items.firstIndex { $0.viewModel.item.tag == tag }) else { return }
         
         self.items.remove(at: index)
         self.tableView?.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
@@ -118,18 +117,18 @@ extension UITableDataSource: UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell(frame: .zero)
         }
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: item.identifier, for: indexPath) as? UITableSceneCellProtocol {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: item.viewModel.identifier, for: indexPath) as? UITableSceneCellProtocol {
             cell.delegate = delegate
-            cell.tag = item.item.tag
+            cell.tag = item.viewModel.item.tag
             
-            let tableCell: UITableViewCell = cell.prepare(viewModel: item.item)
-            if let state = self.states[indexPath] {
+            let tableCell: UITableViewCell = cell.prepare(viewModel: item.viewModel.item)
+            if let state = item.cellState {
                 cell.restore(state)
             }
             
             return tableCell
         } else {
-            fatalError("The \(item.identifier) cell is not based on UITableSceneCell")
+            fatalError("The \(item.viewModel.identifier) cell is not based on UITableSceneCell")
         }
     }
     
@@ -167,7 +166,12 @@ extension UITableDataSource {
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let cell = cell as? UITableSceneCellProtocol else { return }
         cell.focus(bool: false)
-        self.states[indexPath] = cell.save()
+        
+        guard var item = self.items[safe: indexPath.row] else {
+            return
+        }
+        item.cellState = cell.save()
+        self.items[indexPath.row] = item
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
