@@ -41,8 +41,10 @@ class UITimelineDataSource: UITableDataSource {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.isFirstLoad {
+            tableView.isUserInteractionEnabled = false
             return loadingCount
         } else {
+            tableView.isUserInteractionEnabled = true
             return super.tableView(tableView, numberOfRowsInSection: section)
         }
     }
