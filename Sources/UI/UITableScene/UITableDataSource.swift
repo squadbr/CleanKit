@@ -82,6 +82,7 @@ class UITableDataSource: NSObject {
         
         if let identifier = self.identifiers[viewModel] {
             self.items[index].viewModel = ViewModelItem(identifier: identifier, item: item)
+            self.items[index].cellState = nil
         } else {
             assertionFailure("The \(viewModel) view model is not binded")
         }
