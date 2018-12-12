@@ -38,7 +38,6 @@
 		F7EF21092154480400FD3911 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EF20F22154480300FD3911 /* UIView.swift */; };
 		F7EF210A2154480400FD3911 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EF20F32154480300FD3911 /* Collection.swift */; };
 		F7EF210B2154480400FD3911 /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EF20F42154480300FD3911 /* DispatchQueue.swift */; };
-		F7EF210C2154480400FD3911 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EF20F52154480300FD3911 /* UITableView.swift */; };
 		F7EF210D2154480400FD3911 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EF20F62154480300FD3911 /* Presenter.swift */; };
 		F7EF210E2154480400FD3911 /* ActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EF20F72154480300FD3911 /* ActionDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -88,7 +87,6 @@
 		F7EF20F22154480300FD3911 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		F7EF20F32154480300FD3911 /* Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		F7EF20F42154480300FD3911 /* DispatchQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchQueue.swift; sourceTree = "<group>"; };
-		F7EF20F52154480300FD3911 /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		F7EF20F62154480300FD3911 /* Presenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		F7EF20F72154480300FD3911 /* ActionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -228,7 +226,6 @@
 				F7EF20F22154480300FD3911 /* UIView.swift */,
 				F7EF20F32154480300FD3911 /* Collection.swift */,
 				F7EF20F42154480300FD3911 /* DispatchQueue.swift */,
-				F7EF20F52154480300FD3911 /* UITableView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -345,7 +342,6 @@
 				F7E76E71216D518F002D65E0 /* UITableDataSource.swift in Sources */,
 				F7EF21052154480400FD3911 /* ActionCenterDelegate.swift in Sources */,
 				F79FDFBD21AC498500190AAF /* UICollectionSceneCell.swift in Sources */,
-				F7EF210C2154480400FD3911 /* UITableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
