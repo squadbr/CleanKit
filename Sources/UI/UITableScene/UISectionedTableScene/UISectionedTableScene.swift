@@ -121,6 +121,7 @@ open class UISectionedTableScene<TPresenter: Presenter<TInteractorProtocol>, TIn
         
         tableView.tableHeaderView = headerView
         sceneHeader = headerView
+        headerView.delegate = self
         
         presenter.viewModelCenter.observe { [weak self] (viewModel: TViewModel) in
             guard let sceneHeader = self?.sceneHeader else {
