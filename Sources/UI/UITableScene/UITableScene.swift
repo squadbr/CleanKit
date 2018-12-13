@@ -46,6 +46,7 @@ open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor:
             let height = headerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
             if height != headerView.frame.height {
                 headerView.frame.size.height = height
+                self.tableView.tableHeaderView = headerView
                 self.tableView.performBatchUpdates({})
             }
         }

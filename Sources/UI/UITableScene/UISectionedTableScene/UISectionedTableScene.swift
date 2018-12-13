@@ -54,6 +54,7 @@ open class UISectionedTableScene<TPresenter: Presenter<TInteractorProtocol>, TIn
             let height = headerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
             if height != headerView.frame.height {
                 headerView.frame.size.height = height
+                self.tableView.tableHeaderView = headerView
                 self.tableView.performBatchUpdates({})
             }
         }
