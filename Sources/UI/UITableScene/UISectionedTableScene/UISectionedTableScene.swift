@@ -39,8 +39,8 @@ open class UISectionedTableScene<TPresenter: Presenter<TInteractorProtocol>, TIn
             tableView.estimatedSectionHeaderHeight = 1
             tableView.estimatedRowHeight = 1
             
-            tableView.sectionFooterHeight = UITableView.automaticDimension
-            tableView.sectionHeaderHeight = UITableView.automaticDimension
+            tableView.sectionFooterHeight = CGFloat.leastNonzeroMagnitude
+            tableView.sectionHeaderHeight = CGFloat.leastNonzeroMagnitude
             tableView.rowHeight = UITableView.automaticDimension
             
             setupTable()

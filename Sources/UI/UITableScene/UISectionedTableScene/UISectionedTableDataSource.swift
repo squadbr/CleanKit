@@ -149,9 +149,16 @@ class UISectionedTableDataSource: NSObject, UITableViewDataSource, UITableViewDe
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        guard let item = sections[section], (item.items.isEmpty || item.viewModel.hasFeedback) else {
+            return tableView.sectionFooterHeight
+        }
+        return UITableView.automaticDimension
+    }
+    
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         guard let sectionIdentifiers = sectionIdentifiers, let section = sections[section], section.viewModel.hasFooter, !section.items.isEmpty else {
-            return UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0.01))
+            return nil
         }
         
         if let footer = tableView.dequeueReusableHeaderFooterView(withIdentifier: sectionIdentifiers.footer) as? UITableSceneSectionFooter {
@@ -163,6 +170,13 @@ class UISectionedTableDataSource: NSObject, UITableViewDataSource, UITableViewDe
         
         assertionFailure("The \(sectionIdentifiers.footer) cell is not based on UITableSceneSectionFooter")
         return nil
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard let item = sections[section], (item.items.isEmpty || item.viewModel.hasFeedback) else {
+            return tableView.sectionHeaderHeight
+        }
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
