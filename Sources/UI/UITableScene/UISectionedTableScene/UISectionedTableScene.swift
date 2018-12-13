@@ -47,9 +47,17 @@ open class UISectionedTableScene<TPresenter: Presenter<TInteractorProtocol>, TIn
         }
     }
     
-    open override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        tableView.layoutHeaderView()
+    open override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        if let headerView = tableView.tableHeaderView {
+            let height = headerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
+            if height != headerView.frame.height {
+                headerView.frame.size.height = height
+                self.tableView.tableHeaderView = headerView
+                self.tableView.performBatchUpdates({})
+            }
+        }
     }
     
     open override func setup(actionCenter: ActionCenter) {
@@ -90,19 +98,17 @@ open class UISectionedTableScene<TPresenter: Presenter<TInteractorProtocol>, TIn
     
     open override func setup(viewModelCenter: ViewModelCenter) {
         viewModelCenter.observe(background: true) { [weak self] (collection: TaggedViewModelCollection) in
-            guard let strongSelf = self, let dataSource = strongSelf.dataSource else {
-                return
-            }
+            guard let self = self, let dataSource = self.dataSource else { return }
             
             // temporarty only
-            strongSelf.semaphore.wait()
-            defer { strongSelf.semaphore.signal() }
+            self.semaphore.wait()
+            defer { self.semaphore.signal() }
             
             dataSource.append(collection: collection)
             
             DispatchQueue.safeSync {
                 // temporarty only
-                strongSelf.tableView.reloadData()
+                self.tableView.reloadData()
             }
         }
     }
@@ -121,6 +127,7 @@ open class UISectionedTableScene<TPresenter: Presenter<TInteractorProtocol>, TIn
         
         tableView.tableHeaderView = headerView
         sceneHeader = headerView
+        headerView.delegate = self
         
         presenter.viewModelCenter.observe { [weak self] (viewModel: TViewModel) in
             guard let sceneHeader = self?.sceneHeader else {
@@ -128,6 +135,7 @@ open class UISectionedTableScene<TPresenter: Presenter<TInteractorProtocol>, TIn
             }
             
             sceneHeader.prepare(viewModel: viewModel)
+            self?.view.setNeedsLayout()
         }
     }
     
