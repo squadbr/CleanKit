@@ -27,6 +27,9 @@ class UITimelineDataSource: UITableDataSource {
     private var isFirstLoad: Bool = true
     private var loadingCount: Int = 0
     
+    private var cleanCount: Int = 0
+    private var emptyCount: Int = 0
+    
     private lazy var spinner: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .gray)
         spinner.hidesWhenStopped = true
@@ -40,20 +43,35 @@ class UITimelineDataSource: UITableDataSource {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        tableView.isUserInteractionEnabled = !self.isFirstLoad
         if self.isFirstLoad {
-            tableView.isUserInteractionEnabled = false
-            return loadingCount
+            if self.loadingCount > 0 {
+                return loadingCount
+            } else {
+                return self.cleanCount
+            }
         } else {
-            tableView.isUserInteractionEnabled = true
-            return super.tableView(tableView, numberOfRowsInSection: section)
+            if self.itemsIsEmpty {
+                return self.emptyCount
+            } else {
+                return super.tableView(tableView, numberOfRowsInSection: section)
+            }
         }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if self.isFirstLoad {
-            return tableView.dequeueReusableCell(withIdentifier: "loadingCell", for: indexPath)
+            if self.loadingCount > 0 {
+                return tableView.dequeueReusableCell(withIdentifier: "loadingCell", for: indexPath)
+            } else {
+                return tableView.dequeueReusableCell(withIdentifier: "cleanCell", for: indexPath)
+            }
         } else {
-            return super.tableView(tableView, cellForRowAt: indexPath)
+            if self.itemsIsEmpty {
+                return tableView.dequeueReusableCell(withIdentifier: "emptyCell", for: indexPath)
+            } else {
+                return super.tableView(tableView, cellForRowAt: indexPath)
+            }
         }
     }
     
@@ -80,6 +98,18 @@ class UITimelineDataSource: UITableDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "loadingCell") {
             loadingCount = Int(ceil((tableView.bounds.height / cell.frame.height) + 0.4))
         }
+    }
+    
+    func setEmptyCell(nib name: String) {
+        guard let tableView = self.tableView else { return }
+        tableView.register(UINib(nibName: name, bundle: nil), forCellReuseIdentifier: "emptyCell")
+        self.emptyCount = 1
+    }
+    
+    func setCleanCell(nib name: String) {
+        guard let tableView = self.tableView else { return }
+        tableView.register(UINib(nibName: name, bundle: nil), forCellReuseIdentifier: "cleanCell")
+        self.cleanCount = 1
     }
     
 }

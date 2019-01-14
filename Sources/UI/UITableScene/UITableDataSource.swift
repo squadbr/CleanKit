@@ -34,6 +34,8 @@ class UITableDataSource: NSObject {
     private var identifiers: [String: String] = [:]
     private var heights: [IndexPath: CGFloat] = [:]
     
+    var itemsIsEmpty: Bool { return self.items.isEmpty }
+    
     internal var itemsToPrefetch: Int = 50
     
     init(tableView: UITableView, delegate: ActionCenterDelegate) {

@@ -82,4 +82,12 @@ open class UITimelineScene<TPresenter: Presenter<TInteractorProtocol>, TInteract
         (self.dataSource as? UITimelineDataSource)?.setLoadingCell(nib: name)
     }
     
+    public func setEmptyCell(nib name: String) {
+        (self.dataSource as? UITimelineDataSource)?.setEmptyCell(nib: name)
+    }
+    
+    public func setCleanCell(nib name: String) {
+        (self.dataSource as? UITimelineDataSource)?.setCleanCell(nib: name)
+    }
+    
 }
