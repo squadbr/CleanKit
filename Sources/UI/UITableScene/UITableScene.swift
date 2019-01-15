@@ -30,6 +30,7 @@ open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor:
             dataSource = self.loadDataSource()
             
             tableView.rowHeight = UITableView.automaticDimension
+            tableView.sectionHeaderHeight = UITableView.automaticDimension
             tableView.estimatedSectionHeaderHeight = CGFloat.leastNonzeroMagnitude
             
             tableView.dataSource = dataSource
