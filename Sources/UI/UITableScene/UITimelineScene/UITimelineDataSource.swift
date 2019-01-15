@@ -37,6 +37,11 @@ class UITimelineDataSource: UITableDataSource {
         return spinner
     }()
     
+    override func clear(force: Bool = false) {
+        self.isFirstLoad = true
+        super.clear(force: force)
+    }
+    
     override func insert(collection: TaggedViewModelCollection, at index: Int) -> [IndexPath] {
         self.isFirstLoad = false
         return super.insert(collection: collection, at: index)
@@ -44,7 +49,7 @@ class UITimelineDataSource: UITableDataSource {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableView.isUserInteractionEnabled = !self.isFirstLoad
-        if self.isFirstLoad {
+        if self.isFirstLoad && self.itemsIsEmpty {
             if self.loadingCount > 0 {
                 return loadingCount
             } else {
@@ -60,7 +65,7 @@ class UITimelineDataSource: UITableDataSource {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if self.isFirstLoad {
+        if self.isFirstLoad && self.itemsIsEmpty {
             if self.loadingCount > 0 {
                 return tableView.dequeueReusableCell(withIdentifier: "loadingCell", for: indexPath)
             } else {
@@ -70,6 +75,7 @@ class UITimelineDataSource: UITableDataSource {
             if self.itemsIsEmpty {
                 return tableView.dequeueReusableCell(withIdentifier: "emptyCell", for: indexPath)
             } else {
+                self.isFirstLoad = false
                 return super.tableView(tableView, cellForRowAt: indexPath)
             }
         }

@@ -27,6 +27,8 @@ open class UITimelineScene<TPresenter: Presenter<TInteractorProtocol>, TInteract
     private let activity: UIRefreshControl = UIRefreshControl()
     private var _presenter: TimelinePresenterProtocol!
     
+    private(set) open var shouldFetchOnLoad: Bool = true
+    
     open override func viewDidLoad() {
         super.viewDidLoad()
         self.setupInterface()
@@ -35,7 +37,7 @@ open class UITimelineScene<TPresenter: Presenter<TInteractorProtocol>, TInteract
             preconditionFailure("presenter should implement timeline presenter")
         }
         self._presenter = presenter
-        presenter.fetch()
+        if self.shouldFetchOnLoad { presenter.fetch() }
     }
     
     private func setupInterface() {
@@ -47,13 +49,18 @@ open class UITimelineScene<TPresenter: Presenter<TInteractorProtocol>, TInteract
     @objc
     open func refresh() {
         self.dataSource?.clear()
-        
-        _presenter.clear()
-        _presenter.fetch()
+        self._presenter.clear()
+        self._presenter.fetch()
     }
     
     public func refresh(tag: Int) {
         self._presenter.update(tag: tag)
+    }
+    
+    public func clear() {
+        self.dataSource?.clear(force: true)
+        self._presenter.clear()
+        self.tableView.reloadData()
     }
     
     open override func setup(actionCenter: ActionCenter) {

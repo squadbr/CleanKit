@@ -43,8 +43,11 @@ class UITableDataSource: NSObject {
         self.delegate = delegate
     }
     
-    func clear() {
+    func clear(force: Bool = false) {
         self.reload = true
+        if force {
+            self.items = []
+        }
     }
     
     func append(collection: TaggedViewModelCollection) -> [IndexPath] {

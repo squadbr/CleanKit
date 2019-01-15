@@ -60,6 +60,7 @@ open class UITimelinePresenter<TInteractor, TEntity>: Presenter<TInteractor>, Ti
         DispatchQueue.async {
             guard !self.loading && self.hasNext else { return }
             self.loading = true
+            self.reset = false
             self.actionCenter.post(action: "load", tag: 0)
             
             do {
@@ -73,7 +74,7 @@ open class UITimelinePresenter<TInteractor, TEntity>: Presenter<TInteractor>, Ti
                 
                 self.hasNext = !(objects.count < self.pageSize) || !objects.isEmpty
                 
-                if !self.reset || currentPage == 1 {
+                if !self.reset {
                     self.objects.append(contentsOf: objects)
                     self.post(viewModel: collection)
                     self.currentPage += 1
