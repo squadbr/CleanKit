@@ -49,7 +49,7 @@ open class UITimelineScene<TPresenter: Presenter<TInteractorProtocol>, TInteract
     @objc
     open func refresh() {
         self.dataSource?.clear()
-        self._presenter.clear()
+        self._presenter.clearOnNextLoad()
         self._presenter.fetch()
     }
     
@@ -59,7 +59,7 @@ open class UITimelineScene<TPresenter: Presenter<TInteractorProtocol>, TInteract
     
     public func clear() {
         self.dataSource?.clear(force: true)
-        self._presenter.clear()
+        self._presenter.clearOnNextLoad()
         self.tableView.reloadData()
     }
     

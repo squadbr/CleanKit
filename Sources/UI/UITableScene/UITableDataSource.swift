@@ -48,9 +48,7 @@ class UITableDataSource: NSObject {
     
     func clear(force: Bool = false) {
         self.reload = true
-        if force {
-            self.items = []
-        }
+        if force { self.items = [] }
     }
     
     func append(collection: TaggedViewModelCollection) -> [IndexPath] {
@@ -115,6 +113,7 @@ class UITableDataSource: NSObject {
     
     func set<T: SectionViewModel>(sectionHeader header: UITableSceneSectionHeader<T>.Type) {
         precondition(self.header == nil, "You can not change the existing section footer and header")
+        self.tableView?.register(UINib(nibName: "\(header)", bundle: nil), forHeaderFooterViewReuseIdentifier: "\(header)")
         self.header = "\(header)"
     }
     

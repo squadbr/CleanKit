@@ -23,7 +23,7 @@
 import Foundation
 
 protocol TimelinePresenterProtocol {
-    func clear()
+    func clearOnNextLoad()
     func fetch()
     func update(tag: Int)
 }
@@ -42,7 +42,7 @@ open class UITimelinePresenter<TInteractor, TEntity>: Presenter<TInteractor>, Ti
         case unknown
     }
     
-    func clear() {
+    func clearOnNextLoad() {
         self.currentPage = 0
         self.hasNext = true
         self.loading = false

@@ -133,7 +133,6 @@ open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor:
         }
         
         dataSource.set(sectionHeader: header)
-        tableView.register(UINib(nibName: "\(header)", bundle: nil), forHeaderFooterViewReuseIdentifier: "\(header)")
         
         presenter.viewModelCenter.observe(background: true) { [weak self] (viewModel: T) in
             guard let self = self, let dataSource = self.dataSource else { return }
