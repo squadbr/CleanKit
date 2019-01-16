@@ -34,6 +34,11 @@ class UITableDataSource: NSObject {
     private var identifiers: [String: String] = [:]
     private var heights: [IndexPath: CGFloat] = [:]
     
+    private var header: String?
+    private var section: SectionViewModel?
+    
+    var itemsIsEmpty: Bool { return self.items.isEmpty }
+    
     internal var itemsToPrefetch: Int = 50
     
     init(tableView: UITableView, delegate: ActionCenterDelegate) {
@@ -41,8 +46,9 @@ class UITableDataSource: NSObject {
         self.delegate = delegate
     }
     
-    func clear() {
+    func clear(force: Bool = false) {
         self.reload = true
+        if force { self.items = [] }
     }
     
     func append(collection: TaggedViewModelCollection) -> [IndexPath] {
@@ -105,6 +111,16 @@ class UITableDataSource: NSObject {
         identifiers["\(viewModel)"] = "\(cell)"
     }
     
+    func set<T: SectionViewModel>(sectionHeader header: UITableSceneSectionHeader<T>.Type) {
+        precondition(self.header == nil, "You can not change the existing section footer and header")
+        self.tableView?.register(UINib(nibName: "\(header)", bundle: nil), forHeaderFooterViewReuseIdentifier: "\(header)")
+        self.header = "\(header)"
+    }
+    
+    func updateOrCreate(sectionViewModel viewModel: SectionViewModel) {
+        self.section = viewModel
+    }
+    
 }
 
 extension UITableDataSource: UITableViewDataSource, UITableViewDelegate {
@@ -141,6 +157,29 @@ extension UITableDataSource: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return self.heights[indexPath] ?? UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard !self.itemsIsEmpty, self.header != nil, self.section != nil else {
+            return CGFloat.leastNonzeroMagnitude
+        }
+        return tableView.sectionHeaderHeight
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard !self.itemsIsEmpty, let header = self.header, let section = self.section else {
+            return UIView(frame: .zero)
+        }
+        
+        if var header = tableView.dequeueReusableHeaderFooterView(withIdentifier: header) as? UITableSceneSectionHeaderProtocol {
+            header.delegate = self.delegate
+            header.tag = section.tag
+            
+            return header.prepare(viewModel: section)
+        }
+        
+        assertionFailure("The \(header) cell is not based on UITableSceneSectionHeader")
+        return UIView(frame: .zero)
     }
     
 }
