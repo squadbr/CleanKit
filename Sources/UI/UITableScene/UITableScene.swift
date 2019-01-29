@@ -30,6 +30,8 @@ open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor:
             dataSource = self.loadDataSource()
             
             tableView.rowHeight = UITableView.automaticDimension
+            tableView.sectionHeaderHeight = UITableView.automaticDimension
+            tableView.estimatedSectionHeaderHeight = CGFloat.leastNonzeroMagnitude
             
             tableView.dataSource = dataSource
             tableView.delegate = dataSource
@@ -123,6 +125,23 @@ open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor:
         }
         
         dataSource.bind(cell: cell, to: viewModel)
+    }
+    
+    public func set<T: SectionViewModel>(sectionHeader header: UITableSceneSectionHeader<T>.Type) {
+        guard let tableView = tableView, let dataSource = dataSource else {
+            preconditionFailure("Table has not yet been initialized")
+        }
+        
+        dataSource.set(sectionHeader: header)
+        
+        presenter.viewModelCenter.observe(background: true) { [weak self] (viewModel: T) in
+            guard let self = self, let dataSource = self.dataSource else { return }
+            
+            dataSource.updateOrCreate(sectionViewModel: viewModel)
+            DispatchQueue.safeSync {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     open func setupTable() {
