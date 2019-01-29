@@ -25,6 +25,7 @@ import Foundation
 public typealias SectionViewModel = TaggedViewModel & SectionModel
 
 public protocol SectionModel {
+    var hasHeader: Bool { get }
     var hasFeedback: Bool { get }
     var hasFooter: Bool { get }
 }
