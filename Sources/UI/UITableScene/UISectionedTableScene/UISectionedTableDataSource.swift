@@ -173,14 +173,15 @@ class UISectionedTableDataSource: NSObject, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        guard let item = sections[section], (item.viewModel.hasHeader && !item.items.isEmpty) || item.viewModel.hasFeedback else {
+        guard let item = sections[section], item.viewModel.hasHeader, !item.items.isEmpty || item.viewModel.hasFeedback else {
             return tableView.sectionHeaderHeight
         }
         return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let sectionIdentifiers = sectionIdentifiers, let section = sections[section], (section.viewModel.hasHeader && !section.items.isEmpty) || section.viewModel.hasFeedback else {
+        guard let sectionIdentifiers = sectionIdentifiers, let section = sections[section], section.viewModel.hasHeader,
+            !section.items.isEmpty || section.viewModel.hasFeedback else {
             return nil
         }
         
