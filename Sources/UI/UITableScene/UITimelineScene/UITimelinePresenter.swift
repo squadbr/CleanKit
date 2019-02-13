@@ -82,7 +82,9 @@ open class UITimelinePresenter<TInteractor, TEntity>: Presenter<TInteractor>, Ti
                     self.objects = []
                 }
                 self.reset = false
-            } catch { }
+            } catch let error {
+                debugPrint("\(self.self): \(#function) line: \(#line). \(error.localizedDescription)")
+            }
             
             self.actionCenter.post(action: "stop", tag: 0)
             self.loading = false

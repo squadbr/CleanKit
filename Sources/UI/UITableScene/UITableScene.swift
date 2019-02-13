@@ -128,7 +128,7 @@ open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor:
     }
     
     public func set<T: SectionViewModel>(sectionHeader header: UITableSceneSectionHeader<T>.Type) {
-        guard let tableView = tableView, let dataSource = dataSource else {
+        guard let dataSource = dataSource else {
             preconditionFailure("Table has not yet been initialized")
         }
         

@@ -73,6 +73,19 @@ class UISectionedTableDataSource: NSObject, UITableViewDataSource, UITableViewDe
         sectionIdentifiers = (header: "\(header)", footer: "\(footer)", feedback: "\(feedback)")
     }
     
+    func clear(removeSections: Bool) {
+        guard !removeSections else {
+            sectionsIndexes.removeAll()
+            sections.removeAll()
+            return
+        }
+        
+        for index in sectionsIndexes.values {
+            sections[index]!.items = []
+            sections[index]!.message = nil
+        }
+    }
+    
     func updateOrCreate(sectionViewModel viewModel: SectionViewModel) {
         let tag = viewModel.tag
         
