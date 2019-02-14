@@ -165,6 +165,15 @@ open class UISectionedTableScene<TPresenter: Presenter<TInteractorProtocol>, TIn
         }
     }
     
+    public func clear(removeSections: Bool) {
+        guard let tableView = tableView, let dataSource = dataSource else {
+            fatalError("Table has not yet been initialized")
+        }
+        
+        dataSource.clear(removeSections: removeSections)
+        tableView.reloadData()
+    }
+    
     open func setupTable() {
         assertionFailure("You need to implement the method \"setupTable()\" to prepare this table")
     }
