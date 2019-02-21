@@ -55,6 +55,11 @@ open class UITimelinePresenter<TInteractor, TEntity>: Presenter<TInteractor>, Ti
         }
     }
     
+    public func reload() {
+        self.clearOnNextLoad()
+        self.fetch()
+    }
+    
     func fetch() {
         DispatchQueue.async {
             guard !self.loading && self.hasNext else { return }
