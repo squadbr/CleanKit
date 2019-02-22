@@ -93,23 +93,13 @@ echo "Building for Generic iOS Devices with $RELEASE Configuration..."
 xcodebuild $FLAGS \
     -destination generic/platform=iOS \
     -configuration $RELEASE \
-    -sdk $SDK_OS \
-    BITCODE_GENERATION_MODE=bitcode >> $BUILD_PATH/$LOG
+    -sdk $SDK_OS >> $BUILD_PATH/$LOG
 
-if ! $RELEASE_ONLY ; then
-    # build for physical devices
-    echo "Building for Generic iOS Devices with $DEBUG Configuration..."
-    xcodebuild $FLAGS \
-        -destination generic/platform=iOS \
-        -configuration $DEBUG \
-        -sdk $SDK_OS >> $BUILD_PATH/$LOG
-
-    # build for simulator
-    echo "Building for iOS Simulator with $DEBUG Configuration..."
-    xcodebuild $FLAGS \
-        -configuration $DEBUG \
-        -sdk $SDK_SIMULATOR >> $BUILD_PATH/$LOG
-fi
+# build for simulator
+echo "Building for iOS Simulator with $RELEASE Configuration..."
+xcodebuild $FLAGS \
+    -configuration $RELEASE \
+    -sdk $SDK_SIMULATOR >> $BUILD_PATH/$LOG
 
 # enter build folder
 cd $BUILD_PATH
@@ -118,31 +108,29 @@ cd $BUILD_PATH
 echo "Moving products..."
 mv Build/Products/* ./
 
-if ! $RELEASE_ONLY ; then
-    # create directory for universal framework
-    mkdir $DEBUG-$SDK_UNIVERSAL
+# create directory for universal framework
+mkdir $RELEASE-$SDK_UNIVERSAL
 
-    # copy framework mantaining structure
-    echo "Copying framework..."
-    cp -r $DEBUG-$SDK_OS/* $DEBUG-$SDK_UNIVERSAL
+# copy framework mantaining structure
+echo "Copying framework..."
+cp -r $RELEASE-$SDK_OS/* $RELEASE-$SDK_UNIVERSAL
 
-    # check if swift modules exists, then copy
-    echo "Copying swiftmodules..."
-    SWIFTMODULE_PATH=$FRAMEWORK.swiftmodule
-    if [ -d $DEBUG-$SDK_SIMULATOR/$SWIFTMODULE_PATH ]; then
-        cp -r $DEBUG-$SDK_SIMULATOR/$SWIFTMODULE_PATH/* \
-            $DEBUG-$SDK_UNIVERSAL/$SWIFTMODULE_PATH/
-    fi
-
-    # merge binaries
-    echo "Merging binaries..."
-    BINARY_PATH="lib$FRAMEWORK.a"
-    lipo -create -output \
-        $DEBUG-$SDK_UNIVERSAL/$BINARY_PATH \
-        $DEBUG-$SDK_OS/$BINARY_PATH \
-        $DEBUG-$SDK_SIMULATOR/$BINARY_PATH
-
+# check if swift modules exists, then copy
+echo "Copying swiftmodules..."
+SWIFTMODULE_PATH=$FRAMEWORK.framework/Modules/$FRAMEWORK.swiftmodule
+if [ -d $RELEASE-$SDK_SIMULATOR/$SWIFTMODULE_PATH ]; then
+    cp -r $RELEASE-$SDK_SIMULATOR/$SWIFTMODULE_PATH/* \
+        $RELEASE-$SDK_UNIVERSAL/$SWIFTMODULE_PATH/
 fi
+
+BINARY_PATH=$FRAMEWORK.framework/$FRAMEWORK
+# merge binaries
+echo "Merging binaries..."
+lipo -create -output \
+    $RELEASE-$SDK_UNIVERSAL/$BINARY_PATH \
+    $RELEASE-$SDK_OS/$BINARY_PATH \
+    $RELEASE-$SDK_SIMULATOR/$BINARY_PATH
+
 
 # clean cache
 echo "Cleaning cache..."
