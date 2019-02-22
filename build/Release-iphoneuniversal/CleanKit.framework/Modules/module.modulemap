@@ -1,0 +1,11 @@
+framework module CleanKit {
+  umbrella header "CleanKit.h"
+
+  export *
+  module * { export * }
+}
+
+module CleanKit.Swift {
+    header "CleanKit-Swift.h"
+    requires objc
+}
