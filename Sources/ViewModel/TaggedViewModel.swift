@@ -26,4 +26,9 @@ public typealias TaggedViewModel = ViewModel & TaggedModel
 
 public protocol TaggedModel {
     var tag: Int { get }
+    var sectionTag: Int { get }
+}
+
+public extension TaggedModel {
+    var sectionTag: Int { return 0 }
 }

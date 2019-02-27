@@ -138,8 +138,8 @@
 			children = (
 				F7593977221F2732002F041D /* UITimelineScene */,
 				F759397C221F2732002F041D /* UITableScene.swift */,
-				F759397D221F2732002F041D /* Shared */,
 				F7593980221F2732002F041D /* UITableDataSource.swift */,
+				F759397D221F2732002F041D /* Shared */,
 				F7593981221F2732002F041D /* UISectionedTableScene */,
 			);
 			path = UITableScene;

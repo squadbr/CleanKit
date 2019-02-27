@@ -68,12 +68,15 @@ open class UITimelinePresenter<TInteractor, TEntity>: Presenter<TInteractor>, Ti
             
             do {
                 let timestamp = Date()
-                let collection = TaggedViewModelCollection(tag: 0)
-                
                 let currentPage = self.currentPage + 1
                 let objects = try self.fetch(page: currentPage)
+                
+                var collections: [Int: TaggedViewModelCollection] = [:]
                 for object in objects {
-                    collection.append(item: self.prepare(object: object))
+                    let item: TaggedViewModel = self.prepare(object: object)
+                    let collection = collections[item.sectionTag] ?? TaggedViewModelCollection(tag: item.sectionTag)
+                    collection.append(item: item)
+                    collections[item.sectionTag] = collection
                 }
                 
                 if timestamp < self.timestamp {
@@ -86,7 +89,9 @@ open class UITimelinePresenter<TInteractor, TEntity>: Presenter<TInteractor>, Ti
                 
                 self.hasNext = !(objects.count < self.pageSize) || !objects.isEmpty
                 self.objects.append(contentsOf: objects)
-                self.post(viewModel: collection)
+                for (_, collection) in collections {
+                    self.post(viewModel: collection)
+                }
                 self.currentPage += 1
 
             } catch let error {
