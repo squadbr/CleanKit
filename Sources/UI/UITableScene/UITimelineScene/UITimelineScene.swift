@@ -60,6 +60,7 @@ open class UITimelineScene<TPresenter: Presenter<TInteractorProtocol>, TInteract
     public func clear() {
         self.dataSource?.clear(force: true)
         self._presenter.clearOnNextLoad()
+        self.tableView.contentOffset = CGPoint.zero
         self.tableView.reloadData()
     }
     

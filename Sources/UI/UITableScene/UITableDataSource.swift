@@ -24,20 +24,28 @@ import UIKit
 
 class UITableDataSource: NSObject {
     
+    class SectionItem {
+        var viewModel: SectionViewModel
+        var items: [(viewModel: ViewModelItem, cellState: CellState?)]
+        
+        init(viewModel: SectionViewModel, items: [(viewModel: ViewModelItem, cellState: CellState?)]) {
+            self.viewModel = viewModel
+            self.items = items
+        }
+    }
+    
     private weak var focusedCell: UITableSceneCellProtocol?
     private(set) weak var tableView: UITableView?
     private(set) weak var delegate: ActionCenterDelegate?
     
     private var reload: Bool = false
     
-    internal var items: [(viewModel: ViewModelItem, cellState: CellState?)] = []
+    private var sectionIdentifiers: (header: String, footer: String, feedback: String)?
+    private(set) var sections: [Int: SectionItem] = [:]
+    private var sectionsIndexes: [Int: Int] = [:]
+    
     private var identifiers: [String: String] = [:]
     private var heights: [IndexPath: CGFloat] = [:]
-    
-    private var header: String?
-    private var section: SectionViewModel?
-    
-    var itemsIsEmpty: Bool { return self.items.isEmpty }
     
     internal var itemsToPrefetch: Int = 50
     
@@ -48,20 +56,27 @@ class UITableDataSource: NSObject {
     
     func clear(force: Bool = false) {
         self.reload = true
-        if force { self.items = [] }
+        if force {
+            self.sectionsIndexes = [:]
+            self.sections = [:]
+        }
     }
     
     func append(collection: TaggedViewModelCollection) -> [IndexPath] {
-        return self.insert(collection: collection, at: self.items.count)
+        let section = self.section(for: collection.tag)
+        return self.insert(collection: collection, at: section.item.items.count)
     }
     
     func insert(collection: TaggedViewModelCollection, at index: Int) -> [IndexPath] {
         var index: Int = index
         if self.reload {
             self.reload = false
-            self.items = []
+            self.sections = [:]
+            self.sectionsIndexes = [:]
             index = 0
         }
+        
+        let section = self.section(for: collection.tag)
         
         // indexes of items to be inserted
         var indexesPath: [IndexPath] = []
@@ -71,24 +86,23 @@ class UITableDataSource: NSObject {
             let viewModel = "\(type(of: item))"
             
             if let identifier = self.identifiers[viewModel] {
-                self.items.insert((ViewModelItem(identifier: identifier, item: item), nil), at: itemIndex + index)
+                section.item.items.insert((ViewModelItem(identifier: identifier, item: item), nil), at: itemIndex + index)
             } else {
                 assertionFailure("The \(viewModel) view model is not binded")
             }
             
-            indexesPath.append(IndexPath(row: itemIndex + index, section: 0))
+            indexesPath.append(IndexPath(row: itemIndex + index, section: section.index))
         }
         
         return indexesPath
     }
     
     func update(tag: Int, item: TaggedViewModel) {
-        guard let index = (self.items.firstIndex { $0.viewModel.item.tag == tag }) else { return }
+        guard let indexPath: IndexPath = self.find(tag: tag) else { return }
         let viewModel = "\(type(of: item))"
         
         if let identifier = self.identifiers[viewModel] {
-            self.items[index].viewModel = ViewModelItem(identifier: identifier, item: item)
-            self.items[index].cellState = nil
+            self.sections[indexPath.section]?.items[indexPath.row] = (ViewModelItem(identifier: identifier, item: item), nil)
         } else {
             assertionFailure("The \(viewModel) view model is not binded")
         }
@@ -97,40 +111,53 @@ class UITableDataSource: NSObject {
     }
     
     func remove(tag: Int) {
-        guard let index = (self.items.firstIndex { $0.viewModel.item.tag == tag }) else { return }
-        
-        self.items.remove(at: index)
-        self.tableView?.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        guard let indexPath: IndexPath = self.find(tag: tag) else { return }
+        self.sections[indexPath.section]?.items.remove(at: indexPath.row)
+        self.tableView?.deleteRows(at: [indexPath], with: .automatic)
     }
     
     func bind<TCell: UITableSceneCell<TViewModel>, TViewModel: TaggedViewModel>(cell: TCell.Type, to viewModel: TViewModel.Type) {
         self.tableView?.register(UINib(nibName: "\(cell)", bundle: nil), forCellReuseIdentifier: "\(cell)")
-        
         let current = identifiers["\(viewModel)"]
         precondition(current == nil, "The \(viewModel) is binded for \(current!)")
-        identifiers["\(viewModel)"] = "\(cell)"
+        self.identifiers["\(viewModel)"] = "\(cell)"
     }
     
     func set<T: SectionViewModel>(sectionHeader header: UITableSceneSectionHeader<T>.Type) {
-        precondition(self.header == nil, "You can not change the existing section footer and header")
+        precondition(self.sectionIdentifiers == nil, "You can not change the existing section footer and header")
         self.tableView?.register(UINib(nibName: "\(header)", bundle: nil), forHeaderFooterViewReuseIdentifier: "\(header)")
-        self.header = "\(header)"
+        self.sectionIdentifiers = (header: "\(header)", footer: "", feedback: "")
     }
     
     func updateOrCreate(sectionViewModel viewModel: SectionViewModel) {
-        self.section = viewModel
+        let tag: Int = viewModel.tag
+        
+        if let index = self.sectionsIndexes[tag] {
+            self.sections[index]?.viewModel = viewModel
+        } else {
+            let index = sections.count
+            self.sections[index] = SectionItem(viewModel: viewModel, items: [])
+            self.sectionsIndexes[tag] = index
+        }
     }
     
 }
 
 extension UITableDataSource: UITableViewDataSource, UITableViewDelegate {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.sections.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.items.count
+        guard let section = sections[section] else {
+            return 0
+        }
+        return section.items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let item = self.items[safe: indexPath.row] else {
+        guard let item = sections[indexPath.section]?.items[safe: indexPath.row] else {
             return UITableViewCell(frame: .zero)
         }
         
@@ -144,9 +171,10 @@ extension UITableDataSource: UITableViewDataSource, UITableViewDelegate {
             }
             
             return tableCell
-        } else {
-            fatalError("The \(item.viewModel.identifier) cell is not based on UITableSceneCell")
         }
+        
+        assertionFailure("The \(item.viewModel.identifier) cell is not based on UITableSceneCell")
+        return UITableViewCell(frame: .zero)
     }
     
     // functions to calculate height
@@ -159,26 +187,30 @@ extension UITableDataSource: UITableViewDataSource, UITableViewDelegate {
         return self.heights[indexPath] ?? UITableView.automaticDimension
     }
     
+}
+
+extension UITableDataSource {
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        guard !self.itemsIsEmpty, self.header != nil, self.section != nil else {
+        guard let section = self.sections[section], section.viewModel.hasHeader, !section.items.isEmpty else {
             return CGFloat.leastNonzeroMagnitude
         }
         return tableView.sectionHeaderHeight
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard !self.itemsIsEmpty, let header = self.header, let section = self.section else {
-            return UIView(frame: .zero)
+        guard let section = self.sections[section], section.viewModel.hasHeader, !section.items.isEmpty, let sectionIdentifiers = self.sectionIdentifiers else {
+            return nil
         }
         
-        if var header = tableView.dequeueReusableHeaderFooterView(withIdentifier: header) as? UITableSceneSectionHeaderProtocol {
+        if let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: sectionIdentifiers.header) as? UITableSceneSectionHeaderProtocol {
             header.delegate = self.delegate
-            header.tag = section.tag
+            header.tag = section.viewModel.tag
             
-            return header.prepare(viewModel: section)
+            return header.prepare(viewModel: section.viewModel)
         }
         
-        assertionFailure("The \(header) cell is not based on UITableSceneSectionHeader")
+        assertionFailure("The \(sectionIdentifiers.header) cell is not based on UITableSceneSectionHeader")
         return UIView(frame: .zero)
     }
     
@@ -206,12 +238,7 @@ extension UITableDataSource {
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let cell = cell as? UITableSceneCellProtocol else { return }
         cell.focus(bool: false)
-        
-        guard var item = self.items[safe: indexPath.row] else {
-            return
-        }
-        item.cellState = cell.save()
-        self.items[indexPath.row] = item
+        self.sections[indexPath.section]?.items[indexPath.row].cellState = cell.save()
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
@@ -222,6 +249,39 @@ extension UITableDataSource {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         self.focusCell()
+    }
+    
+}
+
+// MARK: - utils
+extension UITableDataSource {
+    
+    private func section(for tag: Int) -> (index: Int, item: SectionItem) {
+        if let sectionIndex = sectionsIndexes[tag], let section = self.sections[sectionIndex] {
+            return (sectionIndex, section)
+        }
+        let index = self.sections.count
+        let section = SectionItem(viewModel: SectionDefault(tag: tag), items: [])
+        sections[index] = section
+        sectionsIndexes[tag] = index
+        return (index, section)
+    }
+    
+    private func find(tag: Int) -> IndexPath? {
+        var sectionIndex: Int?
+        var rowIndex: Int?
+        for (currentSection, section) in self.sections {
+            guard let currentRow = section.items.firstIndex(where: { $0.viewModel.item.tag == tag }) else { continue }
+            sectionIndex = currentSection
+            rowIndex = currentRow
+            break
+        }
+        
+        guard let sectionIndex2 = sectionIndex, let rowIndex2 = rowIndex else {
+            return nil
+        }
+        
+        return IndexPath(row: rowIndex2, section: sectionIndex2)
     }
     
 }

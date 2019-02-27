@@ -47,16 +47,25 @@ class UITimelineDataSource: UITableDataSource {
         return super.insert(collection: collection, at: index)
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         tableView.isUserInteractionEnabled = !self.isFirstLoad
-        if self.isFirstLoad && self.itemsIsEmpty {
+        if self.isFirstLoad && self.sections.isEmpty {
+            if self.loadingCount > 0 {
+                return 1
+            }
+        }
+        return super.numberOfSections(in: tableView)
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.isFirstLoad && self.sections.isEmpty {
             if self.loadingCount > 0 {
                 return loadingCount
             } else {
                 return self.cleanCount
             }
         } else {
-            if self.itemsIsEmpty {
+            if self.sections[section]?.items.isEmpty == true {
                 return self.emptyCount
             } else {
                 return super.tableView(tableView, numberOfRowsInSection: section)
@@ -65,24 +74,28 @@ class UITimelineDataSource: UITableDataSource {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if self.isFirstLoad && self.itemsIsEmpty {
+        if self.isFirstLoad && self.sections.isEmpty {
             if self.loadingCount > 0 {
                 return tableView.dequeueReusableCell(withIdentifier: "loadingCell", for: indexPath)
             } else {
                 return tableView.dequeueReusableCell(withIdentifier: "cleanCell", for: indexPath)
             }
-        } else {
-            if self.itemsIsEmpty {
-                return tableView.dequeueReusableCell(withIdentifier: "emptyCell", for: indexPath)
-            } else {
-                self.isFirstLoad = false
-                return super.tableView(tableView, cellForRowAt: indexPath)
-            }
         }
+        
+        guard let items = self.sections[indexPath.section]?.items else {
+            return UITableViewCell()
+        }
+        if items.isEmpty {
+            return tableView.dequeueReusableCell(withIdentifier: "emptyCell", for: indexPath)
+        } else {
+            self.isFirstLoad = false
+            return super.tableView(tableView, cellForRowAt: indexPath)
+        }
+        
     }
     
     override func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-        if indexPaths.contains(where: { $0.row > self.items.count - self.itemsToPrefetch }) {
+        if indexPaths.contains(where: { $0.row > self.sections.count - self.itemsToPrefetch }) {
             delegate?.actionCenter(postAction: "prefetch", tag: 0)
         }
     }
