@@ -30,12 +30,11 @@ protocol TimelinePresenterProtocol {
 
 open class UITimelinePresenter<TInteractor, TEntity>: Presenter<TInteractor>, TimelinePresenterProtocol {
     
-    private var reset: Bool = false
+    private var timestamp: Date = Date()
     private var currentPage: Int = 0
     private var hasNext: Bool = true
     private var loading: Bool = false
     private var pageSize: Int = 25
-    
     private var objects: [TEntity] = []
     
     public enum UITimelineError: Error {
@@ -46,7 +45,7 @@ open class UITimelinePresenter<TInteractor, TEntity>: Presenter<TInteractor>, Ti
         self.currentPage = 0
         self.hasNext = true
         self.loading = false
-        self.reset = true
+        self.timestamp = Date()
     }
     
     func update(tag: Int) {
@@ -60,28 +59,30 @@ open class UITimelinePresenter<TInteractor, TEntity>: Presenter<TInteractor>, Ti
         DispatchQueue.async {
             guard !self.loading && self.hasNext else { return }
             self.loading = true
-            self.reset = false
             self.actionCenter.post(action: "load", tag: 0)
             
             do {
+                let timestamp = Date()
                 let collection = TaggedViewModelCollection(tag: 1)
-                
                 let currentPage = self.currentPage + 1
                 let objects = try self.fetch(page: currentPage)
                 for object in objects {
                     collection.append(item: self.prepare(object: object))
                 }
                 
-                self.hasNext = !(objects.count < self.pageSize) || !objects.isEmpty
+                if timestamp < self.timestamp {
+                    return
+                }
                 
-                if !self.reset {
-                    self.objects.append(contentsOf: objects)
-                    self.post(viewModel: collection)
-                    self.currentPage += 1
-                } else {
+                if currentPage == 1 {
                     self.objects = []
                 }
-                self.reset = false
+                
+                self.hasNext = !(objects.count < self.pageSize) || !objects.isEmpty
+                self.objects.append(contentsOf: objects)
+                self.post(viewModel: collection)
+                self.currentPage += 1
+
             } catch let error {
                 debugPrint("\(self.self): \(#function) line: \(#line). \(error.localizedDescription)")
             }
