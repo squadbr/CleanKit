@@ -72,6 +72,7 @@ open class UITimelinePresenter<TInteractor, TEntity>: Presenter<TInteractor>, Ti
                 let objects = try self.fetch(page: currentPage)
                 
                 var collections: [Int: TaggedViewModelCollection] = [:]
+                if objects.isEmpty { collections[0] = TaggedViewModelCollection(tag: 0) }
                 for object in objects {
                     let item: TaggedViewModel = self.prepare(object: object)
                     let collection = collections[item.sectionTag] ?? TaggedViewModelCollection(tag: item.sectionTag)

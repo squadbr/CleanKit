@@ -25,8 +25,8 @@ import UIKit
 class UITimelineDataSource: UITableDataSource {
     
     private var isFirstLoad: Bool = true
-    private var loadingCount: Int = 0
     
+    private var loadingCount: Int = 0
     private var cleanCount: Int = 0
     private var emptyCount: Int = 0
     
@@ -42,56 +42,65 @@ class UITimelineDataSource: UITableDataSource {
         super.clear(force: force)
     }
     
+    override func append(collection: TaggedViewModelCollection) -> [IndexPath] {
+        self.isFirstLoad = false
+        return super.append(collection: collection)
+    }
+    
     override func insert(collection: TaggedViewModelCollection, at index: Int) -> [IndexPath] {
         self.isFirstLoad = false
         return super.insert(collection: collection, at: index)
     }
     
+    private func isDataSourceEmpty() -> Bool {
+        var shouldShowEmptyState: Bool = false
+        for section in self.sections where !shouldShowEmptyState {
+            shouldShowEmptyState = section.value.items.isEmpty
+        }
+        return shouldShowEmptyState
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         tableView.isUserInteractionEnabled = !self.isFirstLoad
-        if self.isFirstLoad && self.sections.isEmpty {
+        if self.isFirstLoad {
             if self.loadingCount > 0 {
                 return 1
+            } else if self.cleanCount > 0 {
+                return 1
             }
+        }
+        if self.isDataSourceEmpty() && self.emptyCount > 0 {
+            return 1
         }
         return super.numberOfSections(in: tableView)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.isFirstLoad && self.sections.isEmpty {
+        if self.isFirstLoad {
             if self.loadingCount > 0 {
                 return loadingCount
-            } else {
+            } else if self.cleanCount > 0 {
                 return self.cleanCount
             }
-        } else {
-            if self.sections[section]?.items.isEmpty == true {
-                return self.emptyCount
-            } else {
-                return super.tableView(tableView, numberOfRowsInSection: section)
-            }
         }
+        if self.isDataSourceEmpty() && self.emptyCount > 0 {
+            return self.emptyCount
+        }
+        return super.tableView(tableView, numberOfRowsInSection: section)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if self.isFirstLoad && self.sections.isEmpty {
+        if self.isFirstLoad {
             if self.loadingCount > 0 {
                 return tableView.dequeueReusableCell(withIdentifier: "loadingCell", for: indexPath)
-            } else {
+            } else if self.cleanCount > 0 {
                 return tableView.dequeueReusableCell(withIdentifier: "cleanCell", for: indexPath)
             }
         }
-        
-        guard let items = self.sections[indexPath.section]?.items else {
-            return UITableViewCell()
-        }
-        if items.isEmpty {
+        if self.isDataSourceEmpty() && self.emptyCount > 0 {
             return tableView.dequeueReusableCell(withIdentifier: "emptyCell", for: indexPath)
-        } else {
-            self.isFirstLoad = false
-            return super.tableView(tableView, cellForRowAt: indexPath)
         }
-        
+        return super.tableView(tableView, cellForRowAt: indexPath)
     }
     
     override func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {

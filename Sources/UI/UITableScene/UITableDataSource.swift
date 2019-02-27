@@ -57,8 +57,9 @@ class UITableDataSource: NSObject {
     func clear(force: Bool = false) {
         self.reload = true
         if force {
-            self.sectionsIndexes = [:]
-            self.sections = [:]
+            for (_, section) in self.sections {
+                section.items = []
+            }
         }
     }
     
@@ -71,8 +72,9 @@ class UITableDataSource: NSObject {
         var index: Int = index
         if self.reload {
             self.reload = false
-            self.sections = [:]
-            self.sectionsIndexes = [:]
+            for (_, section) in self.sections {
+                section.items = []
+            }
             index = 0
         }
         
@@ -261,6 +263,7 @@ extension UITableDataSource {
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let cell = cell as? UITableSceneCellProtocol else { return }
         cell.focus(bool: false)
+        guard self.sections[indexPath.section]?.items.count ?? 0 > indexPath.row else { return }
         self.sections[indexPath.section]?.items[indexPath.row].cellState = cell.save()
     }
     
