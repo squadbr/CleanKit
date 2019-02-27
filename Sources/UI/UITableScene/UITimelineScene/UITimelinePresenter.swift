@@ -68,7 +68,8 @@ open class UITimelinePresenter<TInteractor, TEntity>: Presenter<TInteractor>, Ti
             
             do {
                 let timestamp = Date()
-                let collection = TaggedViewModelCollection(tag: 1)
+                let collection = TaggedViewModelCollection(tag: 0)
+                
                 let currentPage = self.currentPage + 1
                 let objects = try self.fetch(page: currentPage)
                 for object in objects {

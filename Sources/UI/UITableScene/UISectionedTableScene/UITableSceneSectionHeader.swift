@@ -22,7 +22,7 @@
 
 import UIKit
 
-protocol UITableSceneSectionHeaderProtocol {
+protocol UITableSceneSectionHeaderProtocol: class {
     var delegate: ActionCenterDelegate? { get set }
     var tag: Int { get set }
     

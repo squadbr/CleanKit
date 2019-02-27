@@ -29,3 +29,13 @@ public protocol SectionModel {
     var hasFeedback: Bool { get }
     var hasFooter: Bool { get }
 }
+
+class SectionDefault: SectionViewModel {
+    let tag: Int
+    let hasFeedback: Bool = false
+    let hasFooter: Bool = false
+    let hasHeader: Bool = false
+    init(tag: Int) {
+        self.tag = tag
+    }
+}
