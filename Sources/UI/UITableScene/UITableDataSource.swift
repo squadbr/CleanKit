@@ -214,6 +214,29 @@ extension UITableDataSource {
         return UIView(frame: .zero)
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        guard let section = self.sections[section], section.viewModel.hasFooter, !section.items.isEmpty else {
+            return CGFloat.leastNonzeroMagnitude
+        }
+        return tableView.sectionFooterHeight
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        guard let section = self.sections[section], section.viewModel.hasFooter, !section.items.isEmpty, let sectionIdentifiers = self.sectionIdentifiers else {
+            return nil
+        }
+        
+        if let footer = tableView.dequeueReusableHeaderFooterView(withIdentifier: sectionIdentifiers.footer) as? UITableSceneSectionFooter {
+            footer.delegate = self.delegate
+            footer.tag = section.viewModel.tag
+            
+            return footer
+        }
+        
+        assertionFailure("The \(sectionIdentifiers.header) cell is not based on UITableSceneSectionHeader")
+        return UIView(frame: .zero)
+    }
+    
 }
 
 extension UITableDataSource {
