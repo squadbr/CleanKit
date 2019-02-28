@@ -14,6 +14,6 @@ Pod::Spec.new do |s|
                                     :tag => s.version.to_s }
 
     # Uncomment the following line if you want source code
-    # s.ios.source_files        = 'Sources/**/*'
-    s.ios.vendored_framework    = 'build/Release-iphoneuniversal/CleanKit.framework'
+    s.ios.source_files        = 'Sources/**/*'
+    # s.ios.vendored_framework    = 'build/Release-iphoneuniversal/CleanKit.framework'
 end
