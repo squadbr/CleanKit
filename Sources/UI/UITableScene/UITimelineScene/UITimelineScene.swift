@@ -46,9 +46,8 @@ open class UITimelineScene<TPresenter: Presenter<TInteractorProtocol>, TInteract
         self.activity.addTarget(self, action: #selector(refresh as () -> Void), for: .valueChanged)
     }
     
-    @objc
-    open func refresh() {
-        self.dataSource?.clear()
+    open override func refresh() {
+        super.refresh()
         self._presenter.clearOnNextLoad()
         self._presenter.fetch()
     }
