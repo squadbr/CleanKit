@@ -56,6 +56,11 @@ open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor:
         }
     }
     
+    @objc
+    open func refresh() {
+        self.dataSource?.clear()
+    }
+    
     open override func setup(actionCenter: ActionCenter) {
         actionCenter.observe(action: "delete") { [weak self] (tag) in
             guard let self = self, let dataSource = self.dataSource else { return }
