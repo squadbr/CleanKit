@@ -125,11 +125,11 @@ _symbolic So8NSObjectC
 _$SSo8NSStringCMF
 _$SSo15UINibOptionsKeyaMF
 Apple LLVM version 10.0.0 (clang-1000.11.45.1)
--emit-bc /Users/lazaro/Documents/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UITableSceneHeader.swift /Users/lazaro/Documents/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UITableSceneSectionFooter.swift /Users/lazaro/Documents/CleanKit/Sources/Presenter.swift /Users/lazaro/Documents/CleanKit/Sources/ViewModel/TaggedViewModel.swift /Users/lazaro/Documents/CleanKit/Sources/ActionDelegate.swift /Users/lazaro/Documents/CleanKit/Sources/UI/UITableScene/Shared/UITableSceneCell.swift /Users/lazaro/Documents/CleanKit/Sources/Extensions/UIView.swift /Users/lazaro/Documents/CleanKit/Sources/ParameterizedPresenter.swift /Users/lazaro/Documents/CleanKit/Sources/UI/UITableScene/UITimelineScene/UITimelineParameterizedPresenter.swift /Users/lazaro/Documents/CleanKit/Sources/UI/UICollectionScene/Shared/UICollectionSceneCell.swift /Users/lazaro/Documents/CleanKit/Sources/UI/UIScene.swift /Users/lazaro/Documents/CleanKit/Sources/ActionCenterDelegate.swift /Users/lazaro/Documents/CleanKit/Sources/UI/UICollectionScene/UICollectionDataSource.swift /Users/lazaro/Documents/CleanKit/Sources/ViewModel/TaggedViewModelCollection.swift /Users/lazaro/Documents/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UISectionedTableDataSource.swift /Users/lazaro/Documents/CleanKit/Sources/ActionCenter.swift /Users/lazaro/Documents/CleanKit/Sources/Interactor.swift /Users/lazaro/Documents/CleanKit/Sources/UI/UITableScene/UITimelineScene/UITimelineScene.swift /Users/lazaro/Documents/CleanKit/Sources/UI/UITableScene/UITimelineScene/UITimelinePresenter.swift /Users/lazaro/Documents/CleanKit/Sources/UI/UITableScene/Shared/ViewModelItem.swift /Users/lazaro/Documents/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UITableSceneSectionFeedback.swift /Users/lazaro/Documents/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UITableSceneSectionHeader.swift /Users/lazaro/Documents/CleanKit/Sources/CellState.swift /Users/lazaro/Documents/CleanKit/Sources/Extensions/Collection.swift /Users/lazaro/Documents/CleanKit/Sources/UI/UITableScene/UITableScene.swift /Users/lazaro/Documents/CleanKit/Sources/ViewModel/SectionViewModel.swift /Users/lazaro/Documents/CleanKit/Sources/Extensions/DispatchQueue.swift /Users/lazaro/Documents/CleanKit/Sources/UI/UISceneCellProtocol.swift /Users/lazaro/Documents/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UISectionedTableScene.swift /Users/lazaro/Documents/CleanKit/Sources/ViewModel/ViewModelCenter.swift /Users/lazaro/Documents/CleanKit/Sources/UI/UITableScene/UITimelineScene/UITimelineDataSource.swift /Users/lazaro/Documents/CleanKit/Sources/UI/UITableScene/UITableDataSource.swift /Users/lazaro/Documents/CleanKit/Sources/ViewModel/ViewModel.swift -supplementary-output-file-map <temporary-file> -target arm64-apple-ios11.0 -Xllvm -aarch64-use-tbi -enable-objc-interop -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk -I /Users/lazaro/Documents/CleanKit/build/Build/Products/Release-iphoneos -F /Users/lazaro/Documents/CleanKit/build/Build/Products/Release-iphoneos -g -import-underlying-module -module-cache-path /Users/lazaro/Documents/CleanKit/build/ModuleCache.noindex -swift-version 4.2 -O -serialize-debugging-options -Xcc -I/Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/swift-overrides.hmap -Xcc -iquote -Xcc /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/CleanKit-generated-files.hmap -Xcc -I/Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/CleanKit-own-target-headers.hmap -Xcc -I/Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/CleanKit-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/all-product-headers.yaml -Xcc -iquote -Xcc /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/CleanKit-project-headers.hmap -Xcc -I/Users/lazaro/Documents/CleanKit/build/Build/Products/Release-iphoneos/include -Xcc -I/Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/DerivedSources/arm64 -Xcc -I/Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/DerivedSources -Xcc -ivfsoverlay -Xcc /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/unextended-module-overlay.yaml -Xcc -working-directory/Users/lazaro/Documents/CleanKit -module-name CleanKit -num-threads 4 -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITableSceneHeader.bc -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITableSceneSectionFooter.bc -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/Presenter.bc -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/TaggedViewModel.bc -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/ActionDelegate.bc -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITableSceneCell.bc -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UIView.bc -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/ParameterizedPresenter.bc -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITimelineParameterizedPresenter.bc -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UICollectionSceneCell.bc -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UIScene.bc -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/ActionCenterDelegate.bc -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UICollectionDataSource.bc -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/TaggedViewModelCollection.bc -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UISectionedTableDataSource.bc -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/ActionCenter.bc -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/Interactor.bc -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITimelineScene.bc -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITimelinePresenter.bc -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/ViewModelItem.bc -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITableSceneSectionFeedback.bc -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITableSceneSectionHeader.bc -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/CellState.bc -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/Collection.bc -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITableScene.bc -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/SectionViewModel.bc -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/DispatchQueue.bc -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UISceneCellProtocol.bc -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UISectionedTableScene.bc -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/ViewModelCenter.bc -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITimelineDataSource.bc -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITableDataSource.bc -o /Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/ViewModel.bc -resource-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift
+-emit-bc /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UITableSceneHeader.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UITableSceneSectionFooter.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/Presenter.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/ViewModel/TaggedViewModel.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/ActionDelegate.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/Shared/UITableSceneCell.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/Extensions/UIView.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/ParameterizedPresenter.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UITimelineScene/UITimelineParameterizedPresenter.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UICollectionScene/Shared/UICollectionSceneCell.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UIScene.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/ActionCenterDelegate.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UICollectionScene/UICollectionDataSource.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/ViewModel/TaggedViewModelCollection.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UISectionedTableDataSource.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/ActionCenter.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/Interactor.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UITimelineScene/UITimelineScene.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UITimelineScene/UITimelinePresenter.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/Shared/ViewModelItem.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UITableSceneSectionFeedback.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UITableSceneSectionHeader.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/CellState.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/Extensions/Collection.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UITableScene.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/ViewModel/SectionViewModel.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/Extensions/DispatchQueue.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UISceneCellProtocol.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UISectionedTableScene.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/ViewModel/ViewModelCenter.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UITimelineScene/UITimelineDataSource.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UITableDataSource.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/ViewModel/ViewModel.swift -supplementary-output-file-map <temporary-file> -target arm64-apple-ios11.0 -Xllvm -aarch64-use-tbi -enable-objc-interop -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk -I /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Products/Release-iphoneos -F /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Products/Release-iphoneos -g -import-underlying-module -module-cache-path /Users/marcoskobuchi/Desktop/CleanKit/build/ModuleCache.noindex -swift-version 4.2 -O -serialize-debugging-options -Xcc -I/Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/swift-overrides.hmap -Xcc -iquote -Xcc /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/CleanKit-generated-files.hmap -Xcc -I/Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/CleanKit-own-target-headers.hmap -Xcc -I/Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/CleanKit-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/all-product-headers.yaml -Xcc -iquote -Xcc /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/CleanKit-project-headers.hmap -Xcc -I/Users/marcoskobuchi/Desktop/CleanKit/build/Build/Products/Release-iphoneos/include -Xcc -I/Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/DerivedSources/arm64 -Xcc -I/Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/DerivedSources -Xcc -ivfsoverlay -Xcc /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/unextended-module-overlay.yaml -Xcc -working-directory/Users/marcoskobuchi/Desktop/CleanKit -module-name CleanKit -num-threads 8 -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITableSceneHeader.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITableSceneSectionFooter.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/Presenter.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/TaggedViewModel.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/ActionDelegate.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITableSceneCell.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UIView.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/ParameterizedPresenter.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITimelineParameterizedPresenter.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UICollectionSceneCell.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UIScene.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/ActionCenterDelegate.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UICollectionDataSource.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/TaggedViewModelCollection.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UISectionedTableDataSource.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/ActionCenter.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/Interactor.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITimelineScene.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITimelinePresenter.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/ViewModelItem.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITableSceneSectionFeedback.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITableSceneSectionHeader.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/CellState.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/Collection.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITableScene.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/SectionViewModel.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/DispatchQueue.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UISceneCellProtocol.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UISectionedTableScene.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/ViewModelCenter.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITimelineDataSource.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITableDataSource.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/ViewModel.bc -resource-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift
 <swift-imported-modules>
-/Users/lazaro/Documents/CleanKit
+/Users/marcoskobuchi/Desktop/CleanKit
 Apple Swift version 4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)
-/Users/lazaro/Documents/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UITableSceneHeader.swift
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UITableSceneHeader.swift
 $S8CleanKit20ActionCenterDelegate_pSgXwWOh
 <compiler-generated>
 __swift_destroy_boxed_opaque_existential_1
@@ -168,7 +168,7 @@ $SSS2eeoiySbSS_SStFZTf4xxd_n
 $Ss16_UnmanagedStringVss5UInt8VRszrlE12compareASCII2toSiAByADG_tFTf4xx_n
 $Ss11_StringGutsV19_unmanagedASCIIViews010_UnmanagedA0Vys5UInt8VGvgTf4x_n
 UITableSceneHeader.swift
-/Users/lazaro/Documents/CleanKit/Sources/UI/UITableScene/UISectionedTableScene
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UISectionedTableScene
 $S8CleanKit18UITableSceneHeaderCMa
 delegate.set
 $SSiSQsSQ2eeoiySbx_xtFZTW
@@ -214,7 +214,7 @@ $S8CleanKit12ActionCenterC0022caseItemsstorage_riAIe33_9ED1E425D712CE9944CEE4FB0
 $S8CleanKit12ActionCenterC0018itemsstorage_hHJJc33_9ED1E425D712CE9944CEE4FB0BFC2587LLSDySSypGSgvpfi
 $S8CleanKit25TaggedViewModelCollectionC3tag4caseACSi_AC4CaseOtcfcfA0_
 TaggedViewModelCollection.swift
-/Users/lazaro/Documents/CleanKit/Sources/ViewModel
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/ViewModel
 $S8CleanKit25TaggedViewModelCollectionC0018itemsstorage_hHJJc33_278E3126E63BC9F53FB402AD95A08580LLSayAA0cE0_AA0dE0pGSgvpfi
 $S8CleanKit22UICollectionDataSourceC11identifiers025_B626317F9BEBB03FA3F84446H6A02FBALLSDyS2SGvpfi
 $S8CleanKit22UICollectionDataSourceC5itemsSayAA13ViewModelItemVGvpfi
@@ -224,7 +224,7 @@ $S8CleanKit22UICollectionDataSourceC14collectionView025_B626317F9BEBB03FA3F84446
 $S8CleanKit22UICollectionDataSourceC11focusedCell025_B626317F9BEBB03FA3F84446I6A02FBALLAA07UISceneG8Protocol_pSgXwvpfi
 $S8CleanKit7UISceneC7nibName10interactor9parameterACyxq_q0_GSSSg_AA18InteractorProtocol_pypSgtcfcfA1_
 UIScene.swift
-/Users/lazaro/Documents/CleanKit/Sources/UI
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI
 $S8CleanKit7UISceneC7nibName10interactor9parameterACyxq_q0_GSSSg_AA18InteractorProtocol_pypSgtcfcfA0_
 $S8CleanKit7UISceneC7nibName10interactor9parameterACyxq_q0_GSSSg_AA18InteractorProtocol_pypSgtcfcfA_
 $S8CleanKit7UISceneC9presenterxSgvpfi
@@ -240,7 +240,7 @@ ViewModelCenter.swift
 $S8CleanKit9PresenterC12actionCenterAA06ActionE0Cvpfi
 $S8CleanKit9PresenterC12actionCenterAA06ActionE0CvpfiTf4_n
 ActionCenter.swift
-/Users/lazaro/Documents/CleanKit/Sources
+/Users/marcoskobuchi/Desktop/CleanKit/Sources
 $S8CleanKit25UITableSceneSectionFooterC8delegateAA20ActionCenterDelegate_pSgXwvpfi
 prepare
 deinit
@@ -281,7 +281,7 @@ _symbolic ____ 8CleanKit25UITableSceneSectionFooterC
 _symbolic So023UITableViewHeaderFooterB0C
 _$S8CleanKit25UITableSceneSectionFooterCMF
 _objc_classes
-/Users/lazaro/Documents/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UITableSceneSectionFooter.swift
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UITableSceneSectionFooter.swift
 $S8CleanKit25UITableSceneSectionFooterCAA14ActionDelegateAAWa
 UITableSceneSectionFooter.swift
 $S8CleanKit25UITableSceneSectionFooterCMa
@@ -304,21 +304,24 @@ _symbolic x
 _symbolic 8CleanKit12ActionCenterC
 _symbolic 8CleanKit15ViewModelCenterC
 _$S8CleanKit9PresenterCMF
-/Users/lazaro/Documents/CleanKit/Sources/Presenter.swift
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/Presenter.swift
 $S8CleanKit9PresenterCMr
 $S8CleanKit9PresenterCMi
 Presenter.swift
 didLoad
 $S8CleanKit9PresenterCMa
 interactor.get
+_$S8CleanKit25TaggedViewModelCollectionCAA0cE0A2aDP10sectionTagSivgTW
+_$S8CleanKit14SectionDefaultCAA11TaggedModelA2aDP10sectionTagSivgTW
 _symbolic $S8CleanKit11TaggedModelP
 _$S8CleanKit11TaggedModel_pMF
 _$S8CleanKit11TaggedModelWR
-/Users/lazaro/Documents/CleanKit/Sources/ViewModel/TaggedViewModel.swift
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/ViewModel/TaggedViewModel.swift
+sectionTag.get
 _symbolic $S8CleanKit14ActionDelegateP
 _$S8CleanKit14ActionDelegate_pMF
 _$S8CleanKit14ActionDelegateWR
-/Users/lazaro/Documents/CleanKit/Sources/ActionDelegate.swift
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/ActionDelegate.swift
 _$S8CleanKit16UITableSceneCellC15touchActionNameSSSgvgTo
 _$S8CleanKit16UITableSceneCellC15touchActionNameSSSgvsTo
 _$S8CleanKit16UITableSceneCellC12awakeFromNibyyFTo
@@ -361,14 +364,14 @@ _symbolic ____ 8CleanKit16UITableSceneCellC
 _symbolic So15UITableViewCellC
 _symbolic SSSg
 _$S8CleanKit16UITableSceneCellCMF
-/Users/lazaro/Documents/CleanKit/Sources/UI/UITableScene/Shared/UITableSceneCell.swift
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/Shared/UITableSceneCell.swift
 $S8CleanKit16UITableSceneCellCMr
 $S8CleanKit16UITableSceneCellCMi
 $S8CleanKit16UITableSceneCellCyxGAA07UISceneE8ProtocolAAWa
 $S8CleanKit16UITableSceneCellCyxGAA14ActionDelegateAAWa
 $S8CleanKit16UITableSceneCellCyxGAA0cdE8ProtocolAAWa
 UITableSceneCell.swift
-/Users/lazaro/Documents/CleanKit/Sources/UI/UITableScene/Shared
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/Shared
 $S8CleanKit16UITableSceneCellCMa
 __swift_destroy_boxed_opaque_existential_0
 __swift_project_boxed_opaque_existential_0
@@ -385,11 +388,11 @@ $S8CleanKit16UITableSceneCellC15touchActionNameSSSgvsTo
 $S8CleanKit16UITableSceneCellC15touchActionNameSSSgvgTo
 _$SypWOc
 _$SSo6UIViewCmML
-/Users/lazaro/Documents/CleanKit/Sources/Extensions/UIView.swift
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/Extensions/UIView.swift
 $SypWOc
 loadFromNib
 UIView.swift
-/Users/lazaro/Documents/CleanKit/Sources/Extensions
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/Extensions
 $SSa15_checkSubscript_20wasNativeTypeCheckeds16_DependenceTokenVSi_SbtFyp_Tg5
 $Ss12_ArrayBufferV37_checkInoutAndNativeTypeCheckedBounds_03wasfgH0ySi_SbtFyp_Tg5
 $SSa11_getElement_20wasNativeTypeChecked22matchingSubscriptCheckxSi_Sbs16_DependenceTokenVtFyp_Tg5
@@ -415,7 +418,7 @@ _symbolic ____ 8CleanKit22ParameterizedPresenterC
 _symbolic 8CleanKit9PresenterCyxG
 _symbolic q_Sg
 _$S8CleanKit22ParameterizedPresenterCMF
-/Users/lazaro/Documents/CleanKit/Sources/ParameterizedPresenter.swift
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/ParameterizedPresenter.swift
 $S8CleanKit22ParameterizedPresenterCMr
 $S8CleanKit22ParameterizedPresenterCMi
 $S8CleanKit22ParameterizedPresenterCyxq_GAA0cD8ProtocolAAWa
@@ -448,7 +451,7 @@ _$S8CleanKit32UITimelineParameterizedPresenterCMP
 _symbolic ____ 8CleanKit32UITimelineParameterizedPresenterC
 _symbolic 8CleanKit19UITimelinePresenterCyxq0_G
 _$S8CleanKit32UITimelineParameterizedPresenterCMF
-/Users/lazaro/Documents/CleanKit/Sources/UI/UITableScene/UITimelineScene/UITimelineParameterizedPresenter.swift
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UITimelineScene/UITimelineParameterizedPresenter.swift
 $S8CleanKit32UITimelineParameterizedPresenterCMr
 $S8CleanKit32UITimelineParameterizedPresenterCMi
 $S8CleanKit32UITimelineParameterizedPresenterCyxq_q0_GAA0dE8ProtocolAAWa
@@ -457,7 +460,7 @@ $S8CleanKit32UITimelineParameterizedPresenterCMa
 $Sq_Sgr1_lWOf
 $Sq_Sgr1_lWOc
 UITimelineParameterizedPresenter.swift
-/Users/lazaro/Documents/CleanKit/Sources/UI/UITableScene/UITimelineScene
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UITimelineScene
 $Sq_Sgr1_lWOh
 _$S8CleanKit21UICollectionSceneCellC15touchActionNameSSSgvgTo
 _$S8CleanKit21UICollectionSceneCellC15touchActionNameSSSgvsTo
@@ -495,14 +498,14 @@ _$S8CleanKit21UICollectionSceneCellCMP
 _symbolic ____ 8CleanKit21UICollectionSceneCellC
 _symbolic So20UICollectionViewCellC
 _$S8CleanKit21UICollectionSceneCellCMF
-/Users/lazaro/Documents/CleanKit/Sources/UI/UICollectionScene/Shared/UICollectionSceneCell.swift
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UICollectionScene/Shared/UICollectionSceneCell.swift
 $S8CleanKit21UICollectionSceneCellCMr
 $S8CleanKit21UICollectionSceneCellCMi
 $S8CleanKit21UICollectionSceneCellCyxGAA07UISceneE8ProtocolAAWa
 $S8CleanKit21UICollectionSceneCellCyxGAA14ActionDelegateAAWa
 $S8CleanKit21UICollectionSceneCellCyxGAA0cdE8ProtocolAAWa
 UICollectionSceneCell.swift
-/Users/lazaro/Documents/CleanKit/Sources/UI/UICollectionScene/Shared
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UICollectionScene/Shared
 $S8CleanKit21UICollectionSceneCellCMa
 $S8CleanKit21UICollectionSceneCellC15touchActionNameSSSgvsTo
 $S8CleanKit21UICollectionSceneCellC15touchActionNameSSSgvgTo
@@ -552,7 +555,7 @@ _$S8CleanKit7UISceneCMF
 _$S8CleanKit18InteractorProtocol_pML
 _$S8CleanKit30ParameterizedPresenterProtocol_pML
 _$S8CleanKit20ActionCenterDelegateMp
-/Users/lazaro/Documents/CleanKit/Sources/UI/UIScene.swift
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UIScene.swift
 __swift_project_boxed_opaque_existential_1
 $S8CleanKit30ParameterizedPresenterProtocol_pWOb
 $S8CleanKit30ParameterizedPresenterProtocol_pSgWOh
@@ -592,7 +595,7 @@ $SSo17OS_dispatch_queueCMa
 _symbolic $S8CleanKit20ActionCenterDelegateP
 _$S8CleanKit20ActionCenterDelegate_pMF
 _$S8CleanKit20ActionCenterDelegateWR
-/Users/lazaro/Documents/CleanKit/Sources/ActionCenterDelegate.swift
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/ActionCenterDelegate.swift
 _$S8CleanKit22UICollectionDataSourceC6update3tag4itemySi_AA11TaggedModel_AA04ViewJ0ptFyyXEfU0_
 _$SIg_Ieg_TR
 _$SIeg_IyB_TR
@@ -719,7 +722,7 @@ l_OBJC_PROTOCOL_REFERENCE_$_NSObject
 l_OBJC_LABEL_PROTOCOL_$_UIScrollViewDelegate
 l_OBJC_PROTOCOL_REFERENCE_$_UIScrollViewDelegate
 _objc_categories
-/Users/lazaro/Documents/CleanKit/Sources/UI/UICollectionScene/UICollectionDataSource.swift
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UICollectionScene/UICollectionDataSource.swift
 $SSo26InlineRefCountsPlaceholderaMa
 __swift_assign_boxed_opaque_existential_2
 $S8CleanKit13ViewModelItemVWOf
@@ -821,7 +824,7 @@ $Ss20_ArrayBufferProtocolPsE22_arrayOutOfPlaceUpdateyys011_ContiguousaB0Vy7Eleme
 $Ss12_ArrayBufferV19_getElementSlowPathyyXlSiFSo20UICollectionViewCellC_Tg5
 collectionView
 UICollectionDataSource.swift
-/Users/lazaro/Documents/CleanKit/Sources/UI/UICollectionScene
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UICollectionScene
 scrollViewDidEndDecelerating
 scrollViewDidEndDragging
 dynamic_cast_existential_1_conditional
@@ -921,7 +924,7 @@ _symbolic ____ 8CleanKit25TaggedViewModelCollectionC
 _symbolic Say8CleanKit11TaggedModel_AA04ViewD0pGSg
 _$S8CleanKit25TaggedViewModelCollectionCMF
 _$Ss23_ContiguousArrayStorageCy8CleanKit11TaggedModel_AC04ViewG0pGML
-/Users/lazaro/Documents/CleanKit/Sources/ViewModel/TaggedViewModelCollection.swift
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/ViewModel/TaggedViewModelCollection.swift
 $Ss20_ArrayBufferProtocolPsE22_arrayOutOfPlaceUpdateyys011_ContiguousaB0Vy7ElementQzGz_S2iqd__ts16_PointerFunctionRd__AFQyd__AGRSlFs01_aB0Vy8CleanKit11TaggedModel_AM04ViewP0pG_s07_IgnoreK0VyAmN_AmOpGTg5Tf4nnndn_n
 $Ss12_ArrayBufferVyxGs01_aB8ProtocolssADP13_copyContents8subRange12initializingSpy7ElementQzGSnySiG_AKtFTW8CleanKit11TaggedModel_AM04ViewM0p_Tg5
 $Ss12_ArrayBufferV13_copyContents8subRange12initializingSpyxGSnySiG_AFtF8CleanKit11TaggedModel_AH04ViewK0p_Tg5
@@ -1002,9 +1005,7 @@ _$Ss24_VariantDictionaryBufferO17nativeUpdateValue_6forKeyq_Sgq__xtFSi_8CleanKit
 _$Ss24_VariantDictionaryBufferO17nativeUpdateValue_6forKeyq_Sgq__xtFSi_SiTg5
 _$Ss24_VariantDictionaryBufferO18nativeRemoveObject6forKeyq_Sgx_tFSi_8CleanKit26UISectionedTableDataSourceC11SectionItemVTg5
 _$Ss24_VariantDictionaryBufferO018ensureUniqueNativeC015withBucketCountSb11reallocated_Sb15capacityChangedtSi_tFSi_8CleanKit26UISectionedTableDataSourceC11SectionItemVTg5
-_$Ss24_VariantDictionaryBufferO018ensureUniqueNativeC015withBucketCountSb11reallocated_Sb15capacityChangedtSi_tFSi_SiTg5
 _$Ss23_NativeDictionaryBufferVss8HashableRzrlE12unsafeAddNew3key5valueyx_q_tFSi_8CleanKit26UISectionedTableDataSourceC11SectionItemVTg5
-_$Ss23_NativeDictionaryBufferVss8HashableRzrlE12unsafeAddNew3key5valueyx_q_tFSi_SiTg5
 _$Ss24_VariantDictionaryBufferO12nativeDelete_11idealBucket6offsetys07_NativebC0Vyxq_G_S2itFSi_8CleanKit26UISectionedTableDataSourceC11SectionItemVTg5
 _$SSD17dictionaryLiteralSDyxq_Gx_q_td_tcfCSi_8CleanKit26UISectionedTableDataSourceC11SectionItemVTg5Tf4gd_n
 _$SSS6header_SS6footerSS8feedbacktSgWOy
@@ -1012,11 +1013,7 @@ _$S8CleanKit26UISectionedTableDataSourceC11SectionItemVSgWOh
 _$S8CleanKit26UISectionedTableDataSourceC11SectionItemVWOb
 _$S8CleanKit12SectionModel_AA06TaggedD0AA04ViewD0pWOc
 _$S8CleanKit26UISectionedTableDataSourceC11SectionItemVWOh
-_$S8CleanKit33UITableSceneSectionHeaderProtocol_pSgWOh
 _$SSS6header_SS6footerSS8feedbacktSgWOe
-_$S8CleanKit33UITableSceneSectionHeaderProtocol_pWOb
-___swift_mutable_project_boxed_opaque_existential_1
-_$S8CleanKit33UITableSceneSectionHeaderProtocol_pWOc
 _$S8CleanKit26UISectionedTableDataSourceC11SectionItemVWOc
 _$SSi_8CleanKit26UISectionedTableDataSourceC11SectionItemVtWOc
 _$SSD17dictionaryLiteralSDyxq_Gx_q_td_tcfCSi_SiTg5Tf4gd_n
@@ -1026,6 +1023,7 @@ _$S8CleanKit26UISectionedTableDataSourceC11SectionItemVSgWOc
 _$S8CleanKit12SectionModel_AA06TaggedD0AA04ViewD0pWOb
 _$SSDyS2SGSgWOe
 _$SSDyS2SGSgWOy
+_$Ss23_NativeDictionaryBufferV17_exactBucketCount7storageAByxq_GSi_s04_RawaB7StorageCtcfCSi_SiTg5Tf4nnd_n
 _$S8CleanKit26UISectionedTableDataSourceC9tableView_21numberOfRowsInSectionSiSo07UITableH0C_SitFTf4dnn_n
 ___swift_project_boxed_opaque_existential_3
 _$SSDySi8CleanKit26UISectionedTableDataSourceC11SectionItemVGSgWOe
@@ -1059,8 +1057,6 @@ _$S8CleanKit26UISectionedTableDataSourceCMF
 _$S8CleanKit26UISectionedTableDataSourceC11SectionItemVWV
 _$S8CleanKit26UISectionedTableDataSourceC11SectionItemVMn
 _$S8CleanKit26UISectionedTableDataSourceC11SectionItemVMf
-_$SSo023UITableViewHeaderFooterB0CML
-_$S8CleanKit33UITableSceneSectionHeaderProtocol_pML
 _$S8CleanKit33UITableSceneSectionHeaderProtocolMp
 _$Ss37_HashableTypedNativeDictionaryStorageCySi8CleanKit26UISectionedTableDataSourceC11SectionItemVGML
 _$S8CleanKit27UITableSceneSectionFeedbackC8delegateAA20ActionCenterDelegate_pSgXwvpWvd
@@ -1070,7 +1066,7 @@ _$S8CleanKit27UITableSceneSectionFeedbackCmML
 _$S8CleanKit26UISectionedTableDataSourceCN
 _OBJC_CLASS_$__TtC8CleanKit26UISectionedTableDataSource
 _$S8CleanKit26UISectionedTableDataSourceC11SectionItemVN
-/Users/lazaro/Documents/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UISectionedTableDataSource.swift
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UISectionedTableDataSource.swift
 tableView
 UISectionedTableDataSource.swift
 isEmpty.get
@@ -1080,17 +1076,8 @@ $S8CleanKit12SectionModel_AA06TaggedD0AA04ViewD0pWOb
 $S8CleanKit26UISectionedTableDataSourceC11SectionItemVSgWOc
 $Ss20_ArrayBufferProtocolPsE22_arrayOutOfPlaceUpdateyys011_ContiguousaB0Vy7ElementQzGz_S2iqd__ts16_PointerFunctionRd__AFQyd__AGRSlFs01_aB0Vy8CleanKit13ViewModelItemVG_s07_IgnoreK0VyAOGTg5Tf4nnndn_n
 $S8CleanKit26UISectionedTableDataSourceC11SectionItemVWOf
-$SSa11_getElement_20wasNativeTypeChecked22matchingSubscriptCheckxSi_Sbs16_DependenceTokenVtFSi_Sit_Tg5
-$SSa15_checkSubscript_20wasNativeTypeCheckeds16_DependenceTokenVSi_SbtFSi_Sit_Tg5
-$Ss12_ArrayBufferV37_checkInoutAndNativeTypeCheckedBounds_03wasfgH0ySi_SbtFSi_Sit_Tg5
-$Ss37_HashableTypedNativeDictionaryStorageCyS2iGMa
-$SSa9_getCountSiyFSi_Sit_Tg5
 $SSi_8CleanKit26UISectionedTableDataSourceC11SectionItemVtWOc
 $S8CleanKit26UISectionedTableDataSourceC11SectionItemVWOc
-$S8CleanKit33UITableSceneSectionHeaderProtocol_pWOc
-__swift_mutable_project_boxed_opaque_existential_1
-$S8CleanKit33UITableSceneSectionHeaderProtocol_pWOb
-$S8CleanKit33UITableSceneSectionHeaderProtocol_pSgWOh
 $S8CleanKit26UISectionedTableDataSourceC11SectionItemVWOh
 $S8CleanKit12SectionModel_AA06TaggedD0AA04ViewD0pWOc
 $S8CleanKit26UISectionedTableDataSourceC11SectionItemVWOb
@@ -1102,18 +1089,13 @@ $Ss37_HashableTypedNativeDictionaryStorageCySi8CleanKit26UISectionedTableDataSou
 $SSa9_getCountSiyFSi_8CleanKit26UISectionedTableDataSourceC11SectionItemVt_Tg5
 $Ss24_VariantDictionaryBufferO12nativeDelete_11idealBucket6offsetys07_NativebC0Vyxq_G_S2itFSi_8CleanKit26UISectionedTableDataSourceC11SectionItemVTg5
 $SSp12deinitialize5countSvSi_tF8CleanKit26UISectionedTableDataSourceC11SectionItemV_Tg5
-$Ss23_NativeDictionaryBufferVss8HashableRzrlE12unsafeAddNew3key5valueyx_q_tFSi_SiTg5
 $Ss23_NativeDictionaryBufferVss8HashableRzrlE12unsafeAddNew3key5valueyx_q_tFSi_8CleanKit26UISectionedTableDataSourceC11SectionItemVTg5
-$Ss24_VariantDictionaryBufferO018ensureUniqueNativeC015withBucketCountSb11reallocated_Sb15capacityChangedtSi_tFSi_SiTg5
-$Ss26_forceBridgeFromObjectiveCyxyXl_xmtlFSi_Tg5
-$Ss23_NativeDictionaryBufferV17_exactBucketCount7storageAByxq_GSi_s04_RawaB7StorageCtcfCSi_SiTg5
-$Ss23_NativeDictionaryBufferV17_exactBucketCount7storageAByxq_GSi_s04_RawaB7StorageCtcfCSi_SiTg5Tf4nnd_n
 $Ss24_VariantDictionaryBufferO018ensureUniqueNativeC015withBucketCountSb11reallocated_Sb15capacityChangedtSi_tFSi_8CleanKit26UISectionedTableDataSourceC11SectionItemVTg5
 $Ss26_forceBridgeFromObjectiveCyxyXl_xmtlF8CleanKit26UISectionedTableDataSourceC11SectionItemV_Tg5
+$Ss26_forceBridgeFromObjectiveCyxyXl_xmtlFSi_Tg5
 $Ss23_NativeDictionaryBufferV17_exactBucketCount7storageAByxq_GSi_s04_RawaB7StorageCtcfCSi_8CleanKit26UISectionedTableDataSourceC11SectionItemVTg5
 $Ss23_NativeDictionaryBufferV17_exactBucketCount7storageAByxq_GSi_s04_RawaB7StorageCtcfCSi_8CleanKit26UISectionedTableDataSourceC11SectionItemVTg5Tf4nnd_n
 $Ss24_VariantDictionaryBufferO18nativeRemoveObject6forKeyq_Sgx_tFSi_8CleanKit26UISectionedTableDataSourceC11SectionItemVTg5
-$Ss24_VariantDictionaryBufferO17nativeUpdateValue_6forKeyq_Sgq__xtFSi_SiTg5
 $Ss24_VariantDictionaryBufferO17nativeUpdateValue_6forKeyq_Sgq__xtFSi_8CleanKit26UISectionedTableDataSourceC11SectionItemVTg5
 $Ss20_ArrayBufferProtocolPsE025_forceCreateUniqueMutableB0011countForNewB003minJ8Capacitys011_ContiguousaB0Vy7ElementQzGSi_SitFs01_aB0Vy8CleanKit13ViewModelItemVG_Tg5
 $SSa16_copyToNewBuffer8oldCountySi_tF8CleanKit13ViewModelItemV_Tg5
@@ -1132,8 +1114,6 @@ $S8CleanKit26UISectionedTableDataSourceC11SectionItemVwxx
 $S8CleanKit26UISectionedTableDataSourceC11SectionItemVwCP
 $S8CleanKit26UISectionedTableDataSourceCMa
 actionDelegate.get
-$S8CleanKit33UITableSceneSectionHeaderProtocol_pMa
-$SSo023UITableViewHeaderFooterB0CMa
 sectionIdentifiers.get
 UITableSceneSectionFeedback.swift
 numberOfSections
@@ -1146,6 +1126,8 @@ $SSD11removeValue6forKeyq_Sgx_tFSi_8CleanKit26UISectionedTableDataSourceC11Secti
 sectionsIndexes.materialize
 sectionsIndexes.set
 removeAll
+$Ss23_NativeDictionaryBufferV17_exactBucketCount7storageAByxq_GSi_s04_RawaB7StorageCtcfCSi_SiTg5
+$Ss37_HashableTypedNativeDictionaryStorageCyS2iGMa
 $SSD5IndexVyxq__Gs9EquatablesSQ2eeoiySbx_xtFZTWSi_SiTg5
 $SSD5IndexV2eeoiySbAByxq__G_ADtFZSi_SiTg5
 $SSD6ValuesVyxq__Gs10CollectionsSl8endIndex0D0QzvgTWSi_SiTg5
@@ -1268,7 +1250,7 @@ _symbolic ypytIegnr_
 _block_descriptor.94
 _symbolic ytytIegnr_
 _block_descriptor.107
-/Users/lazaro/Documents/CleanKit/Sources/ActionCenter.swift
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/ActionCenter.swift
 $SypSgWOb
 objectdestroy.102
 $S8CleanKit12ActionCenterC4post4caseyx_tSYRzlFyyXEfU_TA
@@ -1360,7 +1342,7 @@ _$S8CleanKit10InteractorCML
 _$S8CleanKit10InteractorCMf
 _symbolic ____ 8CleanKit10InteractorC
 _$S8CleanKit10InteractorCMF
-/Users/lazaro/Documents/CleanKit/Sources/Interactor.swift
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/Interactor.swift
 $S8CleanKit10InteractorCAA0C8ProtocolAAWa
 Interactor.swift
 $S8CleanKit10InteractorCMa
@@ -1376,6 +1358,7 @@ _$S8CleanKit15UITimelineSceneC12setEmptyCell3nibySS_tFTm
 _$S8CleanKit15UITimelineSceneC5coderACyxq_q0_GSgSo7NSCoderC_tcfcTo
 _$S8CleanKit15UITimelineSceneCfE
 _$S8CleanKit15UITimelineSceneCfETo
+_$S8CleanKit17UITableDataSourceC5clear5forceySb_tF
 _$S8CleanKit20UITimelineDataSourceC5startyyF
 _$S8CleanKit20UITimelineDataSourceC4stopyyF
 _$S8CleanKit17UITableDataSourceC9tableView8delegateACSo0cG0C_AA20ActionCenterDelegate_ptcfc
@@ -1400,8 +1383,6 @@ _$S8CleanKit25TimelinePresenterProtocolMp
 _$S8CleanKit17UITableDataSourceCN
 _$S8CleanKit20UITimelineDataSourceCN
 _$S8CleanKit20UITimelineDataSourceC11isFirstLoad33_A803678783D1C0A8DD902722496E0E2ELLSbvpWvd
-_$S8CleanKit17UITableDataSourceC6reload33_C37EBA175EB25815D549EE7B753D912DLLSbvpWvd
-_$S8CleanKit17UITableDataSourceC5itemsSayAA13ViewModelItemV04viewH0_AA9CellState_pSg04cellL0tGvpWvd
 _symbolic 8CleanKit15UITimelineSceneCyxq_q0_GSgXw
 _symbolic 8CleanKit15UITimelineSceneCyxq_q0_GSgXwXb
 _symbolic B0
@@ -1424,7 +1405,7 @@ _$S8CleanKit20UITimelineDataSourceC12loadingCount33_A803678783D1C0A8DD902722496E
 _$S8CleanKit20UITimelineDataSourceC0020spinnerstorage_mdAJd33_A803678783D1C0A8DD902722496E0E2ELLSo23UIActivityIndicatorViewCSgvpWvd
 _symbolic So9UIControlC
 _$SSo16UIRefreshControlCMF
-/Users/lazaro/Documents/CleanKit/Sources/UI/UITableScene/UITimelineScene/UITimelineScene.swift
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UITimelineScene/UITimelineScene.swift
 $S8CleanKit25TimelinePresenterProtocol_pSgWOd
 $S8CleanKit25TimelinePresenterProtocol_pSgWOc
 $S8CleanKit15UITimelineSceneCMr
@@ -1443,7 +1424,7 @@ UITimelineDataSource.swift
 emptyCount.set
 tableView.get
 UITableDataSource.swift
-/Users/lazaro/Documents/CleanKit/Sources/UI/UITableScene
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene
 dataSource.get
 setLoadingCell
 loadDataSource
@@ -1473,6 +1454,9 @@ _$S8CleanKit19UITimelinePresenterCyxq_GAA08TimelineD8ProtocolA2aEP15clearOnNextL
 _$S8CleanKit19UITimelinePresenterCyxq_GAA08TimelineD8ProtocolA2aEP5fetchyyFTW
 _$S8CleanKit19UITimelinePresenterCyxq_GAA08TimelineD8ProtocolA2aEP6update3tagySi_tFTW
 _$S8CleanKit19UITimelinePresenterC4findyq_SgSiFSbq_XEfU_TA
+_$Ss24_VariantDictionaryBufferO17nativeUpdateValue_6forKeyq_Sgq__xtFSi_8CleanKit25TaggedViewModelCollectionCTg5
+_$Ss24_VariantDictionaryBufferO018ensureUniqueNativeC015withBucketCountSb11reallocated_Sb15capacityChangedtSi_tFSi_8CleanKit25TaggedViewModelCollectionCTg5
+_$Ss23_NativeDictionaryBufferVss8HashableRzrlE12unsafeAddNew3key5valueyx_q_tFSi_8CleanKit25TaggedViewModelCollectionCTg5
 _$Ss26_toStringReadOnlyPrintableySSxs06CustomB11ConvertibleRzlFSi_Tg5
 _$SSiSHsSH4hash4intoys6HasherVz_tFTW
 _$S8CleanKit19UITimelinePresenterC0C5ErrorOyxq__GSHAAWI
@@ -1486,10 +1470,13 @@ _$S8CleanKit19UITimelinePresenterC0C5ErrorOwst
 _$S8CleanKit19UITimelinePresenterC0C5ErrorOwug
 _$S8CleanKit19UITimelinePresenterC0C5ErrorOwup
 _$S8CleanKit19UITimelinePresenterC0C5ErrorOwui
-_$S8CleanKit19UITimelinePresenterC5fetchyyFyycfU_TA
-_$Ss16_SmallUTF8StringVyABSgxcs22RandomAccessCollectionRzs6UInt16V7ElementRtzlufCSRyAFG_Tgq5Tf4xd_n
 _$S8CleanKit19UITimelinePresenterC6update3tagySi_tFyycfU_TA
 ___swift_allocate_boxed_opaque_existential_0
+_$S8CleanKit19UITimelinePresenterC5fetchyyFyycfU_TA
+_$SSD17dictionaryLiteralSDyxq_Gx_q_td_tcfCSi_8CleanKit25TaggedViewModelCollectionCTg5Tf4gd_n
+_$Ss16_SmallUTF8StringVyABSgxcs22RandomAccessCollectionRzs6UInt16V7ElementRtzlufCSRyAFG_Tgq5Tf4xd_n
+_$Ss32DictionaryIteratorRepresentationOySi8CleanKit25TaggedViewModelCollectionCGWOe
+_$SSi3key_8CleanKit25TaggedViewModelCollectionC5valuetSgWOe
 _block_destroy_helper.5
 _block_copy_helper.4
 _symbolic 8CleanKit19UITimelinePresenterCyxq_G
@@ -1520,15 +1507,21 @@ _symbolic ____ 8CleanKit19UITimelinePresenterC
 _symbolic 10Foundation4DateV
 _symbolic Sayq_G
 _$S8CleanKit19UITimelinePresenterCMF
-_$Ss23_ContiguousArrayStorageCyypGML
 _block_descriptor.6
-/Users/lazaro/Documents/CleanKit/Sources/UI/UITableScene/UITimelineScene/UITimelinePresenter.swift
-__swift_allocate_boxed_opaque_existential_0
-$S8CleanKit19UITimelinePresenterC6update3tagySi_tFyycfU_TA
+_$Ss23_ContiguousArrayStorageCyypGML
+_$Ss37_HashableTypedNativeDictionaryStorageCySi8CleanKit25TaggedViewModelCollectionCGML
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UITimelineScene/UITimelinePresenter.swift
 $Ss16_SmallUTF8StringVyABSgxcs22RandomAccessCollectionRzs6UInt16V7ElementRtzlufCSRyAFG_Tgq5Tf4xd_n
 $SSv10storeBytes2of12toByteOffset2asyx_SixmtlFs5UInt8V_Tgq5
 $SSmsE6remove2at7ElementQz5IndexQz_tFs11_UIntBufferVys6UInt32Vs6UInt16VG_Tgq5
+$SSa11_getElement_20wasNativeTypeChecked22matchingSubscriptCheckxSi_Sbs16_DependenceTokenVtFSi_8CleanKit25TaggedViewModelCollectionCt_Tg5
+$SSa15_checkSubscript_20wasNativeTypeCheckeds16_DependenceTokenVSi_SbtFSi_8CleanKit25TaggedViewModelCollectionCt_Tg5
+$Ss12_ArrayBufferV37_checkInoutAndNativeTypeCheckedBounds_03wasfgH0ySi_SbtFSi_8CleanKit25TaggedViewModelCollectionCt_Tg5
+$Ss37_HashableTypedNativeDictionaryStorageCySi8CleanKit25TaggedViewModelCollectionCGMa
+$SSa9_getCountSiyFSi_8CleanKit25TaggedViewModelCollectionCt_Tg5
 $S8CleanKit19UITimelinePresenterC5fetchyyFyycfU_TA
+__swift_allocate_boxed_opaque_existential_0
+$S8CleanKit19UITimelinePresenterC6update3tagySi_tFyycfU_TA
 $S8CleanKit19UITimelinePresenterC0C5ErrorOMa
 $S8CleanKit19UITimelinePresenterC0C5ErrorOwui
 $S8CleanKit19UITimelinePresenterC0C5ErrorOwup
@@ -1548,12 +1541,20 @@ $S8CleanKit19UITimelinePresenterCMa
 $Ss26_toStringReadOnlyPrintableySSxs06CustomB11ConvertibleRzlFSi_Tg5
 $SSis23CustomStringConvertiblessAAP11descriptionSSvgTW
 $Ss14_int64ToString_5radix9uppercaseSSs5Int64V_AESbtF
+$Ss23_NativeDictionaryBufferVss8HashableRzrlE12unsafeAddNew3key5valueyx_q_tFSi_8CleanKit25TaggedViewModelCollectionCTg5
+$Ss24_VariantDictionaryBufferO018ensureUniqueNativeC015withBucketCountSb11reallocated_Sb15capacityChangedtSi_tFSi_8CleanKit25TaggedViewModelCollectionCTg5
+$Ss23_NativeDictionaryBufferV17_exactBucketCount7storageAByxq_GSi_s04_RawaB7StorageCtcfCSi_8CleanKit25TaggedViewModelCollectionCTg5
+$Ss23_NativeDictionaryBufferV17_exactBucketCount7storageAByxq_GSi_s04_RawaB7StorageCtcfCSi_8CleanKit25TaggedViewModelCollectionCTg5Tf4nnd_n
+$Ss26_forceBridgeFromObjectiveCyxyXl_xmtlF8CleanKit25TaggedViewModelCollectionC_Tg5
+$Ss24_VariantDictionaryBufferO17nativeUpdateValue_6forKeyq_Sgq__xtFSi_8CleanKit25TaggedViewModelCollectionCTg5
 $S8CleanKit19UITimelinePresenterC4findyq_SgSiFSbq_XEfU_TA
 $S8CleanKit19UITimelinePresenterC4findyq_SgSiFSbq_XEfU_
 UITimelinePresenter.swift
 fetch
 clearOnNextLoad
 $S8CleanKit19UITimelinePresenterC5fetchyyFyycfU_
+$Ss18DictionaryIteratorV11_nativeNextx3key_q_5valuetSgyFSi_8CleanKit25TaggedViewModelCollectionCTg5
+$Ss23_NativeDictionaryBufferV12assertingGetyx3key_q_5valuets01_aB5IndexVyxq_GFSi_8CleanKit25TaggedViewModelCollectionCTg5
 $SSayxGSlsSl9formIndex5aftery0B0Qzz_tFTW
 $SSa9formIndex5afterySiz_tF
 $SSa9formIndex5afterySiz_tFTf4nd_n
@@ -1571,6 +1572,7 @@ __derived_enum_equals
 combine
 _hashValue
 find
+reload
 _$S8CleanKit13ViewModelItemVwCP
 _$S8CleanKit13ViewModelItemVwxx
 _$S8CleanKit13ViewModelItemVwcp
@@ -1588,7 +1590,7 @@ _$S8CleanKit13ViewModelItemVMF
 _$S8CleanKit13ViewModelItemVWV
 _$S8CleanKit13ViewModelItemVMn
 _$S8CleanKit13ViewModelItemVMf
-/Users/lazaro/Documents/CleanKit/Sources/UI/UITableScene/Shared/ViewModelItem.swift
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/Shared/ViewModelItem.swift
 $S8CleanKit13ViewModelItemVMa
 $S8CleanKit13ViewModelItemVwxg
 $S8CleanKit13ViewModelItemVwxs
@@ -1609,7 +1611,7 @@ _$S8CleanKit27UITableSceneSectionFeedbackCML
 _$S8CleanKit27UITableSceneSectionFeedbackCMf
 _symbolic ____ 8CleanKit27UITableSceneSectionFeedbackC
 _$S8CleanKit27UITableSceneSectionFeedbackCMF
-/Users/lazaro/Documents/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UITableSceneSectionFeedback.swift
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UITableSceneSectionFeedback.swift
 $S8CleanKit27UITableSceneSectionFeedbackCAA14ActionDelegateAAWa
 $S8CleanKit27UITableSceneSectionFeedbackCMa
 prepareLoading
@@ -1636,7 +1638,7 @@ _$S8CleanKit25UITableSceneSectionHeaderCMI
 _$S8CleanKit25UITableSceneSectionHeaderCMP
 _symbolic ____ 8CleanKit25UITableSceneSectionHeaderC
 _$S8CleanKit25UITableSceneSectionHeaderCMF
-/Users/lazaro/Documents/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UITableSceneSectionHeader.swift
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UITableSceneSectionHeader.swift
 $SxSg8CleanKit12SectionModelRzAB06TaggedD0RzAB04ViewD0RzlWOh
 $S8CleanKit25UITableSceneSectionHeaderCMr
 $S8CleanKit25UITableSceneSectionHeaderCMi
@@ -1645,25 +1647,23 @@ UITableSceneSectionHeader.swift
 $S8CleanKit25UITableSceneSectionHeaderCMa
 _symbolic $S8CleanKit9CellStateP
 _$S8CleanKit9CellState_pMF
-/Users/lazaro/Documents/CleanKit/Sources/CellState.swift
-/Users/lazaro/Documents/CleanKit/Sources/Extensions/Collection.swift
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/CellState.swift
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/Extensions/Collection.swift
 _$SIg_Ieg_TR60$S8CleanKit12UITableSceneC22viewWillLayoutSubviewsyyFyyXEfU_Tf3pf_n
 _$S8CleanKit12UITableSceneC9tableViewSo0cF0CSgXwvmytfU_
 _$S8CleanKit12UITableSceneC9tableViewSo0cF0CSgXwvgTo
 _$S8CleanKit12UITableSceneC9tableViewSo0cF0CSgXwvsTo
 _$S8CleanKit12UITableSceneC22viewWillLayoutSubviewsyyFTo
-_$S8CleanKit12UITableSceneC5setup12actionCenteryAA06ActionG0C_tFySicfU_TA
+_$S8CleanKit12UITableSceneC7refreshyyFTo
+_$S8CleanKit12UITableSceneC22viewWillLayoutSubviewsyyFToTm
 _$S8CleanKit12UITableSceneC5setup12actionCenteryAA06ActionG0C_tFySi_yptcfU0_
-_$S8CleanKit12UITableSceneC5setup12actionCenteryAA06ActionG0C_tFySi_yptcfU0_TA
 _$S8CleanKit12UITableSceneC5setup15viewModelCenteryAA04ViewgH0C_tFyAA06TaggediG10CollectionCcfU_
-_$S8CleanKit12UITableSceneC5setup15viewModelCenteryAA04ViewgH0C_tFyAA06TaggediG10CollectionCcfU_TA
 _$S8CleanKit12UITableSceneC5setup15viewModelCenteryAA04ViewgH0C_tFyAA06TaggediG10CollectionCcfU_yyXEfU_
 _$S8CleanKit12UITableSceneC5setup15viewModelCenteryAA04ViewgH0C_tFyAA06TaggediG10CollectionCcfU_yyXEfU_yycfU_
 _$S8CleanKit12UITableSceneC5setup15viewModelCenteryAA04ViewgH0C_tFyAA06TaggediG10CollectionCcfU_yyXEfU_15insertAndScrollL_yyAA9PresenterCyq0_GRbzAA18InteractorProtocolR_r1_lF
 _$SSbIegy_SbIeyBy_TR
 _$S8CleanKit12UITableSceneC5setup15viewModelCenteryAA04ViewgH0C_tFyAA06TaggediG10CollectionCcfU_yyXEfU_yyXEfU2_
 _$S8CleanKit25TaggedViewModelCollectionCIegg_ACIegn_TR
-_$S8CleanKit25TaggedViewModelCollectionCIegg_ACIegn_TRTA
 _$S8CleanKit15ViewModelCenterC7observe10background7executeySb_yxctAA0cD0RzlFAA06TaggedcD10CollectionC_Tg5
 _$S8CleanKit15ViewModelCenterC7observe10background7executeySb_yxctAA0cD0RzlF
 _$S8CleanKit12UITableSceneC3set13sectionHeaderyAA0cd7SectionG0Cyqd__Gm_tAA0H5ModelRd__AA06TaggedI0Rd__AA04ViewI0Rd__lFyqd__cfU_
@@ -1675,6 +1675,12 @@ _$S8CleanKit17UITableDataSourceC6update3tag4itemySi_AA11TaggedModel_AA04ViewJ0pt
 _$S8CleanKit17UITableDataSourceC6remove3tagySi_tF
 _$S8CleanKit17UITableDataSourceC4bind4cell2toyxm_q_mtAA0C9SceneCellCyq_GRbzAA11TaggedModelR_AA04ViewL0R_r0_lF
 _$S8CleanKit17UITableDataSourceC3set13sectionHeaderyAA0c12SceneSectionH0CyxGm_tAA0J5ModelRzAA06TaggedK0RzAA04ViewK0RzlF
+_$S8CleanKit17UITableDataSourceC14updateOrCreate16sectionViewModelyAA07SectionK0_AA06TaggedK0AA0jK0p_tF
+_$S8CleanKit17UITableDataSourceC7section33_C37EBA175EB25815D549EE7B753D912DLL3forSi5index_AC11SectionItemC4itemtSi_tF
+_$S8CleanKit12UITableSceneC5setup12actionCenteryAA06ActionG0C_tFySicfU_TA
+_$S8CleanKit12UITableSceneC5setup12actionCenteryAA06ActionG0C_tFySi_yptcfU0_TA
+_$S8CleanKit12UITableSceneC5setup15viewModelCenteryAA04ViewgH0C_tFyAA06TaggediG10CollectionCcfU_TA
+_$S8CleanKit25TaggedViewModelCollectionCIegg_ACIegn_TRTA
 _$S8CleanKit12UITableSceneC9tableViewSo0cF0CSgXwvWTf4dn_n
 _$S8CleanKit12UITableSceneC9tableViewSo0cF0CSgXwvsTf4gn_n
 _$S8CleanKit12UITableSceneC3set13sectionHeaderyAA0cd7SectionG0Cyqd__Gm_tAA0H5ModelRd__AA06TaggedI0Rd__AA04ViewI0Rd__lFyqd__cfU_TA
@@ -1683,7 +1689,6 @@ _$S8CleanKit12UITableSceneCMi
 _$S8CleanKit12UITableSceneCMr
 _$S8CleanKit17UITableDataSourceCMa
 ___swift_allocate_boxed_opaque_existential_3
-_$S8CleanKit12SectionModel_AA06TaggedD0AA04ViewD0pSgWOd
 _$S8CleanKit12UITableSceneC3set13sectionHeaderyAA0cd7SectionG0Cyqd__Gm_tAA0H5ModelRd__AA06TaggedI0Rd__AA04ViewI0Rd__lFyqd__cfU_yyXEfU_TA
 _$S8CleanKit12UITableSceneC5setup15viewModelCenteryAA04ViewgH0C_tFyAA06TaggediG10CollectionCcfU_yyXEfU_TA
 _$S8CleanKit12UITableSceneC5setup15viewModelCenteryAA04ViewgH0C_tFyAA06TaggediG10CollectionCcfU_yyXEfU_yyXEfU2_TA
@@ -1706,6 +1711,7 @@ _block_copy_helper.62
 _block_copy_helper.68
 _$SIg_Ieg_TRTA.36
 _$SIg_Ieg_TRTA.46
+_$S8CleanKit17UITableDataSourceC6reload33_C37EBA175EB25815D549EE7B753D912DLLSbvpWvd
 _symbolic 8CleanKit12UITableSceneCyxq_q0_GSgXw
 _symbolic 8CleanKit12UITableSceneCyxq_q0_GSgXwXb
 _$S8CleanKit12UITableSceneC10dataSourceAA0c4DataF0CSgvpWvd
@@ -1718,7 +1724,6 @@ _symbolic ____ 8CleanKit12UITableSceneC
 _symbolic 8CleanKit17UITableDataSourceCSg
 _symbolic So11UITableViewCSgXw
 _$S8CleanKit12UITableSceneCMF
-_$S8CleanKit17UITableDataSourceC7section33_C37EBA175EB25815D549EE7B753D912DLLAA12SectionModel_AA06TaggedO0AA04ViewO0pSgvpWvd
 _block_descriptor.29
 _symbolic Say10Foundation9IndexPathVG
 _symbolic 8CleanKit25TaggedViewModelCollectionC
@@ -1736,7 +1741,7 @@ _symbolic G2R1_
 _block_descriptor.70
 _symbolic So11UITableViewC
 _$SSo11UITableViewCMF
-/Users/lazaro/Documents/CleanKit/Sources/UI/UITableScene/UITableScene.swift
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UITableScene.swift
 $S8CleanKit12UITableSceneC5setup15viewModelCenteryAA04ViewgH0C_tFyAA06TaggediG10CollectionCcfU_yyXEfU_ySbcfU0_TA
 $S8CleanKit12UITableSceneC5setup15viewModelCenteryAA04ViewgH0C_tFyAA06TaggediG10CollectionCcfU_yyXEfU_ySbcfU0_
 UITableScene.swift
@@ -1755,7 +1760,6 @@ objectdestroy.25
 $S8CleanKit12UITableSceneC3set13sectionHeaderyAA0cd7SectionG0Cyqd__Gm_tAA0H5ModelRd__AA06TaggedI0Rd__AA04ViewI0Rd__lFyqd__cfU_yyXEfU_TA
 $S8CleanKit12UITableSceneC3set13sectionHeaderyAA0cd7SectionG0Cyqd__Gm_tAA0H5ModelRd__AA06TaggedI0Rd__AA04ViewI0Rd__lFyqd__cfU_yyXEfU_
 objectdestroy.22
-$S8CleanKit12SectionModel_AA06TaggedD0AA04ViewD0pSgWOd
 __swift_allocate_boxed_opaque_existential_3
 $S8CleanKit12UITableSceneCMr
 $S8CleanKit12UITableSceneCMi
@@ -1765,11 +1769,14 @@ objectdestroy.19
 tableView.set
 tableView.didset
 dataSource.set
-$S8CleanKit12UITableSceneC3set13sectionHeaderyAA0cd7SectionG0Cyqd__Gm_tAA0H5ModelRd__AA06TaggedI0Rd__AA04ViewI0Rd__lFyqd__cfU_
-section.set
 $S8CleanKit25TaggedViewModelCollectionCIegg_ACIegn_TRTA
 $S8CleanKit25TaggedViewModelCollectionCIegg_ACIegn_TR
 objectdestroy.13
+$S8CleanKit12UITableSceneC5setup15viewModelCenteryAA04ViewgH0C_tFyAA06TaggediG10CollectionCcfU_TA
+$S8CleanKit12UITableSceneC5setup12actionCenteryAA06ActionG0C_tFySi_yptcfU0_TA
+$S8CleanKit12UITableSceneC5setup12actionCenteryAA06ActionG0C_tFySicfU_TA
+$S8CleanKit12UITableSceneC5setup12actionCenteryAA06ActionG0C_tFySicfU_
+$S8CleanKit12UITableSceneC3set13sectionHeaderyAA0cd7SectionG0Cyqd__Gm_tAA0H5ModelRd__AA06TaggedI0Rd__AA04ViewI0Rd__lFyqd__cfU_
 $S8CleanKit12UITableSceneC5setup15viewModelCenteryAA04ViewgH0C_tFyAA06TaggediG10CollectionCcfU_yyXEfU_yyXEfU2_
 $SSbIegy_SbIeyBy_TR
 insertAndScroll
@@ -1781,28 +1788,58 @@ $SSa8endIndexSivg10Foundation0B4PathV_Tg5
 $Ss16IndexingIteratorVyxGs0B8ProtocolsSt4next7ElementQzSgyFTWSay10Foundation9IndexPathVG_Tg5
 $SSayxGs10CollectionsSly7ElementQz5IndexQzcigTW10Foundation0C4PathV_Tg5
 $SSa11_getElement_20wasNativeTypeChecked22matchingSubscriptCheckxSi_Sbs16_DependenceTokenVtF10Foundation9IndexPathV_Tg5
-$S8CleanKit12UITableSceneC5setup15viewModelCenteryAA04ViewgH0C_tFyAA06TaggediG10CollectionCcfU_TA
 $S8CleanKit12UITableSceneC5setup15viewModelCenteryAA04ViewgH0C_tFyAA06TaggediG10CollectionCcfU_
 $SSa9_getCountSiyF8CleanKit13ViewModelItemV04viewF0_AB9CellState_pSg04cellJ0t_Tg5
-$S8CleanKit12UITableSceneC5setup12actionCenteryAA06ActionG0C_tFySi_yptcfU0_TA
 $S8CleanKit12UITableSceneC5setup12actionCenteryAA06ActionG0C_tFySi_yptcfU0_
-$S8CleanKit12UITableSceneC5setup12actionCenteryAA06ActionG0C_tFySicfU_TA
-$S8CleanKit12UITableSceneC5setup12actionCenteryAA06ActionG0C_tFySicfU_
 viewWillLayoutSubviews
 $S8CleanKit12UITableSceneC9tableViewSo0cF0CSgXwvsTo
 $S8CleanKit12UITableSceneC9tableViewSo0cF0CSgXwvgTo
 setupTable
 tableView.materialize
 $SIg_Ieg_TR60$S8CleanKit12UITableSceneC22viewWillLayoutSubviewsyyFyyXEfU_Tf3pf_n
+_$S8CleanKit14SectionDefaultCfD
+_$S8CleanKit14SectionDefaultCMa
+_$S8CleanKit14SectionDefaultCAA9ViewModelAAWa
+_$S8CleanKit14SectionDefaultCAA0C5ModelA2aDP9hasHeaderSbvgTW
+_$S8CleanKit14SectionDefaultCAA0C5ModelA2aDP11hasFeedbackSbvgTW
+_$S8CleanKit14SectionDefaultCAA0C5ModelA2aDP9hasFooterSbvgTW
+_$S8CleanKit14SectionDefaultCAA11TaggedModelA2aDP3tagSivgTW
+_$S8CleanKit14SectionDefaultCAA11TaggedModelAAWa
+_$S8CleanKit14SectionDefaultCAA0C5ModelAAWa
 _symbolic $S8CleanKit12SectionModelP
 _$S8CleanKit12SectionModel_pMF
 _$S8CleanKit12SectionModelWR
-/Users/lazaro/Documents/CleanKit/Sources/ViewModel/SectionViewModel.swift
-/Users/lazaro/Documents/CleanKit/Sources/Extensions/DispatchQueue.swift
+_$S8CleanKit14SectionDefaultCMm
+_$S8CleanKit14SectionDefaultC3tagSivpWvd
+_$S8CleanKit14SectionDefaultC11hasFeedbackSbvpWvd
+_$S8CleanKit14SectionDefaultC9hasFooterSbvpWvd
+_$S8CleanKit14SectionDefaultC9hasHeaderSbvpWvd
+_$S8CleanKit14SectionDefaultCMn
+_$S8CleanKit14SectionDefaultCML
+_$S8CleanKit14SectionDefaultCMf
+_symbolic ____ 8CleanKit14SectionDefaultC
+_$S8CleanKit14SectionDefaultCMF
+_$S8CleanKit14SectionDefaultCAA9ViewModelAAMc
+_$S8CleanKit14SectionDefaultCAA9ViewModelAAWP
+_$S8CleanKit14SectionDefaultCAA11TaggedModelAAMc
+_$S8CleanKit14SectionDefaultCAA11TaggedModelAAWP
+_$S8CleanKit14SectionDefaultCAA0C5ModelAAMc
+_$S8CleanKit14SectionDefaultCAA0C5ModelAAWP
+_$S8CleanKit14SectionDefaultCN
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/ViewModel/SectionViewModel.swift
+$S8CleanKit14SectionDefaultCAA0C5ModelAAWa
+$S8CleanKit14SectionDefaultCAA11TaggedModelAAWa
+hasFooter.get
+hasFeedback.get
+hasHeader.get
+$S8CleanKit14SectionDefaultCAA9ViewModelAAWa
+$S8CleanKit14SectionDefaultCMa
+SectionViewModel.swift
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/Extensions/DispatchQueue.swift
 _symbolic $S8CleanKit19UISceneCellProtocolP
 _$S8CleanKit19UISceneCellProtocol_pMF
 _$S8CleanKit19UISceneCellProtocolWR
-/Users/lazaro/Documents/CleanKit/Sources/UI/UISceneCellProtocol.swift
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UISceneCellProtocol.swift
 _$SIg_Ieg_TR69$S8CleanKit21UISectionedTableSceneC22viewWillLayoutSubviewsyyFyyXEfU_Tf3pf_n
 _$S8CleanKit21UISectionedTableSceneC9tableViewSo07UITableG0CSgXwvgTo
 _$S8CleanKit21UISectionedTableSceneC9tableViewSo07UITableG0CSgXwvsTo
@@ -1866,7 +1903,7 @@ _block_descriptor.61
 _block_descriptor.71
 _symbolic So18OS_dispatch_objectC
 _$SSo21OS_dispatch_semaphoreCMF
-/Users/lazaro/Documents/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UISectionedTableScene.swift
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UISectionedTableScene.swift
 objectdestroy.66
 objectdestroy.56
 $S8CleanKit21UISectionedTableSceneC5setup12actionCenteryAA06ActionH0C_tFySi_SStcfU0_yyXEfU_TA
@@ -1933,7 +1970,7 @@ _symbolic 8CleanKit15ViewModelCenterC4Item33_6599C2803E95B10EF71450F04EFCD8F4LLV
 _$S8CleanKit15ViewModelCenterC4Item33_6599C2803E95B10EF71450F04EFCD8F4LLVWV
 _$S8CleanKit15ViewModelCenterC4Item33_6599C2803E95B10EF71450F04EFCD8F4LLVMI
 _$S8CleanKit15ViewModelCenterC4Item33_6599C2803E95B10EF71450F04EFCD8F4LLVMP
-/Users/lazaro/Documents/CleanKit/Sources/ViewModel/ViewModelCenter.swift
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/ViewModel/ViewModelCenter.swift
 $S8CleanKit15ViewModelCenterC4Item33_6599C2803E95B10EF71450F04EFCD8F4LLVwxg
 $S8CleanKit15ViewModelCenterC4Item33_6599C2803E95B10EF71450F04EFCD8F4LLVwxs
 $S8CleanKit15ViewModelCenterC4Item33_6599C2803E95B10EF71450F04EFCD8F4LLVwst
@@ -1952,7 +1989,11 @@ $S8CleanKit15ViewModelCenterCMa
 $S8CleanKit15ViewModelCenterC4Item33_6599C2803E95B10EF71450F04EFCD8F4LLVy_AA06TaggedcD10CollectionCGMa
 _$S8CleanKit20UITimelineDataSourceC7spinner33_A803678783D1C0A8DD902722496E0E2ELLSo23UIActivityIndicatorViewCvg
 _$S8CleanKit20UITimelineDataSourceC5clear5forceySb_tF
+_$S8CleanKit20UITimelineDataSourceC6append10collectionSay10Foundation9IndexPathVGAA25TaggedViewModelCollectionC_tF
 _$S8CleanKit20UITimelineDataSourceC6insert10collection2atSay10Foundation9IndexPathVGAA25TaggedViewModelCollectionC_SitF
+_$S8CleanKit20UITimelineDataSourceC02isdE5Empty33_A803678783D1C0A8DD902722496E0E2ELLSbyF
+_$S8CleanKit20UITimelineDataSourceC16numberOfSections2inSiSo11UITableViewC_tF
+_$S8CleanKit20UITimelineDataSourceC16numberOfSections2inSiSo11UITableViewC_tFTo
 _$S8CleanKit20UITimelineDataSourceC9tableView_21numberOfRowsInSectionSiSo07UITableG0C_SitF
 _$S8CleanKit20UITimelineDataSourceC9tableView_21numberOfRowsInSectionSiSo07UITableG0C_SitFTo
 _$S8CleanKit20UITimelineDataSourceC9tableView_12cellForRowAtSo07UITableG4CellCSo0lG0C_10Foundation9IndexPathVtF
@@ -1961,6 +2002,8 @@ _$S8CleanKit20UITimelineDataSourceC9tableView_14prefetchRowsAtySo07UITableG0C_Sa
 _$S8CleanKit20UITimelineDataSourceCfE
 _$S8CleanKit20UITimelineDataSourceCfD
 _$S8CleanKit20UITimelineDataSourceCfETo
+_$Ss32DictionaryIteratorRepresentationOySi8CleanKit17UITableDataSourceC11SectionItemCGWOe
+_$SSi3key_8CleanKit17UITableDataSourceC11SectionItemC5valuetSgWOe
 _$S8CleanKit20UITimelineDataSourceC9tableView_14prefetchRowsAtySo07UITableG0C_Say10Foundation9IndexPathVGtFTf4dnn_n
 _OBJC_METACLASS_$__TtC8CleanKit20UITimelineDataSource
 _OBJC_METACLASS_$__TtC8CleanKit17UITableDataSource
@@ -1972,11 +2015,12 @@ _symbolic ____ 8CleanKit20UITimelineDataSourceC
 _symbolic 8CleanKit17UITableDataSourceC
 _symbolic So23UIActivityIndicatorViewCSg
 _$S8CleanKit20UITimelineDataSourceCMF
+_$S8CleanKit17UITableDataSourceC8sectionsSDySiAC11SectionItemCGvpWvd
 _$S8CleanKit17UITableDataSourceC8delegateAA20ActionCenterDelegate_pSgXwvpWvd
 _symbolic So23UIActivityIndicatorViewC
 _$SSo23UIActivityIndicatorViewCMF
 _OBJC_CLASS_$__TtC8CleanKit20UITimelineDataSource
-/Users/lazaro/Documents/CleanKit/Sources/UI/UITableScene/UITimelineScene/UITimelineDataSource.swift
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UITimelineScene/UITimelineDataSource.swift
 $S10Foundation9IndexPathVSbs5Error_pIggdzo_ACSbsAD_pIegndzo_TR
 $S8CleanKit20UITimelineDataSourceC9tableView_14prefetchRowsAtySo07UITableG0C_Say10Foundation9IndexPathVGtFSbAJXEfU_
 $SSayxGs10CollectionsSl9formIndex5aftery0C0Qzz_tFTW10Foundation0C4PathV_Tg5
@@ -1987,80 +2031,108 @@ stop
 spinner.get
 $S8CleanKit20UITimelineDataSourceC7spinner33_A803678783D1C0A8DD902722496E0E2ELLSo23UIActivityIndicatorViewCvgAGyXEfU_
 start
-loadingCount.get
-itemsIsEmpty.get
-$SSayxGs10CollectionsSl8endIndex0C0QzvgTW8CleanKit13ViewModelItemV04viewG0_AF9CellState_pSg04cellK0t_Tg5
-$SSa8endIndexSivg8CleanKit13ViewModelItemV04viewF0_AB9CellState_pSg04cellJ0t_Tg5
-isFirstLoad.get
 emptyCount.get
 cleanCount.get
+loadingCount.get
+isFirstLoad.get
+isDataSourceEmpty
+$Ss18DictionaryIteratorV11_nativeNextx3key_q_5valuetSgyFSi_8CleanKit17UITableDataSourceC11SectionItemCTg5
+$Ss23_NativeDictionaryBufferV12assertingGetyx3key_q_5valuets01_aB5IndexVyxq_GFSi_8CleanKit17UITableDataSourceC11SectionItemCTg5
+$SSayxGs10CollectionsSl8endIndex0C0QzvgTW8CleanKit13ViewModelItemV04viewG0_AF9CellState_pSg04cellK0t_Tg5
+$SSa8endIndexSivg8CleanKit13ViewModelItemV04viewF0_AB9CellState_pSg04cellJ0t_Tg5
 _$SSa6remove2atxSi_tF8CleanKit13ViewModelItemV04viewF0_AC9CellState_pSg04cellJ0t_Tg5
-_$S8CleanKit17UITableDataSourceC5clear5forceySb_tF
+_$S8CleanKit17UITableDataSourceC6append10collectionSay10Foundation9IndexPathVGAA25TaggedViewModelCollectionC_tF
+_$S8CleanKit17UITableDataSourceC11SectionItemCfD
+_$S8CleanKit17UITableDataSourceC4find33_C37EBA175EB25815D549EE7B753D912DLL3tag10Foundation9IndexPathVSgSi_tF
 _$S8CleanKit17UITableDataSourceCACycfcTo
 _$S8CleanKit17UITableDataSourceCfD
 _$S8CleanKit17UITableDataSourceCfETo
+_$S8CleanKit17UITableDataSourceC11SectionItemCMa
+_$S8CleanKit17UITableDataSourceCMaTm
+_$S8CleanKit17UITableDataSourceC16numberOfSections2inSiSo0C4ViewC_tFTo
 _$S8CleanKit17UITableDataSourceC9tableView_21numberOfRowsInSectionSiSo0cG0C_SitFTo
 _$S8CleanKit17UITableDataSourceC9tableView_12cellForRowAtSo0cG4CellCSo0cG0C_10Foundation9IndexPathVtF
 _$S8CleanKit17UITableDataSourceC9tableView_12cellForRowAtSo0cG4CellCSo0cG0C_10Foundation9IndexPathVtFTo
 _$S8CleanKit17UITableDataSourceC9tableView_11willDisplay8forRowAtySo0cG0C_So0cG4CellC10Foundation9IndexPathVtFTo
 _$S8CleanKit17UITableDataSourceC9tableView_23estimatedHeightForRowAt12CoreGraphics7CGFloatVSo0cG0C_10Foundation9IndexPathVtFTo
+_$S8CleanKit17UITableDataSourceC9tableView_24heightForHeaderInSection12CoreGraphics7CGFloatVSo0cG0C_SitF
 _$S8CleanKit17UITableDataSourceC9tableView_24heightForHeaderInSection12CoreGraphics7CGFloatVSo0cG0C_SitFTo
+_$S8CleanKit17UITableDataSourceC9tableView_22viewForHeaderInSectionSo6UIViewCSgSo0cG0C_SitF
 _$S8CleanKit17UITableDataSourceC9tableView_22viewForHeaderInSectionSo6UIViewCSgSo0cG0C_SitFTo
+_$S8CleanKit17UITableDataSourceC9tableView_24heightForFooterInSection12CoreGraphics7CGFloatVSo0cG0C_SitF
+_$S8CleanKit17UITableDataSourceC9tableView_24heightForFooterInSection12CoreGraphics7CGFloatVSo0cG0C_SitFTo
+_$S8CleanKit17UITableDataSourceC9tableView_24heightForHeaderInSection12CoreGraphics7CGFloatVSo0cG0C_SitFToTm
+_$S8CleanKit17UITableDataSourceC9tableView_22viewForFooterInSectionSo6UIViewCSgSo0cG0C_SitF
+_$S8CleanKit17UITableDataSourceC9tableView_22viewForFooterInSectionSo6UIViewCSgSo0cG0C_SitFTo
+_$S8CleanKit17UITableDataSourceC9tableView_22viewForHeaderInSectionSo6UIViewCSgSo0cG0C_SitFToTm
 _$S8CleanKit17UITableDataSourceC9focusCell33_C37EBA175EB25815D549EE7B753D912DLLyyF
 _$S8CleanKit17UITableDataSourceC9tableView_16didEndDisplaying8forRowAtySo0cG0C_So0cG4CellC10Foundation9IndexPathVtFTo
 _$S8CleanKit17UITableDataSourceC24scrollViewDidEndDragging_14willDecelerateySo08UIScrollG0C_SbtFTo
 _$S8CleanKit17UITableDataSourceC28scrollViewDidEndDeceleratingyySo08UIScrollG0CFTo
 _$S8CleanKit17UITableDataSourceC9tableView_14prefetchRowsAtySo0cG0C_Say10Foundation9IndexPathVGtFTo
 _$S8CleanKit13ViewModelItemV04viewD0_AA9CellState_pSg04cellH0tMa
-_$S8CleanKit24UITableSceneCellProtocol_pSgWOe
 _$Ss12_ArrayBufferV19_getElementSlowPathyyXlSiFSo15UITableViewCellC_Tg5
 _$SSa16_copyToNewBuffer8oldCountySi_tF8CleanKit13ViewModelItemV04viewJ0_AC9CellState_pSg04cellN0t_Tg5
 _$Ss20_ArrayBufferProtocolPsE025_forceCreateUniqueMutableB0011countForNewB003minJ8Capacitys011_ContiguousaB0Vy7ElementQzGSi_SitFs01_aB0Vy8CleanKit13ViewModelItemV04viewR0_AM9CellState_pSg04cellV0tG_Tg5
 _$Ss20_ArrayBufferProtocolPsE22_arrayOutOfPlaceUpdateyys011_ContiguousaB0Vy7ElementQzGz_S2iqd__ts16_PointerFunctionRd__AFQyd__AGRSlFs01_aB0Vy8CleanKit13ViewModelItemV04viewP0_AM9CellState_pSg04cellT0tG_s31_InitializeMemoryFromCollectionVys0yF3OneVyAoP_ArStGGTg5
 _$Ss20_ArrayBufferProtocolPsE025_forceCreateUniqueMutableB08newCount16requiredCapacitys011_ContiguousaB0Vy7ElementQzGSi_SitFs01_aB0Vy8CleanKit13ViewModelItemV04viewQ0_AM9CellState_pSg04cellU0tG_Tg5
 _$Ss20_ArrayBufferProtocolPsE025_forceCreateUniqueMutableB4Impl08countForB014minNewCapacity08requiredM0s011_ContiguousaB0Vy7ElementQzGSi_S2itFs01_aB0Vy8CleanKit13ViewModelItemV04viewT0_AN9CellState_pSg04cellX0tG_Tg5
+_$Ss24_VariantDictionaryBufferO17nativeUpdateValue_6forKeyq_Sgq__xtFSi_8CleanKit17UITableDataSourceC11SectionItemCTg5
 _$Ss24_VariantDictionaryBufferO17nativeUpdateValue_6forKeyq_Sgq__xtF10Foundation9IndexPathV_12CoreGraphics7CGFloatVTg5
+_$Ss24_VariantDictionaryBufferO018ensureUniqueNativeC015withBucketCountSb11reallocated_Sb15capacityChangedtSi_tFSi_SiTg5
+_$Ss24_VariantDictionaryBufferO018ensureUniqueNativeC015withBucketCountSb11reallocated_Sb15capacityChangedtSi_tFSi_8CleanKit17UITableDataSourceC11SectionItemCTg5
 _$Ss24_VariantDictionaryBufferO018ensureUniqueNativeC015withBucketCountSb11reallocated_Sb15capacityChangedtSi_tF10Foundation9IndexPathV_12CoreGraphics7CGFloatVTg5
+_$Ss23_NativeDictionaryBufferVss8HashableRzrlE12unsafeAddNew3key5valueyx_q_tFSi_SiTg5
+_$Ss23_NativeDictionaryBufferVss8HashableRzrlE12unsafeAddNew3key5valueyx_q_tFSi_8CleanKit17UITableDataSourceC11SectionItemCTg5
 _$Ss23_NativeDictionaryBufferVss8HashableRzrlE12unsafeAddNew3key5valueyx_q_tF10Foundation9IndexPathV_12CoreGraphics7CGFloatVTg5
 _$Ss31_InitializeMemoryFromCollectionV4call_5countySpy7ElementQzG_SitFs0D5OfOneVy8CleanKit13ViewModelItemV04viewM0_AJ9CellState_pSg04cellQ0tG_Tg5
 _$S10Foundation9IndexPathVSQAASQ2eeoiySbx_xtFZTW
+_$SSD17dictionaryLiteralSDyxq_Gx_q_td_tcfCSi_8CleanKit17UITableDataSourceC11SectionItemCTg5Tf4gd_n
 _$SSD17dictionaryLiteralSDyxq_Gx_q_td_tcfC10Foundation9IndexPathV_12CoreGraphics7CGFloatVTg5Tf4gd_n
 _$Ss20_ArrayBufferProtocolPsE22_arrayOutOfPlaceUpdateyys011_ContiguousaB0Vy7ElementQzGz_S2iqd__ts16_PointerFunctionRd__AFQyd__AGRSlFs01_aB0Vy8CleanKit13ViewModelItemV04viewP0_AM9CellState_pSg04cellT0tG_s07_IgnoreK0VyAoP_ArStGTg5Tf4nnndn_n
 _$Ss20_ArrayBufferProtocolPsSnySiG7IndicesRtzrlE7copyingxx_tcfCs01_aB0Vy8CleanKit13ViewModelItemV04viewI0_AI9CellState_pSg04cellM0tG_Tg5Tf4gd_n
 _$Ss20_ArrayBufferProtocolPsE23_arrayOutOfPlaceReplace_4with5countySnySiG_qd__Sits10CollectionRd__7ElementQyd__AHRtzlFs01_aB0Vy8CleanKit13ViewModelItemV04viewP0_AM9CellState_pSg04cellT0tG_s0kF3OneVyAoP_ArStGTg5Tf4xnnn_n
 _$SSa15replaceSubrange_4withySnySiG_qd__t7ElementQyd__Rszs10CollectionRd__lF8CleanKit13ViewModelItemV04viewI0_AG9CellState_pSg04cellM0t_s0E5OfOneVyAiJ_AlMtGTg5Tf4xnn_n
+_$S8CleanKit17UITableDataSourceC9tableView_21numberOfRowsInSectionSiSo0cG0C_SitFTf4dnn_n
 _$S8CleanKit17UITableDataSourceC9tableView_23estimatedHeightForRowAt12CoreGraphics7CGFloatVSo0cG0C_10Foundation9IndexPathVtFTf4dnn_n
-_$S8CleanKit17UITableDataSourceC9tableView_24heightForHeaderInSection12CoreGraphics7CGFloatVSo0cG0C_SitFTf4ndn_n
-_$S8CleanKit17UITableDataSourceC9tableView_22viewForHeaderInSectionSo6UIViewCSgSo0cG0C_SitFTf4ndn_n
 _$S8CleanKit17UITableDataSourceC9tableView_16didEndDisplaying8forRowAtySo0cG0C_So0cG4CellC10Foundation9IndexPathVtFTf4dnnn_n
+_$S8CleanKit9CellState_pSgWOd
 _$S8CleanKit13ViewModelItemV04viewD0_AA9CellState_pSg04cellH0tSgWOh
 _$S8CleanKit9CellState_pSgWOb
-_$S8CleanKit9CellState_pSgWOd
-_$S8CleanKit9CellState_pSgWOc
 _$S8CleanKit13ViewModelItemV04viewD0_AA9CellState_pSg04cellH0tWOh
-_$S8CleanKit13ViewModelItemV04viewD0_AA9CellState_pSg04cellH0tWOc
-_$S8CleanKit12SectionModel_AA06TaggedD0AA04ViewD0pSgWOc
-_$S8CleanKit12SectionModel_AA06TaggedD0AA04ViewD0pSgWOh
-_$S8CleanKit12SectionModel_AA06TaggedD0AA04ViewD0pSgWOb
-_$S8CleanKit13ViewModelItemV04viewD0_AA9CellState_pSg04cellH0tWOb
+_$S8CleanKit9CellState_pSgWOc
+_$S8CleanKit9CellState_pSgWOh
 _$S8CleanKit9CellState_pWOb
+_$S8CleanKit13ViewModelItemV04viewD0_AA9CellState_pSg04cellH0tWOc
+_$S8CleanKit13ViewModelItemV04viewD0_AA9CellState_pSg04cellH0tWOb
+_$SSi3key_8CleanKit17UITableDataSourceC11SectionItemC5valuetSgWOy
+_$S8CleanKit24UITableSceneCellProtocol_pSgWOe
 _$Ss15CollectionOfOneVy8CleanKit13ViewModelItemV04viewG0_AC9CellState_pSg04cellK0tGWOh
 _$Ss31_InitializeMemoryFromCollectionVys0D5OfOneVy8CleanKit13ViewModelItemV04viewJ0_AE9CellState_pSg04cellN0tGGWOh
 _$S8CleanKit24UITableSceneCellProtocol_pSgXwWOh
-_$S8CleanKit9CellState_pSgWOh
 _$Ss15CollectionOfOneVy8CleanKit13ViewModelItemV04viewG0_AC9CellState_pSg04cellK0tGWOc
 _$Ss31_InitializeMemoryFromCollectionVys0D5OfOneVy8CleanKit13ViewModelItemV04viewJ0_AE9CellState_pSg04cellN0tGGWOc
 _$S8CleanKit17UITableDataSourceC11focusedCell33_C37EBA175EB25815D549EE7B753D912DLLAA0c5SceneG8Protocol_pSgXwvpWvd
+_$S8CleanKit17UITableDataSourceC18sectionIdentifiers33_C37EBA175EB25815D549EE7B753D912DLLSS6header_SS6footerSS8feedbacktSgvpWvd
+_$S8CleanKit17UITableDataSourceC15sectionsIndexes33_C37EBA175EB25815D549EE7B753D912DLLSDyS2iGvpWvd
 _$S8CleanKit17UITableDataSourceC11identifiers33_C37EBA175EB25815D549EE7B753D912DLLSDyS2SGvpWvd
 _$S8CleanKit17UITableDataSourceC7heights33_C37EBA175EB25815D549EE7B753D912DLLSDy10Foundation9IndexPathV12CoreGraphics7CGFloatVGvpWvd
-_$S8CleanKit17UITableDataSourceC6header33_C37EBA175EB25815D549EE7B753D912DLLSSSgvpWvd
 _$S8CleanKit17UITableDataSourceCML
 _$S8CleanKit17UITableDataSourceCMf
+_$S8CleanKit17UITableDataSourceC11SectionItemCMm
+_$S8CleanKit17UITableDataSourceC11SectionItemC9viewModelAA0fI0_AA06TaggedI0AA04ViewI0pvpWvd
+_$S8CleanKit17UITableDataSourceC11SectionItemC5itemsSayAA09ViewModelG0V04viewJ0_AA9CellState_pSg04cellM0tGvpWvd
+_$S8CleanKit17UITableDataSourceC11SectionItemCMn
+_$S8CleanKit17UITableDataSourceC11SectionItemCML
+_$S8CleanKit17UITableDataSourceC11SectionItemCMf
+_symbolic ____ 8CleanKit17UITableDataSourceC11SectionItemC
+_symbolic Say8CleanKit13ViewModelItemV04viewD0_AA9CellState_pSg04cellH0tG
+_$S8CleanKit17UITableDataSourceC11SectionItemCMF
 _symbolic ____ 8CleanKit17UITableDataSourceC
 _symbolic 8CleanKit24UITableSceneCellProtocol_pSgXw
-_symbolic Say8CleanKit13ViewModelItemV04viewD0_AA9CellState_pSg04cellH0tG
+_symbolic SDySi____G 8CleanKit17UITableDataSourceC11SectionItemC
+_symbolic SDyS2iG
 _symbolic SDy10Foundation9IndexPathV12CoreGraphics7CGFloatVG
-_symbolic 8CleanKit12SectionModel_AA06TaggedD0AA04ViewD0pSg
 _$S8CleanKit17UITableDataSourceCMF
 l_OBJC_LABEL_PROTOCOL_$_UITableViewDataSourcePrefetching
 l_OBJC_PROTOCOL_REFERENCE_$_UITableViewDataSourcePrefetching
@@ -2071,30 +2143,24 @@ _$S10Foundation9IndexPathVACSHAAWL
 _$SSo15UITableViewCellCML
 _$Ss23_ContiguousArrayStorageCy8CleanKit13ViewModelItemV04viewG0_AC9CellState_pSg04cellK0tGML
 _$Ss37_HashableTypedNativeDictionaryStorageCy10Foundation9IndexPathV12CoreGraphics7CGFloatVGML
+_$Ss37_HashableTypedNativeDictionaryStorageCySi8CleanKit17UITableDataSourceC11SectionItemCGML
 _OBJC_CLASS_$__TtC8CleanKit17UITableDataSource
-/Users/lazaro/Documents/CleanKit/Sources/UI/UITableScene/UITableDataSource.swift
+_$S8CleanKit17UITableDataSourceC11SectionItemCN
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UITableDataSource.swift
 $S8CleanKit13ViewModelItemV04viewD0_AA9CellState_pSg04cellH0tWOb
-$S8CleanKit12SectionModel_AA06TaggedD0AA04ViewD0pSgWOb
-$S8CleanKit12SectionModel_AA06TaggedD0AA04ViewD0pSgWOh
-$S8CleanKit12SectionModel_AA06TaggedD0AA04ViewD0pSgWOc
 $S8CleanKit13ViewModelItemV04viewD0_AA9CellState_pSg04cellH0tWOc
-$S8CleanKit13ViewModelItemV04viewD0_AA9CellState_pSg04cellH0tWOh
+$S8CleanKit9CellState_pWOb
+$S8CleanKit9CellState_pSgWOh
 $S8CleanKit9CellState_pSgWOc
-$S8CleanKit9CellState_pSgWOd
+$S8CleanKit13ViewModelItemV04viewD0_AA9CellState_pSg04cellH0tWOh
 $S8CleanKit9CellState_pSgWOb
 $S8CleanKit13ViewModelItemV04viewD0_AA9CellState_pSg04cellH0tSgWOh
+$S8CleanKit9CellState_pSgWOd
 $SSa18_getElementAddressySpyxGSiF8CleanKit13ViewModelItemV04viewG0_AC9CellState_pSg04cellK0t_Tg5
 $SSa15_checkSubscript_20wasNativeTypeCheckeds16_DependenceTokenVSi_SbtF8CleanKit13ViewModelItemV04viewL0_AE9CellState_pSg04cellP0t_Tg5
 $Ss12_ArrayBufferV37_checkInoutAndNativeTypeCheckedBounds_03wasfgH0ySi_SbtF8CleanKit13ViewModelItemV04viewN0_AE9CellState_pSg04cellR0t_Tg5
 $SSa29_makeMutableAndUniqueOrPinnedyyF8CleanKit13ViewModelItemV04viewJ0_AB9CellState_pSg04cellN0t_Tg5
 $Ss20_ArrayBufferProtocolPsSnySiG7IndicesRtzrlE7copyingxx_tcfCs01_aB0Vy8CleanKit13ViewModelItemV04viewI0_AI9CellState_pSg04cellM0tG_Tg5
-$SSayxGs10CollectionsSly7ElementQz5IndexQzcigTW8CleanKit13ViewModelItemV04viewG0_AG9CellState_pSg04cellK0t_Tg5
-$SSa11_getElement_20wasNativeTypeChecked22matchingSubscriptCheckxSi_Sbs16_DependenceTokenVtF8CleanKit13ViewModelItemV04viewO0_AF9CellState_pSg04cellS0t_Tg5
-$SSayxGs10CollectionsSl7indices7IndicesQzvgTW8CleanKit13ViewModelItemV04viewG0_AF9CellState_pSg04cellK0t_Tg5
-$SSkss10Strideable5IndexRpzSnyACG7IndicesRtzSiAB_6StrideRTzrlE7indicesADvgSay8CleanKit13ViewModelItemV04viewI0_AJ9CellState_pSg04cellM0tG_Tg5
-$SSayxGs22RandomAccessCollectionsSk8endIndex0E0QzvgTW8CleanKit13ViewModelItemV04viewI0_AF9CellState_pSg04cellM0t_Tg5
-section.get
-header.get
 $S10Foundation9IndexPathVSHAASH4hash4intoys6HasherVz_tFTW
 heights.get
 $SSa15replaceSubrange_4withySnySiG_qd__t7ElementQyd__Rszs10CollectionRd__lF8CleanKit13ViewModelItemV04viewI0_AG9CellState_pSg04cellM0t_s0E5OfOneVyAiJ_AlMtGTg5Tf4xnn_n
@@ -2121,6 +2187,8 @@ $Ss12_ArrayBufferV7_buffer19shiftedToStartIndexAByxGs011_ContiguousaB0VyxG_Sitcf
 $Ss12_ArrayBufferVyxGs01_aB8ProtocolssADP13_copyContents8subRange12initializingSpy7ElementQzGSnySiG_AKtFTW8CleanKit13ViewModelItemV04viewM0_AM9CellState_pSg04cellQ0t_Tg5
 $Ss12_ArrayBufferV13_copyContents8subRange12initializingSpyxGSnySiG_AFtF8CleanKit13ViewModelItemV04viewK0_AH9CellState_pSg04cellO0t_Tg5
 $SSp10initialize4from5countySPyxG_SitF8CleanKit13ViewModelItemV04viewG0_AE9CellState_pSg04cellK0t_Tg5
+$Ss23_NativeDictionaryBufferV17_exactBucketCount7storageAByxq_GSi_s04_RawaB7StorageCtcfCSi_SiTg5Tf4nnd_n
+$Ss13_UnsafeBitMapV11sizeInWords07forSizeE4BitsS2i_tFZ
 $Ss20_ArrayBufferProtocolPsE22_arrayOutOfPlaceUpdateyys011_ContiguousaB0Vy7ElementQzGz_S2iqd__ts16_PointerFunctionRd__AFQyd__AGRSlFs01_aB0Vy8CleanKit13ViewModelItemV04viewP0_AM9CellState_pSg04cellT0tG_s07_IgnoreK0VyAoP_ArStGTg5Tf4nnndn_n
 $Ss12_ArrayBufferVyxGs01_aB8ProtocolssADP19firstElementAddressSpy0E0QzGvgTW8CleanKit13ViewModelItemV04viewJ0_AJ9CellState_pSg04cellN0t_Tg5
 $Ss12_ArrayBufferV19firstElementAddressSpyxGvg8CleanKit13ViewModelItemV04viewI0_AE9CellState_pSg04cellM0t_Tg5
@@ -2133,14 +2201,33 @@ $Ss12_ArrayBufferV37_checkInoutAndNativeTypeCheckedBounds_03wasfgH0ySi_SbtF10Fou
 $Ss37_HashableTypedNativeDictionaryStorageCy10Foundation9IndexPathV12CoreGraphics7CGFloatVGMa
 $S10Foundation9IndexPathVACSHAAWl
 $SSa9_getCountSiyF10Foundation9IndexPathV_12CoreGraphics7CGFloatVt_Tg5
+$SSa11_getElement_20wasNativeTypeChecked22matchingSubscriptCheckxSi_Sbs16_DependenceTokenVtFSi_8CleanKit17UITableDataSourceC11SectionItemCt_Tg5
+$SSa15_checkSubscript_20wasNativeTypeCheckeds16_DependenceTokenVSi_SbtFSi_8CleanKit17UITableDataSourceC11SectionItemCt_Tg5
+$Ss12_ArrayBufferV37_checkInoutAndNativeTypeCheckedBounds_03wasfgH0ySi_SbtFSi_8CleanKit17UITableDataSourceC11SectionItemCt_Tg5
+$Ss37_HashableTypedNativeDictionaryStorageCySi8CleanKit17UITableDataSourceC11SectionItemCGMa
+$S8CleanKit17UITableDataSourceC11SectionItemCMa
+$SSa9_getCountSiyFSi_8CleanKit17UITableDataSourceC11SectionItemCt_Tg5
+$SSa11_getElement_20wasNativeTypeChecked22matchingSubscriptCheckxSi_Sbs16_DependenceTokenVtFSi_Sit_Tg5
+$SSa15_checkSubscript_20wasNativeTypeCheckeds16_DependenceTokenVSi_SbtFSi_Sit_Tg5
+$Ss12_ArrayBufferV37_checkInoutAndNativeTypeCheckedBounds_03wasfgH0ySi_SbtFSi_Sit_Tg5
+$SSa9_getCountSiyFSi_Sit_Tg5
 $Ss31_InitializeMemoryFromCollectionV4call_5countySpy7ElementQzG_SitFs0D5OfOneVy8CleanKit13ViewModelItemV04viewM0_AJ9CellState_pSg04cellQ0tG_Tg5
 $Ss23_NativeDictionaryBufferVss8HashableRzrlE12unsafeAddNew3key5valueyx_q_tF10Foundation9IndexPathV_12CoreGraphics7CGFloatVTg5
+$Ss23_NativeDictionaryBufferVss8HashableRzrlE12unsafeAddNew3key5valueyx_q_tFSi_8CleanKit17UITableDataSourceC11SectionItemCTg5
+$Ss23_NativeDictionaryBufferVss8HashableRzrlE12unsafeAddNew3key5valueyx_q_tFSi_SiTg5
 $Ss24_VariantDictionaryBufferO018ensureUniqueNativeC015withBucketCountSb11reallocated_Sb15capacityChangedtSi_tF10Foundation9IndexPathV_12CoreGraphics7CGFloatVTg5
 $Ss26_forceBridgeFromObjectiveCyxyXl_xmtlF12CoreGraphics7CGFloatV_Tg5
 $Ss26_forceBridgeFromObjectiveCyxyXl_xmtlF10Foundation9IndexPathV_Tg5
 $Ss23_NativeDictionaryBufferV17_exactBucketCount7storageAByxq_GSi_s04_RawaB7StorageCtcfC10Foundation9IndexPathV_12CoreGraphics7CGFloatVTg5
 $Ss23_NativeDictionaryBufferV17_exactBucketCount7storageAByxq_GSi_s04_RawaB7StorageCtcfC10Foundation9IndexPathV_12CoreGraphics7CGFloatVTg5Tf4nnd_n
+$Ss24_VariantDictionaryBufferO018ensureUniqueNativeC015withBucketCountSb11reallocated_Sb15capacityChangedtSi_tFSi_8CleanKit17UITableDataSourceC11SectionItemCTg5
+$Ss23_NativeDictionaryBufferV17_exactBucketCount7storageAByxq_GSi_s04_RawaB7StorageCtcfCSi_8CleanKit17UITableDataSourceC11SectionItemCTg5
+$Ss23_NativeDictionaryBufferV17_exactBucketCount7storageAByxq_GSi_s04_RawaB7StorageCtcfCSi_8CleanKit17UITableDataSourceC11SectionItemCTg5Tf4nnd_n
+$Ss26_forceBridgeFromObjectiveCyxyXl_xmtlF8CleanKit17UITableDataSourceC11SectionItemC_Tg5
+$Ss24_VariantDictionaryBufferO018ensureUniqueNativeC015withBucketCountSb11reallocated_Sb15capacityChangedtSi_tFSi_SiTg5
 $Ss24_VariantDictionaryBufferO17nativeUpdateValue_6forKeyq_Sgq__xtF10Foundation9IndexPathV_12CoreGraphics7CGFloatVTg5
+$Ss24_VariantDictionaryBufferO17nativeUpdateValue_6forKeyq_Sgq__xtFSi_8CleanKit17UITableDataSourceC11SectionItemCTg5
+$Ss24_VariantDictionaryBufferO17nativeUpdateValue_6forKeyq_Sgq__xtFSi_SiTg5
 $Ss20_ArrayBufferProtocolPsE025_forceCreateUniqueMutableB4Impl08countForB014minNewCapacity08requiredM0s011_ContiguousaB0Vy7ElementQzGSi_S2itFs01_aB0Vy8CleanKit13ViewModelItemV04viewT0_AN9CellState_pSg04cellX0tG_Tg5
 $Ss12_ArrayBufferVyxGs01_aB8ProtocolssADP8capacitySivgTW8CleanKit13ViewModelItemV04viewH0_AG9CellState_pSg04cellL0t_Tg5
 $Ss12_ArrayBufferV8capacitySivg8CleanKit13ViewModelItemV04viewG0_AD9CellState_pSg04cellK0t_Tg5
@@ -2166,16 +2253,20 @@ $SSa10startIndexSivgSo15UITableViewCellC_Tg5
 $SSa9_getCountSiyFSo15UITableViewCellC_Tg5
 $SSo15UITableViewCellCMa
 heights.materialize
+$SSayxGs10CollectionsSly7ElementQz5IndexQzcigTW8CleanKit13ViewModelItemV04viewG0_AG9CellState_pSg04cellK0t_Tg5
+$SSa11_getElement_20wasNativeTypeChecked22matchingSubscriptCheckxSi_Sbs16_DependenceTokenVtF8CleanKit13ViewModelItemV04viewO0_AF9CellState_pSg04cellS0t_Tg5
+$SSayxGs10CollectionsSl7indices7IndicesQzvgTW8CleanKit13ViewModelItemV04viewG0_AF9CellState_pSg04cellK0t_Tg5
+$SSkss10Strideable5IndexRpzSnyACG7IndicesRtzSiAB_6StrideRTzrlE7indicesADvgSay8CleanKit13ViewModelItemV04viewI0_AJ9CellState_pSg04cellM0tG_Tg5
+$SSayxGs22RandomAccessCollectionsSk8endIndex0E0QzvgTW8CleanKit13ViewModelItemV04viewI0_AF9CellState_pSg04cellM0t_Tg5
 $S8CleanKit17UITableDataSourceCMa
-header.set
 $S8CleanKit13ViewModelItemVAA9CellState_pSgSbs5Error_pIgnndzo_AC04viewD0_AE04cellG0tSbsAF_pIegndzo_TR
-$S8CleanKit17UITableDataSourceC6remove3tagySi_tFSbAA13ViewModelItemV04viewI0_AA9CellState_pSg04cellM0t_tXEfU_
-$S8CleanKit17UITableDataSourceC6update3tag4itemySi_AA11TaggedModel_AA04ViewJ0ptFSbAA0kJ4ItemV04viewJ0_AA9CellState_pSg04cellO0t_tXEfU_
+$S8CleanKit17UITableDataSourceC4find33_C37EBA175EB25815D549EE7B753D912DLL3tag10Foundation9IndexPathVSgSi_tFSbAA13ViewModelItemV04viewS0_AA9CellState_pSg04cellW0t_tXEfU_
+section
 $SSa15replaceSubrange_4withySnySiG_qd__t7ElementQyd__Rszs10CollectionRd__lF8CleanKit13ViewModelItemV04viewI0_AG9CellState_pSg04cellM0t_s0E5OfOneVyAiJ_AlMtGTg5
 $SSa11_checkIndexyySiF8CleanKit13ViewModelItemV04viewF0_AB9CellState_pSg04cellJ0t_Tg5
 $SSa034_makeUniqueAndReserveCapacityIfNotB0yyF8CleanKit13ViewModelItemV04viewK0_AB9CellState_pSg04cellO0t_Tg5
 _symbolic $S8CleanKit9ViewModelP
 _$S8CleanKit9ViewModel_pMF
-/Users/lazaro/Documents/CleanKit/Sources/ViewModel/ViewModel.swift
+/Users/marcoskobuchi/Desktop/CleanKit/Sources/ViewModel/ViewModel.swift
 Apple LLVM version 10.0.0 (clang-1000.11.45.5)
-/Users/lazaro/Documents/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/DerivedSources/CleanKit_vers.c
+/Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/DerivedSources/CleanKit_vers.c
