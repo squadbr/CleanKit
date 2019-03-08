@@ -125,11 +125,11 @@ _symbolic So8NSObjectC
 _$SSo8NSStringCMF
 _$SSo15UINibOptionsKeyaMF
 Apple LLVM version 10.0.0 (clang-1000.11.45.1)
--emit-bc /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UITableSceneHeader.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UITableSceneSectionFooter.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/Presenter.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/ViewModel/TaggedViewModel.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/ActionDelegate.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/Shared/UITableSceneCell.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/Extensions/UIView.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/ParameterizedPresenter.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UITimelineScene/UITimelineParameterizedPresenter.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UICollectionScene/Shared/UICollectionSceneCell.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UIScene.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/ActionCenterDelegate.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UICollectionScene/UICollectionDataSource.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/ViewModel/TaggedViewModelCollection.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UISectionedTableDataSource.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/ActionCenter.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/Interactor.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UITimelineScene/UITimelineScene.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UITimelineScene/UITimelinePresenter.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/Shared/ViewModelItem.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UITableSceneSectionFeedback.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UITableSceneSectionHeader.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/CellState.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/Extensions/Collection.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UITableScene.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/ViewModel/SectionViewModel.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/Extensions/DispatchQueue.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UISceneCellProtocol.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UISectionedTableScene.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/ViewModel/ViewModelCenter.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UITimelineScene/UITimelineDataSource.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UITableDataSource.swift /Users/marcoskobuchi/Desktop/CleanKit/Sources/ViewModel/ViewModel.swift -supplementary-output-file-map <temporary-file> -target arm64-apple-ios11.0 -Xllvm -aarch64-use-tbi -enable-objc-interop -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk -I /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Products/Release-iphoneos -F /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Products/Release-iphoneos -g -import-underlying-module -module-cache-path /Users/marcoskobuchi/Desktop/CleanKit/build/ModuleCache.noindex -swift-version 4.2 -O -serialize-debugging-options -Xcc -I/Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/swift-overrides.hmap -Xcc -iquote -Xcc /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/CleanKit-generated-files.hmap -Xcc -I/Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/CleanKit-own-target-headers.hmap -Xcc -I/Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/CleanKit-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/all-product-headers.yaml -Xcc -iquote -Xcc /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/CleanKit-project-headers.hmap -Xcc -I/Users/marcoskobuchi/Desktop/CleanKit/build/Build/Products/Release-iphoneos/include -Xcc -I/Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/DerivedSources/arm64 -Xcc -I/Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/DerivedSources -Xcc -ivfsoverlay -Xcc /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/unextended-module-overlay.yaml -Xcc -working-directory/Users/marcoskobuchi/Desktop/CleanKit -module-name CleanKit -num-threads 8 -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITableSceneHeader.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITableSceneSectionFooter.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/Presenter.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/TaggedViewModel.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/ActionDelegate.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITableSceneCell.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UIView.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/ParameterizedPresenter.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITimelineParameterizedPresenter.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UICollectionSceneCell.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UIScene.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/ActionCenterDelegate.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UICollectionDataSource.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/TaggedViewModelCollection.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UISectionedTableDataSource.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/ActionCenter.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/Interactor.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITimelineScene.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITimelinePresenter.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/ViewModelItem.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITableSceneSectionFeedback.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITableSceneSectionHeader.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/CellState.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/Collection.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITableScene.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/SectionViewModel.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/DispatchQueue.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UISceneCellProtocol.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UISectionedTableScene.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/ViewModelCenter.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITimelineDataSource.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITableDataSource.bc -o /Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/ViewModel.bc -resource-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift
+-emit-bc /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UITableSceneHeader.swift /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UITableSceneSectionFooter.swift /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/Presenter.swift /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/ViewModel/TaggedViewModel.swift /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/ActionDelegate.swift /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UITableScene/Shared/UITableSceneCell.swift /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/Extensions/UIView.swift /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/ParameterizedPresenter.swift /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UITableScene/UITimelineScene/UITimelineParameterizedPresenter.swift /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UICollectionScene/Shared/UICollectionSceneCell.swift /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UIScene.swift /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/ActionCenterDelegate.swift /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UICollectionScene/UICollectionDataSource.swift /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/ViewModel/TaggedViewModelCollection.swift /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UISectionedTableDataSource.swift /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/ActionCenter.swift /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/Interactor.swift /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UITableScene/UITimelineScene/UITimelineScene.swift /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UITableScene/UITimelineScene/UITimelinePresenter.swift /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UITableScene/Shared/ViewModelItem.swift /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UITableSceneSectionFeedback.swift /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UITableSceneSectionHeader.swift /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/CellState.swift /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/Extensions/Collection.swift /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UITableScene/UITableScene.swift /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/ViewModel/SectionViewModel.swift /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/Extensions/DispatchQueue.swift /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UISceneCellProtocol.swift /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UISectionedTableScene.swift /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/ViewModel/ViewModelCenter.swift /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UITableScene/UITimelineScene/UITimelineDataSource.swift /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UITableScene/UITableDataSource.swift /Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/ViewModel/ViewModel.swift -supplementary-output-file-map <temporary-file> -target arm64-apple-ios11.0 -Xllvm -aarch64-use-tbi -enable-objc-interop -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk -I /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Products/Release-iphoneos -F /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Products/Release-iphoneos -g -import-underlying-module -module-cache-path /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/ModuleCache.noindex -swift-version 4.2 -O -serialize-debugging-options -Xcc -I/Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/swift-overrides.hmap -Xcc -iquote -Xcc /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/CleanKit-generated-files.hmap -Xcc -I/Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/CleanKit-own-target-headers.hmap -Xcc -I/Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/CleanKit-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/all-product-headers.yaml -Xcc -iquote -Xcc /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/CleanKit-project-headers.hmap -Xcc -I/Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Products/Release-iphoneos/include -Xcc -I/Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/DerivedSources/arm64 -Xcc -I/Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/DerivedSources -Xcc -ivfsoverlay -Xcc /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/unextended-module-overlay.yaml -Xcc -working-directory/Users/rogersanoli/Documents/workspace/iOS/CleanKit -module-name CleanKit -num-threads 4 -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITableSceneHeader.bc -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITableSceneSectionFooter.bc -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/Presenter.bc -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/TaggedViewModel.bc -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/ActionDelegate.bc -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITableSceneCell.bc -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UIView.bc -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/ParameterizedPresenter.bc -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITimelineParameterizedPresenter.bc -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UICollectionSceneCell.bc -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UIScene.bc -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/ActionCenterDelegate.bc -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UICollectionDataSource.bc -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/TaggedViewModelCollection.bc -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UISectionedTableDataSource.bc -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/ActionCenter.bc -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/Interactor.bc -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITimelineScene.bc -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITimelinePresenter.bc -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/ViewModelItem.bc -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITableSceneSectionFeedback.bc -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITableSceneSectionHeader.bc -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/CellState.bc -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/Collection.bc -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITableScene.bc -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/SectionViewModel.bc -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/DispatchQueue.bc -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UISceneCellProtocol.bc -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UISectionedTableScene.bc -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/ViewModelCenter.bc -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITimelineDataSource.bc -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/UITableDataSource.bc -o /Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/Objects-normal/arm64/ViewModel.bc -resource-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift
 <swift-imported-modules>
-/Users/marcoskobuchi/Desktop/CleanKit
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit
 Apple Swift version 4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UITableSceneHeader.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UITableSceneHeader.swift
 $S8CleanKit20ActionCenterDelegate_pSgXwWOh
 <compiler-generated>
 __swift_destroy_boxed_opaque_existential_1
@@ -168,7 +168,7 @@ $SSS2eeoiySbSS_SStFZTf4xxd_n
 $Ss16_UnmanagedStringVss5UInt8VRszrlE12compareASCII2toSiAByADG_tFTf4xx_n
 $Ss11_StringGutsV19_unmanagedASCIIViews010_UnmanagedA0Vys5UInt8VGvgTf4x_n
 UITableSceneHeader.swift
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UISectionedTableScene
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UITableScene/UISectionedTableScene
 $S8CleanKit18UITableSceneHeaderCMa
 delegate.set
 $SSiSQsSQ2eeoiySbx_xtFZTW
@@ -214,7 +214,7 @@ $S8CleanKit12ActionCenterC0022caseItemsstorage_riAIe33_9ED1E425D712CE9944CEE4FB0
 $S8CleanKit12ActionCenterC0018itemsstorage_hHJJc33_9ED1E425D712CE9944CEE4FB0BFC2587LLSDySSypGSgvpfi
 $S8CleanKit25TaggedViewModelCollectionC3tag4caseACSi_AC4CaseOtcfcfA0_
 TaggedViewModelCollection.swift
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/ViewModel
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/ViewModel
 $S8CleanKit25TaggedViewModelCollectionC0018itemsstorage_hHJJc33_278E3126E63BC9F53FB402AD95A08580LLSayAA0cE0_AA0dE0pGSgvpfi
 $S8CleanKit22UICollectionDataSourceC11identifiers025_B626317F9BEBB03FA3F84446H6A02FBALLSDyS2SGvpfi
 $S8CleanKit22UICollectionDataSourceC5itemsSayAA13ViewModelItemVGvpfi
@@ -224,7 +224,7 @@ $S8CleanKit22UICollectionDataSourceC14collectionView025_B626317F9BEBB03FA3F84446
 $S8CleanKit22UICollectionDataSourceC11focusedCell025_B626317F9BEBB03FA3F84446I6A02FBALLAA07UISceneG8Protocol_pSgXwvpfi
 $S8CleanKit7UISceneC7nibName10interactor9parameterACyxq_q0_GSSSg_AA18InteractorProtocol_pypSgtcfcfA1_
 UIScene.swift
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI
 $S8CleanKit7UISceneC7nibName10interactor9parameterACyxq_q0_GSSSg_AA18InteractorProtocol_pypSgtcfcfA0_
 $S8CleanKit7UISceneC7nibName10interactor9parameterACyxq_q0_GSSSg_AA18InteractorProtocol_pypSgtcfcfA_
 $S8CleanKit7UISceneC9presenterxSgvpfi
@@ -240,7 +240,7 @@ ViewModelCenter.swift
 $S8CleanKit9PresenterC12actionCenterAA06ActionE0Cvpfi
 $S8CleanKit9PresenterC12actionCenterAA06ActionE0CvpfiTf4_n
 ActionCenter.swift
-/Users/marcoskobuchi/Desktop/CleanKit/Sources
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources
 $S8CleanKit25UITableSceneSectionFooterC8delegateAA20ActionCenterDelegate_pSgXwvpfi
 prepare
 deinit
@@ -281,7 +281,7 @@ _symbolic ____ 8CleanKit25UITableSceneSectionFooterC
 _symbolic So023UITableViewHeaderFooterB0C
 _$S8CleanKit25UITableSceneSectionFooterCMF
 _objc_classes
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UITableSceneSectionFooter.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UITableSceneSectionFooter.swift
 $S8CleanKit25UITableSceneSectionFooterCAA14ActionDelegateAAWa
 UITableSceneSectionFooter.swift
 $S8CleanKit25UITableSceneSectionFooterCMa
@@ -304,7 +304,7 @@ _symbolic x
 _symbolic 8CleanKit12ActionCenterC
 _symbolic 8CleanKit15ViewModelCenterC
 _$S8CleanKit9PresenterCMF
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/Presenter.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/Presenter.swift
 $S8CleanKit9PresenterCMr
 $S8CleanKit9PresenterCMi
 Presenter.swift
@@ -316,12 +316,12 @@ _$S8CleanKit14SectionDefaultCAA11TaggedModelA2aDP10sectionTagSivgTW
 _symbolic $S8CleanKit11TaggedModelP
 _$S8CleanKit11TaggedModel_pMF
 _$S8CleanKit11TaggedModelWR
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/ViewModel/TaggedViewModel.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/ViewModel/TaggedViewModel.swift
 sectionTag.get
 _symbolic $S8CleanKit14ActionDelegateP
 _$S8CleanKit14ActionDelegate_pMF
 _$S8CleanKit14ActionDelegateWR
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/ActionDelegate.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/ActionDelegate.swift
 _$S8CleanKit16UITableSceneCellC15touchActionNameSSSgvgTo
 _$S8CleanKit16UITableSceneCellC15touchActionNameSSSgvsTo
 _$S8CleanKit16UITableSceneCellC12awakeFromNibyyFTo
@@ -364,14 +364,14 @@ _symbolic ____ 8CleanKit16UITableSceneCellC
 _symbolic So15UITableViewCellC
 _symbolic SSSg
 _$S8CleanKit16UITableSceneCellCMF
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/Shared/UITableSceneCell.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UITableScene/Shared/UITableSceneCell.swift
 $S8CleanKit16UITableSceneCellCMr
 $S8CleanKit16UITableSceneCellCMi
 $S8CleanKit16UITableSceneCellCyxGAA07UISceneE8ProtocolAAWa
 $S8CleanKit16UITableSceneCellCyxGAA14ActionDelegateAAWa
 $S8CleanKit16UITableSceneCellCyxGAA0cdE8ProtocolAAWa
 UITableSceneCell.swift
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/Shared
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UITableScene/Shared
 $S8CleanKit16UITableSceneCellCMa
 __swift_destroy_boxed_opaque_existential_0
 __swift_project_boxed_opaque_existential_0
@@ -388,11 +388,11 @@ $S8CleanKit16UITableSceneCellC15touchActionNameSSSgvsTo
 $S8CleanKit16UITableSceneCellC15touchActionNameSSSgvgTo
 _$SypWOc
 _$SSo6UIViewCmML
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/Extensions/UIView.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/Extensions/UIView.swift
 $SypWOc
 loadFromNib
 UIView.swift
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/Extensions
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/Extensions
 $SSa15_checkSubscript_20wasNativeTypeCheckeds16_DependenceTokenVSi_SbtFyp_Tg5
 $Ss12_ArrayBufferV37_checkInoutAndNativeTypeCheckedBounds_03wasfgH0ySi_SbtFyp_Tg5
 $SSa11_getElement_20wasNativeTypeChecked22matchingSubscriptCheckxSi_Sbs16_DependenceTokenVtFyp_Tg5
@@ -418,7 +418,7 @@ _symbolic ____ 8CleanKit22ParameterizedPresenterC
 _symbolic 8CleanKit9PresenterCyxG
 _symbolic q_Sg
 _$S8CleanKit22ParameterizedPresenterCMF
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/ParameterizedPresenter.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/ParameterizedPresenter.swift
 $S8CleanKit22ParameterizedPresenterCMr
 $S8CleanKit22ParameterizedPresenterCMi
 $S8CleanKit22ParameterizedPresenterCyxq_GAA0cD8ProtocolAAWa
@@ -451,7 +451,7 @@ _$S8CleanKit32UITimelineParameterizedPresenterCMP
 _symbolic ____ 8CleanKit32UITimelineParameterizedPresenterC
 _symbolic 8CleanKit19UITimelinePresenterCyxq0_G
 _$S8CleanKit32UITimelineParameterizedPresenterCMF
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UITimelineScene/UITimelineParameterizedPresenter.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UITableScene/UITimelineScene/UITimelineParameterizedPresenter.swift
 $S8CleanKit32UITimelineParameterizedPresenterCMr
 $S8CleanKit32UITimelineParameterizedPresenterCMi
 $S8CleanKit32UITimelineParameterizedPresenterCyxq_q0_GAA0dE8ProtocolAAWa
@@ -460,7 +460,7 @@ $S8CleanKit32UITimelineParameterizedPresenterCMa
 $Sq_Sgr1_lWOf
 $Sq_Sgr1_lWOc
 UITimelineParameterizedPresenter.swift
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UITimelineScene
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UITableScene/UITimelineScene
 $Sq_Sgr1_lWOh
 _$S8CleanKit21UICollectionSceneCellC15touchActionNameSSSgvgTo
 _$S8CleanKit21UICollectionSceneCellC15touchActionNameSSSgvsTo
@@ -498,14 +498,14 @@ _$S8CleanKit21UICollectionSceneCellCMP
 _symbolic ____ 8CleanKit21UICollectionSceneCellC
 _symbolic So20UICollectionViewCellC
 _$S8CleanKit21UICollectionSceneCellCMF
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UICollectionScene/Shared/UICollectionSceneCell.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UICollectionScene/Shared/UICollectionSceneCell.swift
 $S8CleanKit21UICollectionSceneCellCMr
 $S8CleanKit21UICollectionSceneCellCMi
 $S8CleanKit21UICollectionSceneCellCyxGAA07UISceneE8ProtocolAAWa
 $S8CleanKit21UICollectionSceneCellCyxGAA14ActionDelegateAAWa
 $S8CleanKit21UICollectionSceneCellCyxGAA0cdE8ProtocolAAWa
 UICollectionSceneCell.swift
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UICollectionScene/Shared
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UICollectionScene/Shared
 $S8CleanKit21UICollectionSceneCellCMa
 $S8CleanKit21UICollectionSceneCellC15touchActionNameSSSgvsTo
 $S8CleanKit21UICollectionSceneCellC15touchActionNameSSSgvgTo
@@ -555,7 +555,7 @@ _$S8CleanKit7UISceneCMF
 _$S8CleanKit18InteractorProtocol_pML
 _$S8CleanKit30ParameterizedPresenterProtocol_pML
 _$S8CleanKit20ActionCenterDelegateMp
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UIScene.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UIScene.swift
 __swift_project_boxed_opaque_existential_1
 $S8CleanKit30ParameterizedPresenterProtocol_pWOb
 $S8CleanKit30ParameterizedPresenterProtocol_pSgWOh
@@ -595,7 +595,7 @@ $SSo17OS_dispatch_queueCMa
 _symbolic $S8CleanKit20ActionCenterDelegateP
 _$S8CleanKit20ActionCenterDelegate_pMF
 _$S8CleanKit20ActionCenterDelegateWR
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/ActionCenterDelegate.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/ActionCenterDelegate.swift
 _$S8CleanKit22UICollectionDataSourceC6update3tag4itemySi_AA11TaggedModel_AA04ViewJ0ptFyyXEfU0_
 _$SIg_Ieg_TR
 _$SIeg_IyB_TR
@@ -722,7 +722,7 @@ l_OBJC_PROTOCOL_REFERENCE_$_NSObject
 l_OBJC_LABEL_PROTOCOL_$_UIScrollViewDelegate
 l_OBJC_PROTOCOL_REFERENCE_$_UIScrollViewDelegate
 _objc_categories
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UICollectionScene/UICollectionDataSource.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UICollectionScene/UICollectionDataSource.swift
 $SSo26InlineRefCountsPlaceholderaMa
 __swift_assign_boxed_opaque_existential_2
 $S8CleanKit13ViewModelItemVWOf
@@ -824,7 +824,7 @@ $Ss20_ArrayBufferProtocolPsE22_arrayOutOfPlaceUpdateyys011_ContiguousaB0Vy7Eleme
 $Ss12_ArrayBufferV19_getElementSlowPathyyXlSiFSo20UICollectionViewCellC_Tg5
 collectionView
 UICollectionDataSource.swift
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UICollectionScene
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UICollectionScene
 scrollViewDidEndDecelerating
 scrollViewDidEndDragging
 dynamic_cast_existential_1_conditional
@@ -924,7 +924,7 @@ _symbolic ____ 8CleanKit25TaggedViewModelCollectionC
 _symbolic Say8CleanKit11TaggedModel_AA04ViewD0pGSg
 _$S8CleanKit25TaggedViewModelCollectionCMF
 _$Ss23_ContiguousArrayStorageCy8CleanKit11TaggedModel_AC04ViewG0pGML
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/ViewModel/TaggedViewModelCollection.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/ViewModel/TaggedViewModelCollection.swift
 $Ss20_ArrayBufferProtocolPsE22_arrayOutOfPlaceUpdateyys011_ContiguousaB0Vy7ElementQzGz_S2iqd__ts16_PointerFunctionRd__AFQyd__AGRSlFs01_aB0Vy8CleanKit11TaggedModel_AM04ViewP0pG_s07_IgnoreK0VyAmN_AmOpGTg5Tf4nnndn_n
 $Ss12_ArrayBufferVyxGs01_aB8ProtocolssADP13_copyContents8subRange12initializingSpy7ElementQzGSnySiG_AKtFTW8CleanKit11TaggedModel_AM04ViewM0p_Tg5
 $Ss12_ArrayBufferV13_copyContents8subRange12initializingSpyxGSnySiG_AFtF8CleanKit11TaggedModel_AH04ViewK0p_Tg5
@@ -1066,7 +1066,7 @@ _$S8CleanKit27UITableSceneSectionFeedbackCmML
 _$S8CleanKit26UISectionedTableDataSourceCN
 _OBJC_CLASS_$__TtC8CleanKit26UISectionedTableDataSource
 _$S8CleanKit26UISectionedTableDataSourceC11SectionItemVN
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UISectionedTableDataSource.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UISectionedTableDataSource.swift
 tableView
 UISectionedTableDataSource.swift
 isEmpty.get
@@ -1250,7 +1250,7 @@ _symbolic ypytIegnr_
 _block_descriptor.94
 _symbolic ytytIegnr_
 _block_descriptor.107
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/ActionCenter.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/ActionCenter.swift
 $SypSgWOb
 objectdestroy.102
 $S8CleanKit12ActionCenterC4post4caseyx_tSYRzlFyyXEfU_TA
@@ -1342,7 +1342,7 @@ _$S8CleanKit10InteractorCML
 _$S8CleanKit10InteractorCMf
 _symbolic ____ 8CleanKit10InteractorC
 _$S8CleanKit10InteractorCMF
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/Interactor.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/Interactor.swift
 $S8CleanKit10InteractorCAA0C8ProtocolAAWa
 Interactor.swift
 $S8CleanKit10InteractorCMa
@@ -1405,7 +1405,7 @@ _$S8CleanKit20UITimelineDataSourceC12loadingCount33_A803678783D1C0A8DD902722496E
 _$S8CleanKit20UITimelineDataSourceC0020spinnerstorage_mdAJd33_A803678783D1C0A8DD902722496E0E2ELLSo23UIActivityIndicatorViewCSgvpWvd
 _symbolic So9UIControlC
 _$SSo16UIRefreshControlCMF
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UITimelineScene/UITimelineScene.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UITableScene/UITimelineScene/UITimelineScene.swift
 $S8CleanKit25TimelinePresenterProtocol_pSgWOd
 $S8CleanKit25TimelinePresenterProtocol_pSgWOc
 $S8CleanKit15UITimelineSceneCMr
@@ -1424,7 +1424,7 @@ UITimelineDataSource.swift
 emptyCount.set
 tableView.get
 UITableDataSource.swift
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UITableScene
 dataSource.get
 setLoadingCell
 loadDataSource
@@ -1510,7 +1510,7 @@ _$S8CleanKit19UITimelinePresenterCMF
 _block_descriptor.6
 _$Ss23_ContiguousArrayStorageCyypGML
 _$Ss37_HashableTypedNativeDictionaryStorageCySi8CleanKit25TaggedViewModelCollectionCGML
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UITimelineScene/UITimelinePresenter.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UITableScene/UITimelineScene/UITimelinePresenter.swift
 $Ss16_SmallUTF8StringVyABSgxcs22RandomAccessCollectionRzs6UInt16V7ElementRtzlufCSRyAFG_Tgq5Tf4xd_n
 $SSv10storeBytes2of12toByteOffset2asyx_SixmtlFs5UInt8V_Tgq5
 $SSmsE6remove2at7ElementQz5IndexQz_tFs11_UIntBufferVys6UInt32Vs6UInt16VG_Tgq5
@@ -1590,7 +1590,7 @@ _$S8CleanKit13ViewModelItemVMF
 _$S8CleanKit13ViewModelItemVWV
 _$S8CleanKit13ViewModelItemVMn
 _$S8CleanKit13ViewModelItemVMf
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/Shared/ViewModelItem.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UITableScene/Shared/ViewModelItem.swift
 $S8CleanKit13ViewModelItemVMa
 $S8CleanKit13ViewModelItemVwxg
 $S8CleanKit13ViewModelItemVwxs
@@ -1611,7 +1611,7 @@ _$S8CleanKit27UITableSceneSectionFeedbackCML
 _$S8CleanKit27UITableSceneSectionFeedbackCMf
 _symbolic ____ 8CleanKit27UITableSceneSectionFeedbackC
 _$S8CleanKit27UITableSceneSectionFeedbackCMF
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UITableSceneSectionFeedback.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UITableSceneSectionFeedback.swift
 $S8CleanKit27UITableSceneSectionFeedbackCAA14ActionDelegateAAWa
 $S8CleanKit27UITableSceneSectionFeedbackCMa
 prepareLoading
@@ -1638,7 +1638,7 @@ _$S8CleanKit25UITableSceneSectionHeaderCMI
 _$S8CleanKit25UITableSceneSectionHeaderCMP
 _symbolic ____ 8CleanKit25UITableSceneSectionHeaderC
 _$S8CleanKit25UITableSceneSectionHeaderCMF
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UITableSceneSectionHeader.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UITableSceneSectionHeader.swift
 $SxSg8CleanKit12SectionModelRzAB06TaggedD0RzAB04ViewD0RzlWOh
 $S8CleanKit25UITableSceneSectionHeaderCMr
 $S8CleanKit25UITableSceneSectionHeaderCMi
@@ -1647,8 +1647,8 @@ UITableSceneSectionHeader.swift
 $S8CleanKit25UITableSceneSectionHeaderCMa
 _symbolic $S8CleanKit9CellStateP
 _$S8CleanKit9CellState_pMF
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/CellState.swift
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/Extensions/Collection.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/CellState.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/Extensions/Collection.swift
 _$SIg_Ieg_TR60$S8CleanKit12UITableSceneC22viewWillLayoutSubviewsyyFyyXEfU_Tf3pf_n
 _$S8CleanKit12UITableSceneC9tableViewSo0cF0CSgXwvmytfU_
 _$S8CleanKit12UITableSceneC9tableViewSo0cF0CSgXwvgTo
@@ -1741,7 +1741,7 @@ _symbolic G2R1_
 _block_descriptor.70
 _symbolic So11UITableViewC
 _$SSo11UITableViewCMF
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UITableScene.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UITableScene/UITableScene.swift
 $S8CleanKit12UITableSceneC5setup15viewModelCenteryAA04ViewgH0C_tFyAA06TaggediG10CollectionCcfU_yyXEfU_ySbcfU0_TA
 $S8CleanKit12UITableSceneC5setup15viewModelCenteryAA04ViewgH0C_tFyAA06TaggediG10CollectionCcfU_yyXEfU_ySbcfU0_
 UITableScene.swift
@@ -1826,7 +1826,7 @@ _$S8CleanKit14SectionDefaultCAA11TaggedModelAAWP
 _$S8CleanKit14SectionDefaultCAA0C5ModelAAMc
 _$S8CleanKit14SectionDefaultCAA0C5ModelAAWP
 _$S8CleanKit14SectionDefaultCN
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/ViewModel/SectionViewModel.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/ViewModel/SectionViewModel.swift
 $S8CleanKit14SectionDefaultCAA0C5ModelAAWa
 $S8CleanKit14SectionDefaultCAA11TaggedModelAAWa
 hasFooter.get
@@ -1835,11 +1835,11 @@ hasHeader.get
 $S8CleanKit14SectionDefaultCAA9ViewModelAAWa
 $S8CleanKit14SectionDefaultCMa
 SectionViewModel.swift
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/Extensions/DispatchQueue.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/Extensions/DispatchQueue.swift
 _symbolic $S8CleanKit19UISceneCellProtocolP
 _$S8CleanKit19UISceneCellProtocol_pMF
 _$S8CleanKit19UISceneCellProtocolWR
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UISceneCellProtocol.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UISceneCellProtocol.swift
 _$SIg_Ieg_TR69$S8CleanKit21UISectionedTableSceneC22viewWillLayoutSubviewsyyFyyXEfU_Tf3pf_n
 _$S8CleanKit21UISectionedTableSceneC9tableViewSo07UITableG0CSgXwvgTo
 _$S8CleanKit21UISectionedTableSceneC9tableViewSo07UITableG0CSgXwvsTo
@@ -1903,7 +1903,7 @@ _block_descriptor.61
 _block_descriptor.71
 _symbolic So18OS_dispatch_objectC
 _$SSo21OS_dispatch_semaphoreCMF
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UISectionedTableScene.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UITableScene/UISectionedTableScene/UISectionedTableScene.swift
 objectdestroy.66
 objectdestroy.56
 $S8CleanKit21UISectionedTableSceneC5setup12actionCenteryAA06ActionH0C_tFySi_SStcfU0_yyXEfU_TA
@@ -1970,7 +1970,7 @@ _symbolic 8CleanKit15ViewModelCenterC4Item33_6599C2803E95B10EF71450F04EFCD8F4LLV
 _$S8CleanKit15ViewModelCenterC4Item33_6599C2803E95B10EF71450F04EFCD8F4LLVWV
 _$S8CleanKit15ViewModelCenterC4Item33_6599C2803E95B10EF71450F04EFCD8F4LLVMI
 _$S8CleanKit15ViewModelCenterC4Item33_6599C2803E95B10EF71450F04EFCD8F4LLVMP
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/ViewModel/ViewModelCenter.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/ViewModel/ViewModelCenter.swift
 $S8CleanKit15ViewModelCenterC4Item33_6599C2803E95B10EF71450F04EFCD8F4LLVwxg
 $S8CleanKit15ViewModelCenterC4Item33_6599C2803E95B10EF71450F04EFCD8F4LLVwxs
 $S8CleanKit15ViewModelCenterC4Item33_6599C2803E95B10EF71450F04EFCD8F4LLVwst
@@ -2020,7 +2020,7 @@ _$S8CleanKit17UITableDataSourceC8delegateAA20ActionCenterDelegate_pSgXwvpWvd
 _symbolic So23UIActivityIndicatorViewC
 _$SSo23UIActivityIndicatorViewCMF
 _OBJC_CLASS_$__TtC8CleanKit20UITimelineDataSource
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UITimelineScene/UITimelineDataSource.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UITableScene/UITimelineScene/UITimelineDataSource.swift
 $S10Foundation9IndexPathVSbs5Error_pIggdzo_ACSbsAD_pIegndzo_TR
 $S8CleanKit20UITimelineDataSourceC9tableView_14prefetchRowsAtySo07UITableG0C_Say10Foundation9IndexPathVGtFSbAJXEfU_
 $SSayxGs10CollectionsSl9formIndex5aftery0C0Qzz_tFTW10Foundation0C4PathV_Tg5
@@ -2146,7 +2146,7 @@ _$Ss37_HashableTypedNativeDictionaryStorageCy10Foundation9IndexPathV12CoreGraphi
 _$Ss37_HashableTypedNativeDictionaryStorageCySi8CleanKit17UITableDataSourceC11SectionItemCGML
 _OBJC_CLASS_$__TtC8CleanKit17UITableDataSource
 _$S8CleanKit17UITableDataSourceC11SectionItemCN
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/UI/UITableScene/UITableDataSource.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/UI/UITableScene/UITableDataSource.swift
 $S8CleanKit13ViewModelItemV04viewD0_AA9CellState_pSg04cellH0tWOb
 $S8CleanKit13ViewModelItemV04viewD0_AA9CellState_pSg04cellH0tWOc
 $S8CleanKit9CellState_pWOb
@@ -2267,6 +2267,6 @@ $SSa11_checkIndexyySiF8CleanKit13ViewModelItemV04viewF0_AB9CellState_pSg04cellJ0
 $SSa034_makeUniqueAndReserveCapacityIfNotB0yyF8CleanKit13ViewModelItemV04viewK0_AB9CellState_pSg04cellO0t_Tg5
 _symbolic $S8CleanKit9ViewModelP
 _$S8CleanKit9ViewModel_pMF
-/Users/marcoskobuchi/Desktop/CleanKit/Sources/ViewModel/ViewModel.swift
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/Sources/ViewModel/ViewModel.swift
 Apple LLVM version 10.0.0 (clang-1000.11.45.5)
-/Users/marcoskobuchi/Desktop/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/DerivedSources/CleanKit_vers.c
+/Users/rogersanoli/Documents/workspace/iOS/CleanKit/build/Build/Intermediates.noindex/CleanKit.build/Release-iphoneos/CleanKit.build/DerivedSources/CleanKit_vers.c

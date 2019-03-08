@@ -168,12 +168,12 @@
 		F7593981221F2732002F041D /* UISectionedTableScene */ = {
 			isa = PBXGroup;
 			children = (
+				F7593987221F2732002F041D /* UISectionedTableScene.swift */,
+				F7593986221F2732002F041D /* UISectionedTableDataSource.swift */,
 				F7593982221F2732002F041D /* UITableSceneSectionFooter.swift */,
 				F7593983221F2732002F041D /* UITableSceneSectionFeedback.swift */,
 				F7593984221F2732002F041D /* UITableSceneHeader.swift */,
 				F7593985221F2732002F041D /* UITableSceneSectionHeader.swift */,
-				F7593986221F2732002F041D /* UISectionedTableDataSource.swift */,
-				F7593987221F2732002F041D /* UISectionedTableScene.swift */,
 			);
 			path = UISectionedTableScene;
 			sourceTree = "<group>";
