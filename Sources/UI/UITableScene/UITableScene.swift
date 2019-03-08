@@ -134,12 +134,12 @@ open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor:
         dataSource.bind(cell: cell, to: viewModel)
     }
     
-    public func set<T: SectionViewModel>(sectionHeader header: UITableSceneSectionHeader<T>.Type) {
+    public func set<T: SectionViewModel>(sectionHeader header: UITableSceneSectionHeader<T>.Type, footer: UITableSceneSectionFooter.Type? = nil, feedback: UITableSceneSectionFeedback.Type? = nil) {
         guard let dataSource = dataSource else {
             preconditionFailure("Table has not yet been initialized")
         }
         
-        dataSource.set(sectionHeader: header)
+        dataSource.set(sectionHeader: header, footer: footer, feedback: feedback)
         
         presenter.viewModelCenter.observe(background: true) { [weak self] (viewModel: T) in
             guard let self = self, let dataSource = self.dataSource else { return }
