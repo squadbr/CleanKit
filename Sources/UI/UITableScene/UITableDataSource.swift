@@ -125,10 +125,24 @@ class UITableDataSource: NSObject {
         self.identifiers["\(viewModel)"] = "\(cell)"
     }
     
-    func set<T: SectionViewModel>(sectionHeader header: UITableSceneSectionHeader<T>.Type) {
+    func set<T: SectionViewModel>(sectionHeader header: UITableSceneSectionHeader<T>.Type, footer: UITableSceneSectionFooter.Type? = nil, feedback: UITableSceneSectionFeedback.Type? = nil) {
         precondition(self.sectionIdentifiers == nil, "You can not change the existing section footer and header")
         self.tableView?.register(UINib(nibName: "\(header)", bundle: nil), forHeaderFooterViewReuseIdentifier: "\(header)")
-        self.sectionIdentifiers = (header: "\(header)", footer: "", feedback: "")
+        
+        var footerIdentifier = ""
+        var feedbackIdentifier = ""
+        
+        if let unwrapedFooter = footer {
+            self.tableView?.register(UINib(nibName: "\(unwrapedFooter)", bundle: nil), forHeaderFooterViewReuseIdentifier: "\(unwrapedFooter)")
+            footerIdentifier = "\(unwrapedFooter)"
+        }
+        
+        if let unwrapedFeedback = feedback {
+            self.tableView?.register(UINib(nibName: "\(unwrapedFeedback)", bundle: nil), forCellReuseIdentifier: "\(unwrapedFeedback)")
+            feedbackIdentifier = "\(unwrapedFeedback)"
+        }
+        
+        self.sectionIdentifiers = (header: "\(header)", footer: footerIdentifier, feedback: feedbackIdentifier)
     }
     
     func updateOrCreate(sectionViewModel viewModel: SectionViewModel) {
