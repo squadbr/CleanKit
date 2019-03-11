@@ -199,9 +199,10 @@ class UITableDataSource: NSObject {
     }
     
     private func isDataSourceEmpty() -> Bool {
-        var shouldShowEmptyState: Bool = false
-        for section in self.sections where !shouldShowEmptyState {
-            shouldShowEmptyState = section.value.items.isEmpty
+        var shouldShowEmptyState: Bool = true
+        for section in self.sections where !section.value.items.isEmpty {
+            shouldShowEmptyState = false
+            break
         }
         return shouldShowEmptyState
     }
