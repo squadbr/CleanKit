@@ -47,7 +47,21 @@ class UITableDataSource: NSObject {
     private var identifiers: [String: String] = [:]
     private var heights: [IndexPath: CGFloat] = [:]
     
+    private var isFirstLoad: Bool = true
+    private var emptyCount: Int = 0
+    private var cleanCount: Int = 0
+    private var loadingCount: Int = 0
+    
+    private var backgroundColor: UIColor?
+    
     internal var itemsToPrefetch: Int = 50
+    
+    private lazy var spinner: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView(style: .gray)
+        spinner.hidesWhenStopped = true
+        self.tableView?.tableFooterView = spinner
+        return spinner
+    }()
     
     init(tableView: UITableView, delegate: ActionCenterDelegate) {
         self.tableView = tableView
@@ -55,6 +69,7 @@ class UITableDataSource: NSObject {
     }
     
     func clear(force: Bool = false) {
+        self.isFirstLoad = true
         self.reload = true
         if force {
             for (_, section) in self.sections {
@@ -64,11 +79,13 @@ class UITableDataSource: NSObject {
     }
     
     func append(collection: TaggedViewModelCollection) -> [IndexPath] {
+        self.isFirstLoad = false
         let section = self.section(for: collection.tag)
         return self.insert(collection: collection, at: section.item.items.count)
     }
     
     func insert(collection: TaggedViewModelCollection, at index: Int) -> [IndexPath] {
+        self.isFirstLoad = false
         var index: Int = index
         if self.reload {
             self.reload = false
@@ -142,9 +159,6 @@ class UITableDataSource: NSObject {
             feedbackIdentifier = "\(unwrapedFeedback)"
         }
         
-        print("FOOTER: \(footerIdentifier)")
-        print("FEEDBACK: \(feedbackIdentifier)")
-        
         self.sectionIdentifiers = (header: "\(header)", footer: footerIdentifier, feedback: feedbackIdentifier)
     }
     
@@ -160,22 +174,110 @@ class UITableDataSource: NSObject {
         }
     }
     
+    func setEmptyCell(nib name: String) {
+        guard let tableView = self.tableView else { return }
+        tableView.register(UINib(nibName: name, bundle: nil), forCellReuseIdentifier: "emptyCell")
+        self.emptyCount = 1
+        self.backgroundColor = tableView.backgroundColor
+    }
+    
+    func setCleanCell(nib name: String) {
+        guard let tableView = self.tableView else { return }
+        tableView.register(UINib(nibName: name, bundle: nil), forCellReuseIdentifier: "cleanCell")
+        self.cleanCount = 1
+        self.backgroundColor = tableView.backgroundColor
+    }
+    
+    func setLoadingCell(nib name: String) {
+        guard let tableView = self.tableView else { return }
+        tableView.register(UINib(nibName: name, bundle: nil), forCellReuseIdentifier: "loadingCell")
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "loadingCell") {
+            loadingCount = Int(ceil((tableView.bounds.height / cell.frame.height) + 0.4))
+        }
+        self.backgroundColor = tableView.backgroundColor
+    }
+    
+    private func isDataSourceEmpty() -> Bool {
+        var shouldShowEmptyState: Bool = false
+        for section in self.sections where !shouldShowEmptyState {
+            shouldShowEmptyState = section.value.items.isEmpty
+        }
+        return shouldShowEmptyState
+    }
+    
+    func start() {
+        guard let tableView = self.tableView, self.tableView?.refreshControl?.isRefreshing == false else { return }
+        self.spinner.frame.size = CGSize(width: tableView.frame.width, height: 80)
+        self.spinner.startAnimating()
+    }
+    
+    func stop() {
+        self.spinner.stopAnimating()
+    }
 }
 
 extension UITableDataSource: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        
+        tableView.isUserInteractionEnabled = !self.isFirstLoad
+        if self.isFirstLoad {
+            if self.loadingCount > 0 {
+                return 1
+            } else if self.cleanCount > 0 {
+                return 1
+            }
+        }
+        if self.isDataSourceEmpty() && self.emptyCount > 0 {
+            return 1
+        }
+        
         return self.sections.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if self.isFirstLoad {
+            if self.loadingCount > 0 {
+                return loadingCount
+            } else if self.cleanCount > 0 {
+                return self.cleanCount
+            }
+        }
+        if self.isDataSourceEmpty() && self.emptyCount > 0 {
+            return self.emptyCount
+        }
+        
         guard let section = sections[section] else {
             return 0
         }
+    
         return section.items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if self.isFirstLoad {
+            if self.loadingCount > 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "loadingCell", for: indexPath)
+                tableView.backgroundColor = cell.backgroundColor
+                return cell
+            } else if self.cleanCount > 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "cleanCell", for: indexPath)
+                tableView.backgroundColor = cell.backgroundColor
+                return cell
+            }
+        }
+        
+        if self.isDataSourceEmpty() && self.emptyCount > 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "emptyCell", for: indexPath)
+            tableView.backgroundColor = cell.backgroundColor
+            return cell
+        }
+        
+        tableView.backgroundColor = self.backgroundColor ?? tableView.backgroundColor
+        
         guard let item = sections[indexPath.section]?.items[safe: indexPath.row] else {
             return UITableViewCell(frame: .zero)
         }

@@ -56,7 +56,7 @@ open class UITimelineScene<TPresenter: Presenter<TInteractorProtocol>, TInteract
         self._presenter.update(tag: tag)
     }
     
-    public func clear() {
+    override public func clear() {
         self.tableView.setContentOffset(.zero, animated: false)
         self.dataSource?.clear(force: true)
         self._presenter.clearOnNextLoad()
@@ -68,12 +68,6 @@ open class UITimelineScene<TPresenter: Presenter<TInteractorProtocol>, TInteract
         actionCenter.observe(action: "prefetch") { [weak self] (_) in
             (self?._presenter)?.fetch()
         }
-        actionCenter.observe(action: "load") { [weak self] (_) in
-            (self?.dataSource as? UITimelineDataSource)?.start()
-        }
-        actionCenter.observe(action: "stop") { [weak self] (_) in
-            (self?.dataSource as? UITimelineDataSource)?.stop()
-        }
     }
     
     public var itemsToPrefetch: Int {
@@ -84,17 +78,4 @@ open class UITimelineScene<TPresenter: Presenter<TInteractorProtocol>, TInteract
     override func loadDataSource() -> UITableDataSource {
         return UITimelineDataSource(tableView: self.tableView, delegate: self)
     }
-    
-    public func setLoadingCell(nib name: String) {
-        (self.dataSource as? UITimelineDataSource)?.setLoadingCell(nib: name)
-    }
-    
-    public func setEmptyCell(nib name: String) {
-        (self.dataSource as? UITimelineDataSource)?.setEmptyCell(nib: name)
-    }
-    
-    public func setCleanCell(nib name: String) {
-        (self.dataSource as? UITimelineDataSource)?.setCleanCell(nib: name)
-    }
-    
 }
