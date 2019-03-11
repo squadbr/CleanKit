@@ -29,6 +29,7 @@ class UITimelineDataSource: UITableDataSource {
     private var loadingCount: Int = 0
     private var cleanCount: Int = 0
     private var emptyCount: Int = 0
+    private var backgroundColor: UIColor?
     
     private lazy var spinner: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .gray)
@@ -92,14 +93,22 @@ class UITimelineDataSource: UITableDataSource {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if self.isFirstLoad {
             if self.loadingCount > 0 {
-                return tableView.dequeueReusableCell(withIdentifier: "loadingCell", for: indexPath)
+                let cell = tableView.dequeueReusableCell(withIdentifier: "loadingCell", for: indexPath)
+                tableView.backgroundColor = cell.backgroundColor
+                return cell
             } else if self.cleanCount > 0 {
-                return tableView.dequeueReusableCell(withIdentifier: "cleanCell", for: indexPath)
+                let cell = tableView.dequeueReusableCell(withIdentifier: "cleanCell", for: indexPath)
+                tableView.backgroundColor = cell.backgroundColor
+                return cell
             }
         }
         if self.isDataSourceEmpty() && self.emptyCount > 0 {
-            return tableView.dequeueReusableCell(withIdentifier: "emptyCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "emptyCell", for: indexPath)
+            tableView.backgroundColor = cell.backgroundColor
+            return cell
         }
+        
+        tableView.backgroundColor = self.backgroundColor ?? .clear
         return super.tableView(tableView, cellForRowAt: indexPath)
     }
     
@@ -126,18 +135,21 @@ class UITimelineDataSource: UITableDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "loadingCell") {
             loadingCount = Int(ceil((tableView.bounds.height / cell.frame.height) + 0.4))
         }
+        self.backgroundColor = tableView.backgroundColor
     }
     
     func setEmptyCell(nib name: String) {
         guard let tableView = self.tableView else { return }
         tableView.register(UINib(nibName: name, bundle: nil), forCellReuseIdentifier: "emptyCell")
         self.emptyCount = 1
+        self.backgroundColor = tableView.backgroundColor
     }
     
     func setCleanCell(nib name: String) {
         guard let tableView = self.tableView else { return }
         tableView.register(UINib(nibName: name, bundle: nil), forCellReuseIdentifier: "cleanCell")
         self.cleanCount = 1
+        self.backgroundColor = tableView.backgroundColor
     }
     
 }
