@@ -61,6 +61,13 @@ open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor:
         self.dataSource?.clear()
     }
     
+    public func clear() {
+        self.tableView.setContentOffset(.zero, animated: false)
+        self.dataSource?.clear(force: true)
+        self.dataSource?.stop()
+        self.tableView.reloadData()
+    }
+    
     open override func setup(actionCenter: ActionCenter) {
         actionCenter.observe(action: "delete") { [weak self] (tag) in
             guard let self = self, let dataSource = self.dataSource else { return }
@@ -69,6 +76,12 @@ open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor:
         actionCenter.observe(action: "update") { [weak self] (tag, any) in
             guard let self = self, let dataSource = self.dataSource, let item = any as? TaggedViewModel else { return }
             dataSource.update(tag: tag, item: item)
+        }
+        actionCenter.observe(action: "load") { [weak self] (_) in
+            (self?.dataSource as? UITimelineDataSource)?.start()
+        }
+        actionCenter.observe(action: "stop") { [weak self] (_) in
+            (self?.dataSource as? UITimelineDataSource)?.stop()
         }
     }
     
@@ -163,4 +176,15 @@ open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor:
         self.dataSource?.remove(tag: tag)
     }
     
+    public func setLoadingCell(nib name: String) {
+        self.dataSource?.setLoadingCell(nib: name)
+    }
+    
+    public func setEmptyCell(nib name: String) {
+        self.dataSource?.setEmptyCell(nib: name)
+    }
+    
+    public func setCleanCell(nib name: String) {
+        self.dataSource?.setCleanCell(nib: name)
+    }
 }
