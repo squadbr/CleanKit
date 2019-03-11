@@ -163,7 +163,7 @@ class UISectionedTableDataSource: NSObject, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        guard let item = sections[section], (item.items.isEmpty || item.viewModel.hasFeedback) else {
+        guard let item = sections[section], (item.items.isEmpty || item.viewModel.hasFooter) else {
             return tableView.sectionFooterHeight
         }
         return UITableView.automaticDimension
