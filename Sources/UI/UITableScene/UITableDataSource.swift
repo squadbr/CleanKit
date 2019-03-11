@@ -142,6 +142,9 @@ class UITableDataSource: NSObject {
             feedbackIdentifier = "\(unwrapedFeedback)"
         }
         
+        print("FOOTER: \(footerIdentifier)")
+        print("FEEDBACK: \(feedbackIdentifier)")
+        
         self.sectionIdentifiers = (header: "\(header)", footer: footerIdentifier, feedback: feedbackIdentifier)
     }
     
@@ -231,14 +234,18 @@ extension UITableDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        
         guard let section = self.sections[section], section.viewModel.hasFooter, !section.items.isEmpty else {
             return CGFloat.leastNonzeroMagnitude
+            //tableView.sectionFooterHeight
         }
         return tableView.sectionFooterHeight
+        //return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        guard let section = self.sections[section], section.viewModel.hasFooter, !section.items.isEmpty, let sectionIdentifiers = self.sectionIdentifiers else {
+        
+        guard let sectionIdentifiers = sectionIdentifiers, let section = sections[section], section.viewModel.hasFooter, !section.items.isEmpty else {
             return nil
         }
         
@@ -249,10 +256,9 @@ extension UITableDataSource {
             return footer
         }
         
-        assertionFailure("The \(sectionIdentifiers.header) cell is not based on UITableSceneSectionHeader")
+        assertionFailure("The \(sectionIdentifiers.footer) cell is not based on UITableSceneSectionFooter")
         return UIView(frame: .zero)
     }
-    
 }
 
 extension UITableDataSource {
