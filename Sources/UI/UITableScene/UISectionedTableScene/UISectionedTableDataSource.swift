@@ -198,7 +198,7 @@ class UISectionedTableDataSource: NSObject, UITableViewDataSource, UITableViewDe
             return nil
         }
         
-        if var header = tableView.dequeueReusableHeaderFooterView(withIdentifier: sectionIdentifiers.header) as? UITableSceneSectionHeaderProtocol {
+        if let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: sectionIdentifiers.header) as? UITableSceneSectionHeaderProtocol {
             header.delegate = actionDelegate
             header.tag = section.viewModel.tag
             

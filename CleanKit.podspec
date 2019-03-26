@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name                      = 'CleanKit'
-    s.version                   = '1.0.6'
+    s.version                   = '1.0.8'
     s.summary                   = 'A Custom Clean Architecture for Swift.'
     s.homepage                  = 'https://github.com/squadbr/CleanKit'
 
@@ -14,6 +14,6 @@ Pod::Spec.new do |s|
                                     :tag => s.version.to_s }
 
     # Uncomment the following line if you want source code
-    # s.ios.source_files        = 'Sources/**/*'
-    s.ios.vendored_framework    = 'build/Release-iphoneuniversal/CleanKit.framework'
+    s.ios.source_files        = 'Sources/**/*'
+    # s.ios.vendored_framework    = 'build/Release-iphoneuniversal/CleanKit.framework'
 end
