@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name                      = 'CleanKit'
-    s.version                   = '1.0.8'
+    s.version                   = '1.0.9'
     s.summary                   = 'A Custom Clean Architecture for Swift.'
     s.homepage                  = 'https://github.com/squadbr/CleanKit'
 
