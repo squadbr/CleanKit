@@ -25,6 +25,9 @@ import UIKit
 open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor: InteractorProtocol, TInteractorProtocol>: UIScene<TPresenter, TInteractor, TInteractorProtocol> {
     var dataSource: UITableDataSource?
     
+    /// Using lock to guarantee that we can only start one table update only after previous updates are finished.
+    private let lock = NSLock()
+    
     @IBOutlet public weak var tableView: UITableView! {
         didSet {
             dataSource = self.loadDataSource()
@@ -88,6 +91,7 @@ open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor:
     open override func setup(viewModelCenter: ViewModelCenter) {
         viewModelCenter.observe(background: true) { [weak self] (collection: TaggedViewModelCollection) in
             guard let self = self, let dataSource = self.dataSource else { return }
+            self.lock.lock()
             
             let indexesPath: [IndexPath]
             switch collection.case {
@@ -103,7 +107,7 @@ open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor:
                     // just reload data
                     self.tableView.reloadData()
                     self.tableView.refreshControl?.endRefreshing()
-                    
+                    self.lock.unlock()
                 } else if case let .insert(index, animated) = collection.case, animated {
                     // insert animated
                     var time: Double = 0
@@ -128,12 +132,14 @@ open class UITableScene<TPresenter: Presenter<TInteractorProtocol>, TInteractor:
                     func insertAndScroll() {
                         self.tableView?.insertRows(at: indexesPath, with: .fade)
                         self.tableView.scrollToRow(at: firstIndexPath!, at: .none, animated: true)
+                        self.lock.unlock()
                     }
                 } else {
                     // insert
                     UIView.performWithoutAnimation {
-                        self.tableView?.insertRows(at: indexesPath, with: .none)
+                        self.tableView.reloadData()
                     }
+                    self.lock.unlock()
                 }
             }
         }
